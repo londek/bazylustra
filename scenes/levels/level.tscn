@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwhqf4fbkvplc"]
+[gd_scene load_steps=9 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
-[ext_resource type="PackedScene" uid="uid://btcl3qwlvmv5a" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
-[ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
-[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
-[ext_resource type="PackedScene" uid="uid://cgn6vgvj6kyt0" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
+[ext_resource type="PackedScene" uid="uid://c0x3es6eqa5j0" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
+[ext_resource type="PackedScene" path="res://scenes/objects/exit.tscn" id="3_m811y"]
+[ext_resource type="PackedScene" uid="uid://b7iiln0d1bywv" path="res://scenes/player/player.tscn" id="4_jpm1u"]
+[ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
+[ext_resource type="PackedScene" uid="uid://b88ob7vy8avf3" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
+[ext_resource type="PackedScene" uid="uid://ckmtxj0i6w06o" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
 
 [sub_resource type="Curve" id="Curve_nun3p"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -70,3 +71,6 @@ joint_mode = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
 zoom = Vector2(0.2, 0.2)
+
+[node name="Sheep" parent="." instance=ExtResource("7_fuu4i")]
+position = Vector2(291, 82)

@@ -28,6 +28,9 @@ func _process(_delta: float) -> void:
 		
 		var result = space_state.intersect_ray(query)
 		if result:
+			if result.collider.has_method("_on_hit_with_laser"):
+				result.collider._on_hit_with_laser()
+			
 			new_points.append(to_local(result.position))
 			if result.collider.collision_layer != 2:
 				break
