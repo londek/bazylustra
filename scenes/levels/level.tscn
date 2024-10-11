@@ -7,10 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
 [ext_resource type="PackedScene" uid="uid://b88ob7vy8avf3" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
 [ext_resource type="PackedScene" uid="uid://ckmtxj0i6w06o" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
-
-[sub_resource type="Curve" id="Curve_nun3p"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 
 [node name="level" type="Node2D"]
 
@@ -63,10 +60,6 @@ scale = Vector2(0.3, 0.3)
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-255, -90)
-width = 10.0
-width_curve = SubResource("Curve_nun3p")
-default_color = Color(1, 0, 1, 1)
-joint_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
@@ -74,3 +67,6 @@ zoom = Vector2(0.2, 0.2)
 
 [node name="Sheep" parent="." instance=ExtResource("7_fuu4i")]
 position = Vector2(291, 82)
+
+[node name="Prism" parent="." instance=ExtResource("8_hifb8")]
+position = Vector2(-87, 148)
