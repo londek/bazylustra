@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 		rotation_degrees -= rotation_speed * delta
 	
 	if Input.is_action_pressed("rotate_right"):
-		rotation_degrees += rotation_speed * delta
+		rotation_degrees += 100 * delta

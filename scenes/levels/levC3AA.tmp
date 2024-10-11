@@ -1,22 +1,26 @@
 [gd_scene load_steps=8 format=3 uid="uid://dwhqf4fbkvplc"]
 
+[ext_resource type="Texture2D" uid="uid://cvqcrui73mcsc" path="res://assets/pixel.png" id="1_m7mav"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
 [ext_resource type="PackedScene" uid="uid://btcl3qwlvmv5a" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
-[ext_resource type="PackedScene" uid="uid://cgn6vgvj6kyt0" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
+[ext_resource type="PackedScene" uid="uid://y1fceokgxuy2" path="res://placeholder/totally_not_mirror.tscn" id="5_ghxyx"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
-
-[sub_resource type="Curve" id="Curve_nun3p"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="level" type="Node2D"]
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-29, 49)
 texture = ExtResource("1_uy4vr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m7mav")
+region_enabled = true
+region_rect = Rect2(0, 0, 500, 500)
 
 [node name="Wall" parent="." instance=ExtResource("2_x8m4t")]
 position = Vector2(296, -275)
@@ -50,23 +54,14 @@ scale = Vector2(-54.6166, 504.605)
 [node name="Exit" parent="." instance=ExtResource("3_m811y")]
 position = Vector2(-2, -299)
 
-[node name="Player" parent="." node_paths=PackedStringArray("mirror") instance=ExtResource("4_jpm1u")]
+[node name="Player" parent="." instance=ExtResource("4_jpm1u")]
 position = Vector2(66, -43)
 scale = Vector2(0.5, 0.5)
-mirror = NodePath("../Mirror")
+
+[node name="TotallyNotMirror" parent="." instance=ExtResource("5_ghxyx")]
+visible = false
+position = Vector2(24, 60)
 
 [node name="Mirror" parent="." instance=ExtResource("7_msqvj")]
+visible = false
 position = Vector2(495, 27)
-scale = Vector2(0.3, 0.3)
-
-[node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(-255, -90)
-width = 10.0
-width_curve = SubResource("Curve_nun3p")
-default_color = Color(1, 0, 1, 1)
-joint_mode = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 1)
-zoom = Vector2(0.2, 0.2)

@@ -7,7 +7,7 @@ size = Vector2(1, 1)
 
 [node name="Wall" type="StaticBody2D"]
 scale = Vector2(100, 100)
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gpim6")

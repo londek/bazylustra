@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyo23umo4frlx"]
+[gd_scene load_steps=3 format=3 uid="uid://cgn6vgvj6kyt0"]
 
 [ext_resource type="Script" path="res://scenes/objects/laser.gd" id="1_ftxar"]
+[ext_resource type="Texture2D" uid="uid://cu7ktd8pj1amo" path="res://icon.svg" id="2_f8uf3"]
 
 [node name="Laser" type="Line2D"]
 width = 1.0
 script = ExtResource("1_ftxar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f8uf3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
