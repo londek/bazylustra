@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://btlw2fll3od3w"]
+
+[ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="1_73hfs"]
+[ext_resource type="PackedScene" uid="uid://ckmtxj0i6w06o" path="res://scenes/objects/mirror.tscn" id="1_n0vuv"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7ouyj"]
+a = Vector2(-20, 0)
+b = Vector2(20, 0)
+
+[node name="Main" type="Node2D"]
+position = Vector2(3, 5)
+
+[node name="Mirror" parent="." instance=ExtResource("1_n0vuv")]
+position = Vector2(306, 50)
+rotation = -1.8326
+
+[node name="Mirror2" parent="." instance=ExtResource("1_n0vuv")]
+position = Vector2(87, 166)
+rotation = -1.46957
+
+[node name="Mirror3" parent="." instance=ExtResource("1_n0vuv")]
+position = Vector2(214, 261)
+rotation = 2.26893
+
+[node name="Laser" parent="." instance=ExtResource("1_73hfs")]
+position = Vector2(43, 44)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(430, 92)
+rotation = 2.26893
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_7ouyj")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyo23umo4frlx"]
+
+[ext_resource type="Script" path="res://scenes/objects/laser.gd" id="1_ftxar"]
+
+[node name="Laser" type="Line2D"]
+width = 1.0
+script = ExtResource("1_ftxar")
