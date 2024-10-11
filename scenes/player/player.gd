@@ -8,6 +8,8 @@ const PLAYER_UP = preload("res://assets/player/player_up.png")
 const SPEED = 600.0
 
 var can_move := true
+var closest_mirror : Mirror
+
 
 @export var mirror_cursor: MirrorCursor
 
@@ -20,10 +22,22 @@ func _physics_process(delta: float) -> void:
 	
 	mirror_cursor.global_position = get_global_mouse_position()
 	
-	for mirr in get_tree().get_nodes_in_group("Mirror"):
-		if mirr.global_position == get_global_mouse_position():
-			continue
+	if get_tree().get_node_count_in_group("Mirror"):
 		
+		var smallest := 10000.0
+		for mirr in get_tree().get_nodes_in_group("Mirror"):
+			if global_position.distance_to(mirr.global_position) < smallest:
+				closest_mirror = mirr
+				smallest = global_position.distance_to(mirr.global_position)
+		
+		for mirr in get_tree().get_nodes_in_group("Mirror"):
+			mirr.highlighted = false
+		
+		closest_mirror.highlighted = true
+	
+	if Input.is_action_just_pressed("delete") and closest_mirror != null:
+		closest_mirror.queue_free()
+	
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	

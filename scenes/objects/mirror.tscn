@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdsgt53px4t4q"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror.gd" id="1_fsen6"]
-[ext_resource type="Texture2D" uid="uid://lv15kgf8us4d" path="res://assets/placeholder/mirror_front.png" id="2_r8sn0"]
+[ext_resource type="Texture2D" uid="uid://7mbfokinjcok" path="res://assets/mirror/mirror_back_right.png" id="2_qlmai"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_k2pon"]
-a = Vector2(-150, 0)
-b = Vector2(150, 0)
+a = Vector2(-175, 0)
+b = Vector2(175, 0)
 
 [node name="Mirror" type="StaticBody2D" groups=["Mirror"]]
 scale = Vector2(0.5, 0.5)
@@ -14,12 +14,14 @@ collision_mask = 0
 script = ExtResource("1_fsen6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_r8sn0")
+texture = ExtResource("2_qlmai")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Reflection" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_k2pon")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-170, 16.6667, -130, -13.3333, 133.333, -10, 163.333, 23.3333, 170, -116.667, 156.667, -193.333, 123.333, -246.667, 0, -296.667, -110, -253.333, -166.667, -186.667, -173.333, -93.3333)
+polygon = PackedVector2Array(-152, 130, -170, 4, 158, 118, 158, 266, 62, 276)

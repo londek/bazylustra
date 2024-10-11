@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://rm8qttkjv66d"]
+[gd_scene load_steps=4 format=3 uid="uid://rm8qttkjv66d"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror_cursor.gd" id="1_4d7pd"]
 [ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
 
-[node name="MirrorCursor" type="Node2D"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vgj1f"]
+a = Vector2(-150, 0)
+b = Vector2(150, 0)
+
+[node name="MirrorCursor" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_4d7pd")
+
+[node name="Reflection" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_vgj1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

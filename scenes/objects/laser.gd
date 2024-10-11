@@ -13,7 +13,7 @@ class Line:
 
 var lines: Array[Line] = []
 
-const MAX_DEPTH := 10
+const MAX_DEPTH := 80
 const RAY_LENGTH := 10000
 const PRISM_ARM_ANGLE := 30
 

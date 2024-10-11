@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MirrorData" load_steps=3 format=3 uid="uid://bhxq45gfaf6jo"]
+
+[ext_resource type="Script" path="res://assets/mirror/mirror_data.gd" id="1_fixpf"]
+[ext_resource type="Texture2D" uid="uid://dc4fpy65ma6ch" path="res://assets/mirror/mirror_back.png" id="1_okgl6"]
+
+[resource]
+script = ExtResource("1_fixpf")
+polygon = PackedVector2Array(-168, 50, -164, 178, -114, 238, 108, 242, 164, 182, 166, 50)
+img = ExtResource("1_okgl6")
