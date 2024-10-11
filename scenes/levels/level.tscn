@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwhqf4fbkvplc"]
+
+[ext_resource type="Texture2D" uid="uid://cvqcrui73mcsc" path="res://assets/pixel.png" id="1_m7mav"]
+[ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
+[ext_resource type="PackedScene" uid="uid://cc0j6m7lvij5v" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
+[ext_resource type="PackedScene" uid="uid://52vdjnpej4wy" path="res://scenes/objects/exit.tscn" id="3_m811y"]
+[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
+[ext_resource type="PackedScene" uid="uid://y1fceokgxuy2" path="res://placeholder/totally_not_mirror.tscn" id="5_ghxyx"]
+
+[node name="level" type="Node2D"]
+
+[node name="SceneConceptFinal" type="Sprite2D" parent="."]
+position = Vector2(-29, 49)
+texture = ExtResource("1_uy4vr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m7mav")
+region_enabled = true
+region_rect = Rect2(0, 0, 500, 500)
+
+[node name="Wall" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(296, -275)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall4" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(628, -305)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall5" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-729, 276)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall6" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-345, 285)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall7" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(161, 324)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall2" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-586, -342)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall3" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(588, 292)
+rotation = 1.5708
+scale = Vector2(-54.6166, 504.605)
+
+[node name="Exit" parent="." instance=ExtResource("3_m811y")]
+position = Vector2(-2, -299)
+
+[node name="Player" parent="." instance=ExtResource("4_jpm1u")]
+position = Vector2(66, -43)
+scale = Vector2(0.5, 0.5)
+
+[node name="TotallyNotMirror" parent="." instance=ExtResource("5_ghxyx")]
+position = Vector2(24, 60)

@@ -1,0 +1,72 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://cvtmeiyrsee27"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_6hnjt"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_4ksan"]
+parameter_name = "StoneColor"
+default_value_enabled = true
+default_value = Color(0.381703, 0.381703, 0.381703, 1)
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_y8k08"]
+parameter_name = "Progress"
+hint = 1
+max = 0.8
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_y52dh"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 0.5]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_rbsff"]
+parameter_name = "Texture"
+texture_type = 3
+texture_filter = 3
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gdy2e"]
+input_name = "texture"
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 StoneColor : source_color = vec4(0.381703, 0.381703, 0.381703, 1.000000);
+uniform float Progress : hint_range(0, 0.80000001192093);
+
+
+
+void fragment() {
+// ColorParameter:3
+	vec4 n_out3p0 = StoneColor;
+
+
+// FloatParameter:4
+	float n_out4p0 = Progress;
+
+
+// Mix:7
+	vec4 n_in7p0 = vec4(0.00000, 0.00000, 0.00000, 0.00000);
+	vec4 n_out7p0 = mix(n_in7p0, n_out3p0, n_out4p0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out7p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(740, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_6hnjt")
+nodes/fragment/2/position = Vector2(-300, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_4ksan")
+nodes/fragment/3/position = Vector2(-180, 320)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatParameter_y8k08")
+nodes/fragment/4/position = Vector2(100, 580)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_y52dh")
+nodes/fragment/7/position = Vector2(320, 320)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture2DParameter_rbsff")
+nodes/fragment/8/position = Vector2(-391.887, 562.195)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_gdy2e")
+nodes/fragment/9/position = Vector2(-583.04, 276.735)
+nodes/fragment/connections = PackedInt32Array(3, 0, 7, 1, 7, 0, 0, 0, 4, 0, 7, 2)
