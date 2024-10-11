@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://umfj3l0v6mu0"]
+
+[ext_resource type="Script" path="res://scenes/objects/prism.gd" id="1_anqgn"]
+[ext_resource type="Texture2D" uid="uid://bciem8mt5lsxu" path="res://assets/placeholder/prism-prototyp.png" id="2_nhnv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cqx6"]
+size = Vector2(153.333, 110)
+
+[node name="Prism" type="StaticBody2D"]
+scale = Vector2(0.3, 0.3)
+collision_layer = 2
+script = ExtResource("1_anqgn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nhnv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.33333, -25)
+shape = SubResource("RectangleShape2D_2cqx6")

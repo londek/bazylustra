@@ -1,15 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwhqf4fbkvplc"]
+[gd_scene load_steps=9 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
-[ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
-[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
-[ext_resource type="PackedScene" uid="uid://cgn6vgvj6kyt0" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/mirror/mirror.tscn" id="7_msqvj"]
-
-[sub_resource type="Curve" id="Curve_nun3p"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="PackedScene" uid="uid://c0x3es6eqa5j0" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
+[ext_resource type="PackedScene" path="res://scenes/objects/exit.tscn" id="3_m811y"]
+[ext_resource type="PackedScene" uid="uid://b7iiln0d1bywv" path="res://scenes/player/player.tscn" id="4_jpm1u"]
+[ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
+[ext_resource type="PackedScene" uid="uid://b88ob7vy8avf3" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
+[ext_resource type="PackedScene" uid="uid://ckmtxj0i6w06o" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_6sest")
@@ -44,18 +43,14 @@ joint_mode = 2
 
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(-1566, 834)
-points = PackedVector2Array(-3, 2)
-width = 10.0
-width_curve = SubResource("Curve_nun3p")
-default_color = Color(1, 0, 1, 1)
-joint_mode = 2
+position = Vector2(-255, -90)
 
-[node name="Wall" type="StaticBody2D" parent="."]
-collision_layer = 4
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+zoom = Vector2(0.2, 0.2)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-position = Vector2(1, 0)
-polygon = PackedVector2Array(-1663, 1042, -1131, -574, 1117, -514, 1601, 1002, -1663, 978, -1615, 1062, 1681.12, 1086.42, 1889, 1090, 1189, -922, -1379, -930, -1871, 910)
+[node name="Sheep" parent="." instance=ExtResource("7_fuu4i")]
+position = Vector2(291, 82)
 
-[connection signal="place_mirror" from="Player" to="." method="_on_player_place_mirror"]
+[node name="Prism" parent="." instance=ExtResource("8_hifb8")]
+position = Vector2(-87, 148)

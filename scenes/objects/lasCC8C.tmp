@@ -5,8 +5,10 @@
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_ftxar")
-color = Color(0.966218, 0.948427, 1, 1)
-width = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_f8uf3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
