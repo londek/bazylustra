@@ -4,33 +4,40 @@ const PLAYER_LEFT = preload("res://assets/player/player_left.png")
 const PLAYER_DOWN = preload("res://assets/player/player_down.png")
 const PLAYER_UP = preload("res://assets/player/player_up.png")
 
-
 signal place_mirror(rotation_deg: float, global_pos: Vector2)
-
 
 const SPEED = 600.0
 
 var rotation_speed := 200
+var can_move := true
 
-@export var mirror: Mirror
+@export var mirror_cursor: Mirror
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _physics_process(delta: float) -> void:
+	if !can_move:
+		return
+	
+	mirror_cursor.global_position = get_global_mouse_position()
+	
+	for mirr in get_tree().get_nodes_in_group("Mirror"):
+		if mirr.global_position == get_global_mouse_position():
+			continue
+		
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
-	mirror.global_position = get_global_mouse_position()
 	
 	if Input.is_action_pressed("rotate_left"):
-		mirror.rotation_degrees -= rotation_speed * delta
+		mirror_cursor.rotation_fake -= rotation_speed * delta
 	
 	if Input.is_action_pressed("rotate_right"):
-		mirror.rotation_degrees += rotation_speed * delta
+		mirror_cursor.rotation_fake += rotation_speed * delta
 	
 	if Input.is_action_just_pressed("place"):
-		place_mirror.emit(mirror.rotation_degrees, mirror.global_position)
+		place_mirror.emit(mirror_cursor.rotation_fake, mirror_cursor.global_position)
 	
 	velocity = direction * SPEED
 	
@@ -45,5 +52,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		if velocity.x:
 			animation_player.play("walk_left")
+
 
 	move_and_slide()

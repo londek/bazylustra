@@ -38,4 +38,6 @@ func _process(_delta: float) -> void:
 			new_points.append(to_local(ray))
 			break
 	
+	
+	
 	points = new_points

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://cgn6vgvj6kyt0" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="7_msqvj"]
+[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/mirror/mirror.tscn" id="7_msqvj"]
 
 [sub_resource type="Curve" id="Curve_nun3p"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -21,14 +21,26 @@ texture = ExtResource("1_uy4vr")
 [node name="Exit" parent="." instance=ExtResource("3_m811y")]
 position = Vector2(1302, 125)
 
-[node name="Player" parent="." node_paths=PackedStringArray("mirror") instance=ExtResource("4_jpm1u")]
+[node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("4_jpm1u")]
 position = Vector2(-886, -123)
-scale = Vector2(0.7, 0.7)
-mirror = NodePath("../Mirror")
+scale = Vector2(0.6, 0.6)
+mirror_cursor = NodePath("../Mirror")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1476.67, 205)
+scale = Vector2(1.66667, 1.66667)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="." instance=ExtResource("7_msqvj")]
+
+[node name="Laser2" parent="." instance=ExtResource("7_d6bhu")]
+position = Vector2(-1566, 834)
+points = PackedVector2Array(-3, 2)
+width = 20.0
+width_curve = SubResource("Curve_nun3p")
+joint_mode = 2
 
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 modulate = Color(1, 0, 1, 1)
@@ -39,13 +51,11 @@ width_curve = SubResource("Curve_nun3p")
 default_color = Color(1, 0, 1, 1)
 joint_mode = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.35, 0.35)
-
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2(1, 0)
 polygon = PackedVector2Array(-1663, 1042, -1131, -574, 1117, -514, 1601, 1002, -1663, 978, -1615, 1062, 1681.12, 1086.42, 1889, 1090, 1189, -922, -1379, -930, -1871, 910)
 
 [connection signal="place_mirror" from="Player" to="." method="_on_player_place_mirror"]
