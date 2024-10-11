@@ -1,6 +1,6 @@
 extends Node2D
 
-const MIRROR = preload("res://scenes/mirror/mirror.tscn")
+const MIRROR = preload("res://scenes/objects/mirror.tscn")
 @onready var mirrors: Node2D = $Mirrors
 
 

@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4bmeemu3vlu2"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
 [ext_resource type="PackedScene" uid="uid://c0x3es6eqa5j0" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
 [ext_resource type="PackedScene" path="res://scenes/objects/exit.tscn" id="3_m811y"]
@@ -11,35 +10,52 @@
 [ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 
 [node name="level" type="Node2D"]
-script = ExtResource("1_6sest")
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-29, 49)
 texture = ExtResource("1_uy4vr")
 
+[node name="Wall" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(296, -275)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall4" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(628, -305)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall5" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-729, 276)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall6" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-345, 285)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall7" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(161, 324)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall2" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(-586, -342)
+scale = Vector2(-54.6166, 471.165)
+
+[node name="Wall3" parent="." instance=ExtResource("2_x8m4t")]
+position = Vector2(588, 292)
+rotation = 1.5708
+scale = Vector2(-54.6166, 504.605)
+
 [node name="Exit" parent="." instance=ExtResource("3_m811y")]
-position = Vector2(1302, 125)
+position = Vector2(-2, -299)
 
-[node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("4_jpm1u")]
-position = Vector2(-886, -123)
-scale = Vector2(0.6, 0.6)
-mirror_cursor = NodePath("../Mirror")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(1476.67, 205)
-scale = Vector2(1.66667, 1.66667)
-zoom = Vector2(0.6, 0.6)
-
-[node name="Mirrors" type="Node2D" parent="."]
+[node name="Player" parent="." node_paths=PackedStringArray("mirror") instance=ExtResource("4_jpm1u")]
+position = Vector2(66, -43)
+scale = Vector2(0.5, 0.5)
+mirror = NodePath("../Mirror")
 
 [node name="Mirror" parent="." instance=ExtResource("7_msqvj")]
-
-[node name="Laser2" parent="." instance=ExtResource("7_d6bhu")]
-position = Vector2(-1566, 834)
-points = PackedVector2Array(-3, 2)
-width = 20.0
-width_curve = SubResource("Curve_nun3p")
-joint_mode = 2
+position = Vector2(495, 27)
+scale = Vector2(0.3, 0.3)
 
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 modulate = Color(1, 0, 1, 1)
