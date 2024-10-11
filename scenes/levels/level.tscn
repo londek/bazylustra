@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dwhqf4fbkvplc"]
 
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
-[ext_resource type="PackedScene" uid="uid://btcl3qwlvmv5a" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://cgn6vgvj6kyt0" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
@@ -12,61 +12,40 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_6sest")
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-29, 49)
 texture = ExtResource("1_uy4vr")
 
-[node name="Wall" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(296, -275)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall4" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(628, -305)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall5" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(-729, 276)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall6" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(-345, 285)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall7" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(161, 324)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall2" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(-586, -342)
-scale = Vector2(-54.6166, 471.165)
-
-[node name="Wall3" parent="." instance=ExtResource("2_x8m4t")]
-position = Vector2(588, 292)
-rotation = 1.5708
-scale = Vector2(-54.6166, 504.605)
-
 [node name="Exit" parent="." instance=ExtResource("3_m811y")]
-position = Vector2(-2, -299)
+position = Vector2(1302, 125)
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror") instance=ExtResource("4_jpm1u")]
-position = Vector2(66, -43)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-886, -123)
+scale = Vector2(0.7, 0.7)
 mirror = NodePath("../Mirror")
 
+[node name="Mirrors" type="Node2D" parent="."]
+
 [node name="Mirror" parent="." instance=ExtResource("7_msqvj")]
-position = Vector2(495, 27)
-scale = Vector2(0.3, 0.3)
 
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(-255, -90)
+position = Vector2(-1566, 834)
+points = PackedVector2Array(-3, 2)
 width = 10.0
 width_curve = SubResource("Curve_nun3p")
 default_color = Color(1, 0, 1, 1)
 joint_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 1)
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.35, 0.35)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(-1663, 1042, -1131, -574, 1117, -514, 1601, 1002, -1663, 978, -1615, 1062, 1681.12, 1086.42, 1889, 1090, 1189, -922, -1379, -930, -1871, 910)
+
+[connection signal="place_mirror" from="Player" to="." method="_on_player_place_mirror"]

@@ -4,7 +4,7 @@ extends Line2D
 
 @export var angle: float = 0
 
-const MAX_BOUNCES = 10
+const MAX_BOUNCES = 50
 
 func _ready() -> void:
 	pass
@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	var last = null
 	for i in range(MAX_BOUNCES):
 		var current_point = to_global(new_points[i])
-		var ray = current_point+current_angle*1000
+		var ray = current_point+current_angle*10000
 		
 		var query = PhysicsRayQueryParameters2D.create(current_point, ray)
 		if last != null:
@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 				break
 			
 			last = result.collider
-			current_angle = current_angle.bounce(result.normal)
+			current_angle = current_angle.bounce(result.normal).normalized()
 		else:
 			new_points.append(to_local(ray))
 			break

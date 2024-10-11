@@ -8,7 +8,9 @@ a = Vector2(-150, 0)
 b = Vector2(150, 0)
 
 [node name="Mirror" type="StaticBody2D"]
+scale = Vector2(0.3, 0.3)
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_sxnfu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +18,8 @@ texture = ExtResource("2_t215s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_k2pon")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-170, 16.6667, -130, -13.3333, 133.333, -10, 163.333, 23.3333, 170, -116.667, 156.667, -193.333, 123.333, -246.667, 0, -296.667, -110, -253.333, -166.667, -186.667, -173.333, -93.3333)

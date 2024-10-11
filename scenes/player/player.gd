@@ -4,12 +4,17 @@ const PLAYER_LEFT = preload("res://assets/player/player_left.png")
 const PLAYER_DOWN = preload("res://assets/player/player_down.png")
 const PLAYER_UP = preload("res://assets/player/player_up.png")
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+
+signal place_mirror(rotation_deg: float, global_pos: Vector2)
+
+
+const SPEED = 600.0
 
 var rotation_speed := 200
 
 @export var mirror: Mirror
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _physics_process(delta: float) -> void:
@@ -24,15 +29,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("rotate_right"):
 		mirror.rotation_degrees += rotation_speed * delta
 	
+	if Input.is_action_just_pressed("place"):
+		place_mirror.emit(mirror.rotation_degrees, mirror.global_position)
+	
 	velocity = direction * SPEED
 	
-	if velocity:
+	if velocity.x:
 		$Sprite2D.flip_h = velocity.x > 0
 	
 	if velocity.y:
-		$Sprite2D.texture = PLAYER_DOWN if velocity.y > 0 else PLAYER_UP
+		if velocity.y > 0:
+			animation_player.play("walk_down")
+		else:
+			animation_player.play("walk_up")
 	else:
 		if velocity.x:
-			$Sprite2D.texture = PLAYER_LEFT
+			animation_player.play("walk_left")
 
 	move_and_slide()

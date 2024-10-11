@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjo3n3e4w4d21"]
 
-[ext_resource type="Texture2D" uid="uid://cvqcrui73mcsc" path="res://assets/pixel.png" id="1_etypg"]
 [ext_resource type="Script" path="res://scenes/objects/exit.gd" id="1_wq8rx"]
+[ext_resource type="Texture2D" uid="uid://cu7ktd8pj1amo" path="res://icon.svg" id="2_a841f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1gw"]
-size = Vector2(1, 1)
+size = Vector2(128, 128)
 
 [node name="Exit" type="Area2D"]
-position = Vector2(-1, -2)
-scale = Vector2(100, 100)
 collision_layer = 4
 script = ExtResource("1_wq8rx")
 
@@ -16,7 +14,7 @@ script = ExtResource("1_wq8rx")
 shape = SubResource("RectangleShape2D_kn1gw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.211765, 1, 1)
-texture = ExtResource("1_etypg")
+modulate = Color(0, 0.729609, 0.765812, 1)
+texture = ExtResource("2_a841f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
