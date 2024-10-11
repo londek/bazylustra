@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://rm8qttkjv66d"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror_cursor.gd" id="1_4d7pd"]
-[ext_resource type="Texture2D" uid="uid://y4ifxejqv7js" path="res://assets/mirror/mirror_left.png" id="1_50e48"]
+[ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
 
 [node name="MirrorCursor" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4d7pd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
-texture = ExtResource("1_50e48")
+rotation = 1.5708
+texture = ExtResource("2_35gaf")

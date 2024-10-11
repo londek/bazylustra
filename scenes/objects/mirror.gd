@@ -7,21 +7,19 @@ extends StaticBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-var img = [preload("res://assets/mirror/mirror_front.png"), 
-preload("res://assets/mirror/mirror_front_right.png"), 
-preload("res://assets/mirror/mirror_right.png"),
-preload("res://assets/mirror/mirror_back_right.png"),
-preload("res://assets/mirror/mirror_back.png"), 
-preload("res://assets/mirror/mirror_back_left.png"),
-preload("res://assets/mirror/mirror_left.png"),
-preload("res://assets/mirror/mirror_front_left.png")]
+var img = [
+	preload("res://assets/mirror/mirror_front.png"), 
+	preload("res://assets/mirror/mirror_front_left.png"),
+	preload("res://assets/mirror/mirror_left.png"),
+	preload("res://assets/mirror/mirror_back_left.png"),
+	preload("res://assets/mirror/mirror_back.png"), 
+	preload("res://assets/mirror/mirror_back_right.png"),
+	preload("res://assets/mirror/mirror_right.png"),
+	preload("res://assets/mirror/mirror_front_right.png"), 
+]
 
 var step := 360 / img.size()
 
 func _ready() -> void:
-	sprite.texture = img[rotation_fake % 360 / step]
-
-func _process(delta: float) -> void:
-	sprite.texture = img[rotation_fake % 360 / step]
-	
-	sprite.modulate == Color(120, 120, 120, 1)
+	print($StaticBody2D/CollisionPolygon2D.get("polygon"))
+	sprite.texture = img[int(abs(rotation_fake % 360)+ 22.5) / step]

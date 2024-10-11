@@ -4,14 +4,12 @@ const PLAYER_LEFT = preload("res://assets/player/player_left.png")
 const PLAYER_DOWN = preload("res://assets/player/player_down.png")
 const PLAYER_UP = preload("res://assets/player/player_up.png")
 
-signal place_mirror(rotation_deg: float, global_pos: Vector2)
 
 const SPEED = 600.0
 
-var rotation_speed := 200
 var can_move := true
 
-@export var mirror_cursor: Mirror
+@export var mirror_cursor: MirrorCursor
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -29,15 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
-	
-	if Input.is_action_pressed("rotate_left"):
-		mirror_cursor.rotation_fake -= rotation_speed * delta
-	
-	if Input.is_action_pressed("rotate_right"):
-		mirror_cursor.rotation_fake += rotation_speed * delta
-	
-	if Input.is_action_just_pressed("place"):
-		place_mirror.emit(mirror_cursor.rotation_fake, mirror_cursor.global_position)
 	
 	velocity = direction * SPEED
 	

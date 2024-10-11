@@ -51,23 +51,6 @@ tracks/0/keys = {
 "values": [ExtResource("3_75a6l"), ExtResource("4_otjgb"), ExtResource("5_ss5nx"), ExtResource("6_nsumm")]
 }
 
-[sub_resource type="Animation" id="Animation_wit2t"]
-resource_name = "walk_up"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("8_qiih5"), ExtResource("9_5w7nl"), ExtResource("10_sk3jf"), ExtResource("11_b530j")]
-}
-
 [sub_resource type="Animation" id="Animation_gyisa"]
 resource_name = "walk_left"
 length = 0.4
@@ -83,6 +66,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("11_kptj6"), ExtResource("12_lgem3"), ExtResource("13_ya8yt"), ExtResource("14_6xvbm")]
+}
+
+[sub_resource type="Animation" id="Animation_wit2t"]
+resource_name = "walk_up"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_qiih5"), ExtResource("9_5w7nl"), ExtResource("10_sk3jf"), ExtResource("11_b530j")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gsye0"]
