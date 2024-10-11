@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
 [ext_resource type="PackedScene" uid="uid://rm8qttkjv66d" path="res://scenes/objects/mirror_cursor.tscn" id="3_3d28c"]
-[ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
-[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
+[ext_resource type="PackedScene" path="res://scenes/objects/exit.tscn" id="3_m811y"]
+[ext_resource type="PackedScene" uid="uid://b7iiln0d1bywv" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
-[ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
+[ext_resource type="PackedScene" uid="uid://b88ob7vy8avf3" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_6sest")
