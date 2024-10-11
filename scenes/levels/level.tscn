@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cvqcrui73mcsc" path="res://assets/pixel.png" id="1_m7mav"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
-[ext_resource type="PackedScene" uid="uid://cc0j6m7lvij5v" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
-[ext_resource type="PackedScene" uid="uid://52vdjnpej4wy" path="res://scenes/objects/exit.tscn" id="3_m811y"]
+[ext_resource type="PackedScene" path="res://scenes/objects/wall.tscn" id="2_x8m4t"]
+[ext_resource type="PackedScene" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://y1fceokgxuy2" path="res://placeholder/totally_not_mirror.tscn" id="5_ghxyx"]
 
