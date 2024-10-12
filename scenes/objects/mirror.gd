@@ -35,14 +35,23 @@ var mirror_res = [
 	preload("res://assets/mirror/mirror_front_right.tres"), 
 ]
 
+var should_be_on_top = [
+	true,
+	true,
+	true,
+	false,
+	false,
+	false,
+	false,
+	true,
+]
+
 var step := 360 / mirror_res.size()
 
 func _ready() -> void:
 	if immovable:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
 		
-		
-	
 	if line != null:
 		reflection.rotation_degrees = rotation_fake
 	
@@ -50,5 +59,6 @@ func _ready() -> void:
 	
 	sprite.texture = mirror_res[index].img
 	blocker_polygon.polygon = mirror_res[index].polygon
-	#reflection.shape = mirror_res[index].line
-	#print("IMG: " + str(mirror_res[index].img) + " | Polygon: " c+ str(mirror_res[index].polygon))
+	
+	if !should_be_on_top[index]:
+		z_index = 1
