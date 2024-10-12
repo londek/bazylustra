@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xanx05mu3sur"]
+[gd_scene load_steps=23 format=3 uid="uid://xanx05mu3sur"]
 
 [ext_resource type="Script" path="res://scenes/objects/bat.gd" id="1_hyc22"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_5cbku"]
@@ -101,6 +101,9 @@ _data = {
 "fly_up": SubResource("Animation_hlnrl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8xq1"]
+size = Vector2(300, 180)
+
 [node name="Bat" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
@@ -119,3 +122,12 @@ texture = ExtResource("8_3cclm")
 libraries = {
 "": SubResource("AnimationLibrary_brrlb")
 }
+
+[node name="WalkableArea" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WalkableArea"]
+shape = SubResource("RectangleShape2D_k8xq1")
+
+[connection signal="body_entered" from="WalkableArea" to="." method="_on_walkable_area_body_entered"]
+[connection signal="body_exited" from="WalkableArea" to="." method="_on_walkable_area_body_exited"]

@@ -35,9 +35,7 @@ func _process(delta: float) -> void:
 	if rats_on_plate.size():
 		for rat in rats_on_plate:
 			if rat.is_stoned:
-				print("ajja")
 				pressed = true
-				print(rat.is_stoned)
 
 
 func switch_spikes() -> void:
