@@ -51,7 +51,7 @@ var step := 360 / mirror_res.size()
 func _ready() -> void:
 	if immovable:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
-		
+	
 	if line != null:
 		reflection.rotation_degrees = rotation_fake
 	

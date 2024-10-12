@@ -1,4 +1,4 @@
-class_name Rat
+class_name Bat
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -31,16 +31,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if velocity.x:
-		$Sprite2D.flip_h = velocity.x < 0
+		$Sprite2D.flip_h = velocity.x > 0
 	
 	if velocity.y:
 		if velocity.y > 0:
-			animation_player.play("walk_down")
+			animation_player.play("fly_down")
 		else:
-			animation_player.play("walk_up")
+			animation_player.play("fly_up")
 	else:
 		if velocity.x:
-			animation_player.play("walk_right")
+			animation_player.play("fly_left")
 	
 	
 	move_and_slide()

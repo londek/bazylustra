@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db2ogc474gs3h"
-path="res://.godot/imported/rat_b.png-98cbe3d6fde1c9d9d31aa44fa750aa57.ctex"
+uid="uid://dukydfsgieyu1"
+path="res://.godot/imported/rat_walk_up_2.png-a3aa4759d2fd27177f442e4d19709cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rat/rat_b.png"
-dest_files=["res://.godot/imported/rat_b.png-98cbe3d6fde1c9d9d31aa44fa750aa57.ctex"]
+source_file="res://assets/rat/rat_walk_up_2.png"
+dest_files=["res://.godot/imported/rat_walk_up_2.png-a3aa4759d2fd27177f442e4d19709cdb.ctex"]
 
 [params]
 
