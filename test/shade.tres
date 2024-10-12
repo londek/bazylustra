@@ -1,0 +1,19 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://bkcnfp67x27ap"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_3dodu"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_q6ufb"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+nodes/fragment/0/position = Vector2(960, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_3dodu")
+nodes/fragment/2/position = Vector2(120, 220)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_q6ufb")
+nodes/fragment/3/position = Vector2(120, 620)

@@ -1,0 +1,120 @@
+[gd_scene load_steps=22 format=3 uid="uid://xanx05mu3sur"]
+
+[ext_resource type="Script" path="res://scenes/objects/bat.gd" id="1_hyc22"]
+[ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_5cbku"]
+[ext_resource type="Texture2D" uid="uid://d01q0mlsryum2" path="res://assets/bat/bat_fly_down_1.png" id="6_4nr0v"]
+[ext_resource type="Texture2D" uid="uid://c1uqb00pi12b2" path="res://assets/bat/bat_fly_down_2.png" id="7_0ar7f"]
+[ext_resource type="Texture2D" uid="uid://dm18br0dly3a1" path="res://assets/bat/bat_fly_down_3.png" id="8_3cclm"]
+[ext_resource type="Texture2D" uid="uid://l8cxxbvwn7jh" path="res://assets/bat/bat_fly_down_4.png" id="9_8ihm1"]
+[ext_resource type="Texture2D" uid="uid://bf4bvw5vg4l6g" path="res://assets/bat/bat_fly_left_1.png" id="10_v2koi"]
+[ext_resource type="Texture2D" uid="uid://ydrkuj8w78y0" path="res://assets/bat/bat_fly_left_2.png" id="11_35tll"]
+[ext_resource type="Texture2D" uid="uid://dplh808u8axvp" path="res://assets/bat/bat_fly_left_3.png" id="12_nhl1b"]
+[ext_resource type="Texture2D" uid="uid://bqxbh24kdb7vx" path="res://assets/bat/bat_fly_left_4.png" id="13_0gsoe"]
+[ext_resource type="Texture2D" uid="uid://b7pncy4k5yxfc" path="res://assets/bat/bat_fly_up_1.png" id="14_3ej5c"]
+[ext_resource type="Texture2D" uid="uid://bbcq6aa1mli87" path="res://assets/bat/bat_fly_up_2.png" id="15_b1y24"]
+[ext_resource type="Texture2D" uid="uid://bqm5q7kpysy4" path="res://assets/bat/bat_fly_up_3.png" id="16_o2eb1"]
+[ext_resource type="Texture2D" uid="uid://dfk67ggejnbba" path="res://assets/bat/bat_fly_up_4.png" id="17_ranwc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dyw0v"]
+radius = 50.3587
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv17t"]
+resource_local_to_scene = true
+shader = ExtResource("2_5cbku")
+shader_parameter/StoneColor = Color(0.2484, 0.2484, 0.2484, 1)
+shader_parameter/progress = 0.0
+
+[sub_resource type="Animation" id="Animation_srn7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_3cclm")]
+}
+
+[sub_resource type="Animation" id="Animation_xj3wv"]
+resource_name = "fly_down"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_4nr0v"), ExtResource("7_0ar7f"), ExtResource("8_3cclm"), ExtResource("9_8ihm1")]
+}
+
+[sub_resource type="Animation" id="Animation_r7p27"]
+resource_name = "fly_left"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_v2koi"), ExtResource("11_35tll"), ExtResource("12_nhl1b"), ExtResource("13_0gsoe")]
+}
+
+[sub_resource type="Animation" id="Animation_hlnrl"]
+resource_name = "fly_up"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_3ej5c"), ExtResource("15_b1y24"), ExtResource("16_o2eb1"), ExtResource("17_ranwc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_brrlb"]
+_data = {
+"RESET": SubResource("Animation_srn7x"),
+"fly_down": SubResource("Animation_xj3wv"),
+"fly_left": SubResource("Animation_r7p27"),
+"fly_up": SubResource("Animation_hlnrl")
+}
+
+[node name="Bat" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_hyc22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_dyw0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nv17t")
+texture = ExtResource("8_3cclm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_brrlb")
+}
