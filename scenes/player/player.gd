@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var mirror_cursor_direction := get_global_mouse_position() - global_position
-	var calculated_pos: Vector2 = global_position + mirror_cursor_direction.normalized() * 300
+	var calculated_pos: Vector2 = global_position + mirror_cursor_direction.normalized() * 800
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	if global_position.distance_to(mouse_pos) < global_position.distance_to(calculated_pos):
 		mirror_cursor.global_position = mouse_pos
@@ -53,6 +53,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	velocity = direction * SPEED
+	
+	if !velocity:
+		animation_player.play("idle_down")
 	
 	if velocity.x:
 		$Sprite2D.flip_h = velocity.x > 0

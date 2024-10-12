@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="MirrorData" load_steps=3 format=3 uid="uid://dsp2kcvyysgfu"]
+[gd_resource type="Resource" script_class="MirrorData" load_steps=4 format=3 uid="uid://dsp2kcvyysgfu"]
 
 [ext_resource type="Texture2D" uid="uid://y4ifxejqv7js" path="res://assets/mirror/mirror_left.png" id="1_7nyp6"]
 [ext_resource type="Script" path="res://assets/mirror/mirror_data.gd" id="1_p4iwf"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ew82n"]
+a = Vector2(0, 200)
+b = Vector2(0, -250)
 
 [resource]
 script = ExtResource("1_p4iwf")
 polygon = PackedVector2Array(16, -188, -12, -290, 46, -288, 50, 258, -20, 254, 8, 190)
 img = ExtResource("1_7nyp6")
+line = SubResource("SegmentShape2D_ew82n")

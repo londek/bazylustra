@@ -1,28 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdsgt53px4t4q"]
+[gd_scene load_steps=8 format=3 uid="uid://bdsgt53px4t4q"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror.gd" id="1_fsen6"]
 [ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="2_l7i3y"]
 [ext_resource type="Texture2D" uid="uid://dfax66oxdelrv" path="res://assets/light.png" id="2_mur5b"]
 [ext_resource type="Texture2D" uid="uid://y4ifxejqv7js" path="res://assets/mirror/mirror_left.png" id="3_f8d37"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qt78c"]
+a = Vector2(-175, 0)
+b = Vector2(175, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d32cp"]
 resource_local_to_scene = true
 shader = ExtResource("2_l7i3y")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 10.0
+shader_parameter/width = 20.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_k2pon"]
-a = Vector2(-175, 0)
-b = Vector2(175, 0)
+a = Vector2(-200, 0)
+b = Vector2(200, 0)
 
-[node name="Mirror" type="StaticBody2D" groups=["Mirror"]]
-scale = Vector2(0.5, 0.5)
+[node name="Mirror" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_fsen6")
+line = SubResource("SegmentShape2D_qt78c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("2_mur5b")
@@ -36,7 +40,7 @@ texture = ExtResource("3_f8d37")
 shape = SubResource("SegmentShape2D_k2pon")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 4
+collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

@@ -10,4 +10,5 @@ func _on_mirror_cursor_place_mirror(rotation_deg: float, global_pos: Vector2, li
 	mirror.rotation_fake = rotation_deg
 	mirror.global_position = global_pos
 	mirror.line = line
+	mirror.add_to_group("Mirror")
 	mirrors.add_child(mirror)
