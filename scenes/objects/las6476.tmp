@@ -5,7 +5,11 @@
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_ftxar")
+angle = null
+source_color = null
 target_color = Color(0.366595, 0.366595, 0.366595, 1)
+source_width = null
+target_width = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_dried")

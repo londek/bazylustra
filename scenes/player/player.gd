@@ -33,9 +33,6 @@ func _draw() -> void:
 	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.05), false, 5)
 
 func _physics_process(delta: float) -> void:
-	
-	
-	
 	var mouse_local_position := get_local_mouse_position()
 	
 	if mouse_local_position.length() > MAX_MIRROR_RANGE:
@@ -47,7 +44,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if get_tree().get_node_count_in_group("Mirror"):
-		
 		var smallest := 10000.0
 		for mirr in get_tree().get_nodes_in_group("Mirror"):
 			if global_position.distance_to(mirr.global_position) < smallest:
@@ -87,14 +83,10 @@ func _physics_process(delta: float) -> void:
 		if velocity.x:
 			animation_player.play("walk_left")
 	
-	
-	
 	move_and_slide()
-
 
 func update_shader_val(val: float):
 	sprite_2d.material.set("shader_parameter/progress", val)
-
 
 func _on_laser_enter():
 	is_stoned = true

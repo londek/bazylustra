@@ -1,19 +1,16 @@
 class_name MirrorCursor
 extends Node2D
 
-signal place_mirror(rotation_deg: float, global_pos: Vector2, line: SegmentShape2D)
+signal place_mirror(rotation_deg: float, global_pos: Vector2)
 var rotation_speed := 150
 var rotation_little_speed := 300
 
 @onready var reflection: CollisionShape2D = $Reflection
 
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _process(delta: float) -> void:
-	#global_position = get_global_mouse_position()
-	
 	if Input.is_action_pressed("rotate_left"):
 		rotation_degrees -= rotation_speed * delta
 		if rotation_degrees < 0:
@@ -34,7 +31,8 @@ func _process(delta: float) -> void:
 		if rotation_degrees > 360:
 			rotation_degrees = rotation_degrees - 360
 	
-	
 	if Input.is_action_just_pressed("place"):
-		print(reflection.shape)
-		place_mirror.emit(rotation_degrees, global_position, reflection.shape)
+		if $"ObstructionArea".has_overlapping_areas():
+			return
+		
+		place_mirror.emit(rotation_degrees, global_position)

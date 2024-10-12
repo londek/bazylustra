@@ -22,9 +22,11 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1nkg6"]
 
 [node name="level" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_6sest")
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
+z_index = -3
 position = Vector2(-29, 49)
 scale = Vector2(2, 2)
 texture = ExtResource("1_uy4vr")
@@ -87,7 +89,6 @@ mirror_cursor = NodePath("../MirrorCursor")
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 position = Vector2(-1613, -1309)
 angle = 90.0
-color = Color(0.964706, 0.94902, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
