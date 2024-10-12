@@ -3,7 +3,6 @@ class_name Laser
 extends Node2D
 
 @export var angle: float = 0
-
 @export var color: Color = Color.WHITE
 @export var width: float = 1 
 
