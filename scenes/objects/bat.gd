@@ -73,9 +73,7 @@ func _on_laser_exit():
 
 func _on_walkable_area_body_entered(body: Node2D) -> void:
     body.set_collision_mask_value(6, false)
-    print("ent")
 
 
 func _on_walkable_area_body_exited(body: Node2D) -> void:
     body.set_collision_mask_value(6, true)
-    print("ext")
