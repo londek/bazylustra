@@ -42,16 +42,12 @@ position = Vector2(1169, -175)
 
 [node name="Mirror" parent="StaticMirrors" instance=ExtResource("8_u0gsn")]
 position = Vector2(404, 490)
-collision_layer = 2
-collision_mask = 0
 rotation_fake = 45
 line = SubResource("SegmentShape2D_1nkg6")
 immovable = true
 
 [node name="Mirror2" parent="StaticMirrors" instance=ExtResource("8_u0gsn")]
 position = Vector2(-1640, 360)
-collision_layer = 2
-collision_mask = 0
 rotation_fake = 225
 immovable = true
 

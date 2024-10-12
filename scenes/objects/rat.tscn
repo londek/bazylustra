@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dinont5i2mn5t"]
+[gd_scene load_steps=16 format=3 uid="uid://dinont5i2mn5t"]
 
 [ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
-[ext_resource type="Texture2D" uid="uid://c4gpoofed88qg" path="res://assets/rat/rat_walk_left_1.png" id="2_fcx23"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_w4388"]
 [ext_resource type="Texture2D" uid="uid://clvbrcmky8tf8" path="res://assets/rat/rat_walk_right_2.png" id="3_8tubq"]
 [ext_resource type="Texture2D" uid="uid://c0uv2351maqy5" path="res://assets/rat/rat_walk_up_1.png" id="4_u2cpb"]
@@ -30,8 +29,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_fcx23")]
+"update": 0,
+"values": [ExtResource("6_bqa5l")]
 }
 
 [sub_resource type="Animation" id="Animation_7p20h"]
@@ -106,7 +105,7 @@ shape = SubResource("CircleShape2D_2pbbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_bjgns")
-texture = ExtResource("2_fcx23")
+texture = ExtResource("6_bqa5l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
