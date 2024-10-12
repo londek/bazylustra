@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MirrorData" load_steps=4 format=3 uid="uid://cx1in840lwllh"]
+[gd_resource type="Resource" script_class="MirrorData" load_steps=4 format=3 uid="uid://byj04xv410yxs"]
 
 [ext_resource type="Script" path="res://assets/mirror/mirror_data.gd" id="1_eo5q5"]
 [ext_resource type="Texture2D" uid="uid://dv8k86pj71pwv" path="res://assets/mirror/mirror_back_left.png" id="1_inw0r"]
