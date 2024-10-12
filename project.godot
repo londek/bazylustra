@@ -94,3 +94,4 @@ reset={
 2d_physics/layer_5="areas"
 2d_physics/layer_6="mirror_block"
 2d_physics/layer_7="lava"
+2d_physics/layer_8="mirror_absorber"

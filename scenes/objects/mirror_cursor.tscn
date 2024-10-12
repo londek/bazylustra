@@ -24,7 +24,7 @@ rotation = 1.5708
 texture = ExtResource("2_35gaf")
 
 [node name="Block" type="StaticBody2D" parent="."]
-collision_layer = 32
+collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Block"]
