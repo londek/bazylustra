@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwfmk4v0sqmwc"]
+
+[ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
+[ext_resource type="Texture2D" uid="uid://ba6ljf7qeyycy" path="res://assets/rat/rat_a.png" id="2_fd03b"]
+
+[node name="Rat" type="CharacterBody2D"]
+position = Vector2(2, 10)
+collision_layer = 4
+script = ExtResource("1_r5yls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fd03b")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4, 27, 13, 26, 31, 19, 42, 22, 50, 19, 55, 8, 43, -3, 48, -11, 45, -25, 35, -29, 25, -27, 16, -32, 8, -29, 5, -20, 7, -16, -10, -17, -22, -11, -36, -1, -53, -6, -64, -4, -71, 1, -70, 6, -64, 8, -58, 10, -52, 13, -39, 15, -30, 14, -28, 18, -15, 24)

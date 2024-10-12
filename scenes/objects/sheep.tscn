@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b88ob7vy8avf3"]
 
 [ext_resource type="Script" path="res://scenes/objects/sheep.gd" id="1_ir0ot"]
-[ext_resource type="Texture2D" uid="uid://cu7ktd8pj1amo" path="res://icon.svg" id="2_pqk5p"]
+[ext_resource type="Texture2D" uid="uid://lxp78rtvp3hj" path="res://assets/sheep/sheep_a.png" id="2_udbxl"]
 [ext_resource type="Texture2D" uid="uid://dusub4w54mf48" path="res://assets/player/player_up.png" id="3_uu1xo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7br02"]
@@ -11,7 +11,7 @@ size = Vector2(127, 127)
 position = Vector2(2, 10)
 collision_layer = 4
 script = ExtResource("1_ir0ot")
-mainTexture = ExtResource("2_pqk5p")
+mainTexture = ExtResource("2_udbxl")
 stonedTexture = ExtResource("3_uu1xo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,4 +19,4 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7br02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pqk5p")
+texture = ExtResource("2_udbxl")
