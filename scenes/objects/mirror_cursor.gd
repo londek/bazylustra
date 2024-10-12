@@ -3,7 +3,7 @@ extends Node2D
 
 signal place_mirror(rotation_deg: float, global_pos: Vector2, line: SegmentShape2D)
 var rotation_speed := 150
-var rotation_little_speed := 1200
+var rotation_little_speed := 300
 
 @onready var reflection: CollisionShape2D = $Reflection
 
