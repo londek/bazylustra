@@ -68,7 +68,8 @@ func _on_laser_enter():
 
 
 func _on_laser_exit():
-    is_stoned = false
+    #is_stoned = false
+    pass
 
 
 func _on_walkable_area_body_entered(body: Node2D) -> void:

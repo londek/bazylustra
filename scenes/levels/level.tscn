@@ -84,6 +84,7 @@ waypoint_b = Vector2(-960, 1000)
 speed = 500.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("4_jpm1u")]
+z_index = 999
 position = Vector2(66, -43)
 mirror_cursor = NodePath("../MirrorCursor")
 
