@@ -57,6 +57,5 @@ func _ready() -> void:
 	var index = abs(int(rotation_fake + 22.5) % 360) / step
 
 	sprite.texture = mirror_res[index].img
-	print(reflects_front[index])
 	if reflects_front[index]:
 		z_index = -1

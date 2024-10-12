@@ -27,7 +27,7 @@ a = Vector2(-200, 0)
 b = Vector2(200, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13krl"]
-size = Vector2(437, 613)
+size = Vector2(326, 596)
 
 [node name="Mirror" type="Node2D"]
 script = ExtResource("1_fsen6")
@@ -61,10 +61,10 @@ monitorable = false
 [node name="AbsorberShape" type="CollisionShape2D" parent="Surface/Absorber"]
 shape = SubResource("SegmentShape2D_2mpn0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+[node name="ObstructionArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(7.5, 6.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstructionArea"]
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_13krl")

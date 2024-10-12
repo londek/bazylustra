@@ -64,6 +64,7 @@ func draw_ray(current_point, current_angle, last=null, depth=0):
 
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(current_point, ray)
+	query.collision_mask = 0xffffffff - pow(2, 6-1)
 	query.collide_with_areas = true
 	if last != null:
 		query.exclude = [last]
@@ -71,6 +72,9 @@ func draw_ray(current_point, current_angle, last=null, depth=0):
 	var result = space_state.intersect_ray(query)
 	if !result:
 		draw_line2(to_local(current_point), to_local(ray), ray_color, ray_width)
+		return
+
+	if result.collider.collision_layer == 6:
 		return
 
 	if result.collider.has_method("_on_laser_hit"):
