@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vgj1f"]
-a = Vector2(-150, 0)
-b = Vector2(150, 0)
+a = Vector2(-250, 20)
+b = Vector2(250, 20)
 
 [node name="MirrorCursor" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -19,3 +19,10 @@ shape = SubResource("SegmentShape2D_vgj1f")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("2_35gaf")
+
+[node name="Block" type="StaticBody2D" parent="."]
+collision_layer = 6
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Block"]
+polygon = PackedVector2Array(-272, -2, -254, -44, 246, -48, 272, -2, 240, -22, -234, -22)

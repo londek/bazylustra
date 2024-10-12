@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_p4iwf")
-polygon = PackedVector2Array(-36, -282, 16, -238, 18, 216, -52, 258, 36, -250, 28, -286)
+polygon = PackedVector2Array(16, -188, -12, -290, 46, -288, 50, 258, -20, 254, 8, 190)
 img = ExtResource("1_7nyp6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4bmeemu3vlu2"]
+[gd_scene load_steps=8 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" path="res://scenes/objects/sheep.tscn" id="7_fuu4i"]
 [ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 
 [node name="level" type="Node2D"]
@@ -36,10 +35,18 @@ position = Vector2(-1261, 11)
 position = Vector2(0, 1)
 zoom = Vector2(0.6, 0.6)
 
-[node name="Sheep" parent="." instance=ExtResource("7_fuu4i")]
-position = Vector2(335, 284)
-
 [node name="Prism" parent="." instance=ExtResource("8_hifb8")]
 position = Vector2(-174, 276)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-1746, 952, -1206, -640, 1138, -624, 1634, 764, 1634, 1016, -1726, 980, -1850, 1073, 1824, 1103, 1600, -908, -1649, -927, -1920, 1009)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.28485, 0.28485, 0.28485, 1)
+blend_mode = 1
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

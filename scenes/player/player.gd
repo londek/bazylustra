@@ -20,7 +20,17 @@ func _physics_process(delta: float) -> void:
 	if !can_move:
 		return
 	
-	mirror_cursor.global_position = get_global_mouse_position()
+	var mirror_cursor_direction := get_global_mouse_position() - global_position
+	var calculated_pos: Vector2 = global_position + mirror_cursor_direction.normalized() * 300
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	if global_position.distance_to(mouse_pos) < global_position.distance_to(calculated_pos):
+		mirror_cursor.global_position = mouse_pos
+	else:
+		mirror_cursor.global_position = calculated_pos
+	#mirror_cursor.global_position = calculated_pos if (calculated_pos.x + calculated_pos.y) / 2 < (mouse_pos.x + mouse_pos.y) / 2 else mouse_pos
+	#print(mirror_cursor_direction.normalized())
+	#mirror_cursor.global_position = calculated_pos
+	
 	
 	if get_tree().get_node_count_in_group("Mirror"):
 		
