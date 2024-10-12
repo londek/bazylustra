@@ -8,7 +8,8 @@ const PLAYER_UP = preload("res://assets/player/player_up.png")
 
 const SPEED = 600.0
 const MIN_MIRROR_RANGE = 400.0
-const MAX_MIRROR_RANGE = 700.0
+const MAX_MIRROR_RANGE = 800.0
+const MAX_SELECT_RANGE = 800.0
 
 var closest_mirror : Mirror
 var is_stoned:
@@ -42,25 +43,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		mirror_cursor.global_position = global_position + mouse_local_position
 	
-	
 	if get_tree().get_node_count_in_group("Mirror"):
 		var smallest := 10000.0
 		for mirr in get_tree().get_nodes_in_group("Mirror"):
-			if global_position.distance_to(mirr.global_position) < smallest:
+			if get_global_mouse_position().distance_to(mirr.global_position) < smallest:
 				closest_mirror = mirr
-				smallest = global_position.distance_to(mirr.global_position)
+				smallest = get_global_mouse_position().distance_to(mirr.global_position)
 		
 		for mirr in get_tree().get_nodes_in_group("Mirror"):
 			mirr.highlighted = false
 		
+		if global_position.distance_to(closest_mirror.global_position) > MAX_SELECT_RANGE:
+			closest_mirror = null
+			
+	if closest_mirror != null:
 		closest_mirror.highlighted = true
-	
-	if Input.is_action_just_pressed("delete") and closest_mirror != null:
-		closest_mirror.queue_free()
-	
+		
+		if Input.is_action_just_pressed("delete"):
+			closest_mirror.queue_free()
+		
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
-	
+		
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	if is_stoned:
