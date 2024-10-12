@@ -29,6 +29,7 @@ script = ExtResource("1_fsen6")
 line = SubResource("SegmentShape2D_qt78c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
 texture = ExtResource("2_mur5b")
 height = 59.0
 
