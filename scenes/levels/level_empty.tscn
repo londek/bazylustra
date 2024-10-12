@@ -38,7 +38,7 @@ mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-66, 44)
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.2, 0.2)
 limit_left = -3800
 limit_top = -2100
 limit_right = 3800
@@ -67,6 +67,5 @@ blend_mode = 1
 [node name="Lava" parent="." instance=ExtResource("15_hamvr")]
 z_index = -1
 position = Vector2(-1003, -269)
-collision_layer = 32
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

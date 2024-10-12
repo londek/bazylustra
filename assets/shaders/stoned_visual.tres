@@ -15,6 +15,7 @@ default_value = Color(0.2484, 0.2484, 0.2484, 1)
 parameter_name = "progress"
 hint = 2
 default_value_enabled = true
+default_value = 1.0
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_rfwtc"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]

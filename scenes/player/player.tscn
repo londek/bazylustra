@@ -20,15 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://c1afsxkvvfjdl" path="res://assets/player/idle_down_2.png" id="16_6h1hq"]
 [ext_resource type="Texture2D" uid="uid://14x5mi0cmtdu" path="res://assets/player/idle_down_3.png" id="17_jq62d"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r6jy"]
-radius = 117.0
-height = 438.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cixci"]
 resource_local_to_scene = true
 shader = ExtResource("2_xhbgc")
 shader_parameter/progress = 0.9
 shader_parameter/IMG = ExtResource("3_8deny")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r6jy"]
+radius = 117.0
+height = 252.0
 
 [sub_resource type="Animation" id="Animation_xoq2k"]
 length = 0.001
@@ -126,13 +126,14 @@ _data = {
 collision_mask = 100
 script = ExtResource("1_tl15c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_7r6jy")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_cixci")
 position = Vector2(0, -10)
 texture = ExtResource("2_obtah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 92)
+shape = SubResource("CapsuleShape2D_7r6jy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

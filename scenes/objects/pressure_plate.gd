@@ -7,9 +7,13 @@ extends Area2D
 
 @export var sprite: Texture
 @export var sprite_pressed: Texture
+@export var flip_horizontal: bool = false
 
 var rats_on_plate: Array[Rat]
 
+
+func _ready() -> void:
+	sprite_2d.flip_h = flip_horizontal
 
 var pressed: bool = false:
 	set(val):
