@@ -1,4 +1,3 @@
-@tool
 extends StaticBody2D
 
 const LAVA_TOP = preload("res://assets/objects/lava_top.png")
