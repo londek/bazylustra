@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4bmeemu3vlu2"]
+[gd_scene load_steps=20 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
@@ -6,12 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_m811y"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="6_g6tdg"]
+[ext_resource type="Texture2D" uid="uid://b5bkg5kooyd6o" path="res://assets/objects/plate_up_gold.png" id="7_aac56"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
 [ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="7_ne2d8"]
 [ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="8_dl2ul"]
 [ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="8_u0gsn"]
+[ext_resource type="Texture2D" uid="uid://7qropf3st8dl" path="res://assets/objects/plate_down_gold.png" id="8_wml11"]
 [ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="9_w1fdj"]
+[ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="15_60aut"]
+[ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="16_bgnof"]
+[ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="17_h5b23"]
+[ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="18_br0ow"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1nkg6"]
 
@@ -48,6 +54,8 @@ immovable = true
 [node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("8_dl2ul")]
 position = Vector2(1778, 241)
 spikes = [NodePath("../Spikes"), NodePath("../Spikes2"), NodePath("../Spikes3")]
+sprite = ExtResource("7_aac56")
+sprite_pressed = ExtResource("8_wml11")
 
 [node name="Spikes" parent="Objects" instance=ExtResource("9_w1fdj")]
 position = Vector2(1816, -648)
@@ -103,5 +111,17 @@ polygon = PackedVector2Array(-1746, 952, -1206, -640, 1138, -624, 1634, 764, 163
 visible = false
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
+
+[node name="Lava" parent="." instance=ExtResource("15_60aut")]
+position = Vector2(-1003, -269)
+
+[node name="LavaTileTop2" parent="Lava" instance=ExtResource("16_bgnof")]
+position = Vector2(31, 6)
+
+[node name="LavaTileMiddle" parent="Lava" instance=ExtResource("17_h5b23")]
+position = Vector2(0, 204)
+
+[node name="LavaTileBottom" parent="Lava" instance=ExtResource("18_br0ow")]
+position = Vector2(-53, 397)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

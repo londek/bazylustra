@@ -5,13 +5,15 @@ extends Area2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-const PLATE_DOWN_GOLD = preload("res://assets/objects/plate_down_gold.png")
-const PLATE_UP_GOLD = preload("res://assets/objects/plate_up_gold.png")
+@export var sprite: Texture
+@export var sprite_pressed: Texture
+
 
 var pressed: bool = false:
 	set(val):
 		pressed = val
-		sprite_2d.texture = PLATE_DOWN_GOLD if pressed else PLATE_UP_GOLD
+		sprite_2d.texture = sprite_pressed if pressed else sprite
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Rat:

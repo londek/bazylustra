@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxych22u744p6"]
+
+[ext_resource type="Texture2D" uid="uid://lvv102m3166o" path="res://assets/objects/lava_bottom.png" id="1_lnsb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puwe4"]
+size = Vector2(388, 200)
+
+[node name="LavaTileBottom" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_puwe4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lnsb0")
