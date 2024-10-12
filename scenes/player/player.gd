@@ -6,7 +6,7 @@ const PLAYER_UP = preload("res://assets/player/player_up.png")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-const SPEED = 600.0
+const SPEED = 800.0
 const MIN_MIRROR_RANGE = 400.0
 const MAX_MIRROR_RANGE = 800.0
 const MAX_SELECT_RANGE = 800.0

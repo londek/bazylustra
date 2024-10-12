@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bomsu7mr4bvw5" path="res://assets/objects/wall_hole.png" id="2_yf7fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1gw"]
-size = Vector2(128, 128)
+size = Vector2(161, 333)
 
 [node name="Exit" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_wq8rx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kn1gw")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_yf7fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 5.5)
+shape = SubResource("RectangleShape2D_kn1gw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

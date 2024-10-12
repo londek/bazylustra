@@ -1,11 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyo23umo4frlx"]
+[gd_scene load_steps=5 format=3 uid="uid://cyo23umo4frlx"]
 
 [ext_resource type="Script" path="res://scenes/objects/laser.gd" id="1_ftxar"]
-[ext_resource type="Texture2D" uid="uid://baahdtx7ipm1f" path="res://assets/basilisk/basilisk_2.png" id="2_dried"]
+[ext_resource type="Texture2D" uid="uid://bkjy0jyuvaq36" path="res://assets/basilisk/basilisk_3_f1.png" id="2_pur1t"]
+[ext_resource type="Texture2D" uid="uid://boabxjxinyorl" path="res://assets/basilisk/basilisk_3_f2.png" id="3_4gboc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofqls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pur1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4gboc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_ftxar")
 target_color = Color(0.366595, 0.366595, 0.366595, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dried")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(65, 17)
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_ofqls")
+autoplay = "default"
