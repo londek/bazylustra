@@ -114,7 +114,9 @@ color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
 
 [node name="Lava" parent="." instance=ExtResource("15_60aut")]
+z_index = -1
 position = Vector2(-1003, -269)
+collision_layer = 32
 
 [node name="LavaTileTop2" parent="Lava" instance=ExtResource("16_bgnof")]
 position = Vector2(31, 6)
