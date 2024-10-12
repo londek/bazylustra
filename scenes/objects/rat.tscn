@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbpivosoxogql" path="res://assets/rat/rat_walk_down_2.png" id="7_46bs6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pbbx"]
-radius = 50.3587
+radius = 40.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjgns"]
 resource_local_to_scene = true
@@ -105,6 +105,7 @@ shape = SubResource("CircleShape2D_2pbbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_bjgns")
+position = Vector2(3.5, -5)
 texture = ExtResource("6_bqa5l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

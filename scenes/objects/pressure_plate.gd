@@ -21,7 +21,6 @@ var pressed: bool = false:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Rat:
-		print("ajojdafiowjd")
 		if !(body in rats_on_plate):
 			rats_on_plate.append(body)
 
@@ -29,13 +28,16 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body in rats_on_plate:
 		rats_on_plate.erase(body)
+		pressed = false
 
 
 func _process(delta: float) -> void:
 	if rats_on_plate.size():
 		for rat in rats_on_plate:
 			if rat.is_stoned:
+				print("ajja")
 				pressed = true
+				print(rat.is_stoned)
 
 
 func switch_spikes() -> void:
