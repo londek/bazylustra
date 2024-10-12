@@ -4,6 +4,8 @@ extends CanvasLayer
 var latest_target: String
 
 
+
+
 func change_scene_to_path(target: String) -> void:
 	animation_player.play("FadeToBlack")
 	await animation_player.animation_finished
