@@ -16,7 +16,7 @@ var closest_mirror : Mirror
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.03), false, 4)
+	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.05), false, 5)
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		
 		var smallest := 10000.0
 		for mirr in get_tree().get_nodes_in_group("Mirror"):
-			if global_position.distance_to(mirr.global_position) < smallest:
+			if get_global_mouse_position().distance_to(mirr.global_position) < smallest:
 				closest_mirror = mirr
 				smallest = global_position.distance_to(mirr.global_position)
 		

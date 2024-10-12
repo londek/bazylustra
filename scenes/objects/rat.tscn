@@ -1,22 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://dinont5i2mn5t"]
+[gd_scene load_steps=17 format=3 uid="uid://dinont5i2mn5t"]
 
 [ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
 [ext_resource type="Texture2D" uid="uid://c4gpoofed88qg" path="res://assets/rat/rat_walk_left_1.png" id="2_fcx23"]
 [ext_resource type="Texture2D" uid="uid://clvbrcmky8tf8" path="res://assets/rat/rat_walk_right_2.png" id="3_8tubq"]
 [ext_resource type="Texture2D" uid="uid://c0uv2351maqy5" path="res://assets/rat/rat_walk_up_1.png" id="4_u2cpb"]
 [ext_resource type="Texture2D" uid="uid://dukydfsgieyu1" path="res://assets/rat/rat_walk_up_2.png" id="5_wl3xn"]
-[ext_resource type="Texture2D" uid="uid://d01q0mlsryum2" path="res://assets/bat/bat_fly_down_1.png" id="6_27nb8"]
-[ext_resource type="Texture2D" uid="uid://c1uqb00pi12b2" path="res://assets/bat/bat_fly_down_2.png" id="7_ywdjc"]
-[ext_resource type="Texture2D" uid="uid://dm18br0dly3a1" path="res://assets/bat/bat_fly_down_3.png" id="8_xaten"]
-[ext_resource type="Texture2D" uid="uid://l8cxxbvwn7jh" path="res://assets/bat/bat_fly_down_4.png" id="9_gvgfv"]
-[ext_resource type="Texture2D" uid="uid://bf4bvw5vg4l6g" path="res://assets/bat/bat_fly_left_1.png" id="10_p2ogh"]
-[ext_resource type="Texture2D" uid="uid://ydrkuj8w78y0" path="res://assets/bat/bat_fly_left_2.png" id="11_js5yo"]
-[ext_resource type="Texture2D" uid="uid://dplh808u8axvp" path="res://assets/bat/bat_fly_left_3.png" id="12_ht76t"]
-[ext_resource type="Texture2D" uid="uid://bqxbh24kdb7vx" path="res://assets/bat/bat_fly_left_4.png" id="13_h6yvt"]
-[ext_resource type="Texture2D" uid="uid://b7pncy4k5yxfc" path="res://assets/bat/bat_fly_up_1.png" id="14_3061u"]
-[ext_resource type="Texture2D" uid="uid://bbcq6aa1mli87" path="res://assets/bat/bat_fly_up_2.png" id="15_xcik5"]
-[ext_resource type="Texture2D" uid="uid://bqm5q7kpysy4" path="res://assets/bat/bat_fly_up_3.png" id="16_i43li"]
-[ext_resource type="Texture2D" uid="uid://dfk67ggejnbba" path="res://assets/bat/bat_fly_up_4.png" id="17_lku7p"]
+[ext_resource type="Texture2D" uid="uid://cf2xjhbd5okrj" path="res://assets/rat/rat_walk_right_1.png" id="5_yqwtc"]
+[ext_resource type="Texture2D" uid="uid://d05scbh2qnhn1" path="res://assets/rat/rat_walk_down_1.png" id="6_bqa5l"]
+[ext_resource type="Texture2D" uid="uid://dbpivosoxogql" path="res://assets/rat/rat_walk_down_2.png" id="7_46bs6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pbbx"]
 radius = 50.3587
@@ -42,10 +33,10 @@ void fragment() {
 shader = SubResource("Shader_ysear")
 shader_parameter/progress = 1.0
 
-[sub_resource type="Animation" id="Animation_ar8tn"]
-resource_name = "walk_right"
+[sub_resource type="Animation" id="Animation_7p20h"]
+resource_name = "walk_down"
 length = 0.4
-step = 0.1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,10 +47,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_fcx23"), ExtResource("3_8tubq")]
+"values": [ExtResource("6_bqa5l"), ExtResource("7_46bs6")]
 }
 
-[sub_resource type="Animation" id="Animation_srn7x"]
+[sub_resource type="Animation" id="Animation_qi4vs"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,10 +65,27 @@ tracks/0/keys = {
 "values": [ExtResource("2_fcx23")]
 }
 
-[sub_resource type="Animation" id="Animation_0cg54"]
+[sub_resource type="Animation" id="Animation_vkwtu"]
+resource_name = "walk_right"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_yqwtc"), ExtResource("3_8tubq")]
+}
+
+[sub_resource type="Animation" id="Animation_np0vg"]
 resource_name = "walk_up"
 length = 0.4
-step = 0.1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,68 +99,12 @@ tracks/0/keys = {
 "values": [ExtResource("4_u2cpb"), ExtResource("5_wl3xn")]
 }
 
-[sub_resource type="Animation" id="Animation_5xnyh"]
-resource_name = "fly_down"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("6_27nb8"), ExtResource("7_ywdjc"), ExtResource("8_xaten"), ExtResource("9_gvgfv")]
-}
-
-[sub_resource type="Animation" id="Animation_r7p27"]
-resource_name = "fly_left"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("10_p2ogh"), ExtResource("11_js5yo"), ExtResource("12_ht76t"), ExtResource("13_h6yvt")]
-}
-
-[sub_resource type="Animation" id="Animation_gucfx"]
-resource_name = "fly_up"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("14_3061u"), ExtResource("15_xcik5"), ExtResource("16_i43li"), ExtResource("17_lku7p")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_brrlb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cdn1y"]
 _data = {
-"RESET": SubResource("Animation_srn7x"),
-"fly_down": SubResource("Animation_5xnyh"),
-"fly_left": SubResource("Animation_r7p27"),
-"fly_up": SubResource("Animation_gucfx"),
-"walk_right": SubResource("Animation_ar8tn"),
-"walk_up": SubResource("Animation_0cg54")
+"RESET": SubResource("Animation_qi4vs"),
+"walk_down": SubResource("Animation_7p20h"),
+"walk_right": SubResource("Animation_vkwtu"),
+"walk_up": SubResource("Animation_np0vg")
 }
 
 [node name="Rat" type="CharacterBody2D"]
@@ -168,10 +120,9 @@ shape = SubResource("CircleShape2D_2pbbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yb8k")
-position = Vector2(0, -0.5)
 texture = ExtResource("2_fcx23")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_brrlb")
+"": SubResource("AnimationLibrary_cdn1y")
 }

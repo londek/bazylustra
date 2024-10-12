@@ -49,6 +49,7 @@ var should_be_on_top = [
 var step := 360 / mirror_res.size()
 
 func _ready() -> void:
+	print(blocker_polygon.polygon)
 	if immovable:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
 	

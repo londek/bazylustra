@@ -51,7 +51,7 @@ speed = 500.0
 [node name="Bat" parent="Entities" instance=ExtResource("7_ne2d8")]
 position = Vector2(-959, -655)
 waypoint_a = Vector2(200, 100)
-waypoint_b = Vector2(900, 200)
+waypoint_b = Vector2(900, 100)
 speed = 500.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("4_jpm1u")]
