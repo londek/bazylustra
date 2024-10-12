@@ -4,8 +4,8 @@ extends Node2D
 
 @export var angle: float = 0
 @export var source_color: Color = Color.WHITE
-@export var target_color: Color = Color(200, 200, 200, 0.4)
-@export var source_width: float = 8
+@export var target_color: Color = Color(230, 230, 230, 0.4)
+@export var source_width: float = 10
 @export var target_width: float = 6
 
 class Line:
@@ -64,6 +64,7 @@ func draw_ray(current_point, current_angle, last=null, depth=0):
 
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(current_point, ray)
+	query.collide_with_areas = true
 	if last != null:
 		query.exclude = [last]
 

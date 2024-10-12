@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="4_jpm1u"]
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="6_g6tdg"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
-[ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="7_ne2d8"]
-[ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
+[ext_resource type="PackedScene" path="res://scenes/objects/bat.tscn" id="7_ne2d8"]
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="8_u0gsn"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1nkg6"]

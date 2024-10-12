@@ -1,12 +1,12 @@
 class_name Mirror
-extends StaticBody2D
+extends Node2D
 
 const MIRROR_HIGHLIGHT = preload("res://scenes/objects/mirror_highlight.gdshader")
 
 @onready var light: PointLight2D = $PointLight2D
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var blocker_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
-@onready var reflection: CollisionShape2D = $Reflection
+#@onready var blocker_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
+@onready var reflection: Node2D = $Surface
 
 @export var rotation_fake := 0
 @export var arr: PackedVector2Array
@@ -49,7 +49,6 @@ var should_be_on_top = [
 var step := 360 / mirror_res.size()
 
 func _ready() -> void:
-	print(blocker_polygon.polygon)
 	if immovable:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
 	
@@ -59,7 +58,7 @@ func _ready() -> void:
 	var index = abs(int(rotation_fake + 22.5) % 360) / step
 	
 	sprite.texture = mirror_res[index].img
-	blocker_polygon.polygon = mirror_res[index].polygon
+	#blocker_polygon.polygon = mirror_res[index].polygon
 	
 	if !should_be_on_top[index]:
 		z_index = 1

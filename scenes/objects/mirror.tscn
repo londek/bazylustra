@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdsgt53px4t4q"]
+[gd_scene load_steps=9 format=3 uid="uid://bdsgt53px4t4q"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror.gd" id="1_fsen6"]
 [ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="2_l7i3y"]
@@ -22,9 +22,11 @@ shader_parameter/add_margins = true
 a = Vector2(-200, 0)
 b = Vector2(200, 0)
 
-[node name="Mirror" type="StaticBody2D"]
-collision_layer = 2
-collision_mask = 0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2mpn0"]
+a = Vector2(-200, 0)
+b = Vector2(200, 0)
+
+[node name="Mirror" type="Node2D"]
 script = ExtResource("1_fsen6")
 line = SubResource("SegmentShape2D_qt78c")
 
@@ -37,13 +39,21 @@ height = 59.0
 material = SubResource("ShaderMaterial_d32cp")
 texture = ExtResource("4_e8r7j")
 
-[node name="Reflection" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_k2pon")
+[node name="Surface" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 32
+[node name="Reflection" type="Area2D" parent="Surface"]
+collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-130, -13)
-polygon = PackedVector2Array(-65, 8, 132, 41, 328, 1, 294, 265, 135, 269, -44, 277)
+[node name="ReflectionShape" type="CollisionShape2D" parent="Surface/Reflection"]
+shape = SubResource("SegmentShape2D_k2pon")
+
+[node name="Absorber" type="Area2D" parent="Surface"]
+position = Vector2(0, -5)
+collision_layer = 4
+collision_mask = 6
+monitoring = false
+monitorable = false
+
+[node name="AbsorberShape" type="CollisionShape2D" parent="Surface/Absorber"]
+shape = SubResource("SegmentShape2D_2mpn0")
