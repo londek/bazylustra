@@ -7,7 +7,7 @@
 size = Vector2(153.333, 110)
 
 [node name="Prism" type="StaticBody2D"]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_anqgn")
 

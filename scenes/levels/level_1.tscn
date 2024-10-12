@@ -47,10 +47,9 @@ limit_bottom = 2100
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_umem7")]
+[node name="Laser" parent="." instance=ExtResource("6_umem7")]
 position = Vector2(2, -1359)
 angle = 90.0
-mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 scale = Vector2(2, 2)
