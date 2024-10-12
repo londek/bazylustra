@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc4djhdh7x178"]
+
+[ext_resource type="Script" path="res://scenes/objects/spikes.gd" id="1_5dpsx"]
+[ext_resource type="Texture2D" uid="uid://dwfrcyhi0w4kt" path="res://assets/objects/spikes_gold_hid.png" id="1_b368s"]
+[ext_resource type="Texture2D" uid="uid://ba2lki6el686w" path="res://assets/objects/spikes_gold.png" id="1_ujxcy"]
+
+[node name="Spikes" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_5dpsx")
+sprite = ExtResource("1_ujxcy")
+sprite_hid = ExtResource("1_b368s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-154, 114, 92, 119, 156, -41, 118, -123, -79, -119)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ujxcy")

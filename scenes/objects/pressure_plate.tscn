@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://thrppbl7ql68"]
+
+[ext_resource type="Texture2D" uid="uid://b5bkg5kooyd6o" path="res://assets/objects/plate_up_gold.png" id="1_diwql"]
+[ext_resource type="Script" path="res://scenes/objects/pressure_plate.gd" id="1_sf32u"]
+
+[node name="PressurePlate" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_sf32u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_diwql")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-44, -53, -75, 30, 45, 41, 78, -46)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4bmeemu3vlu2"]
+[gd_scene load_steps=14 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="6_g6tdg"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
 [ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="7_ne2d8"]
+[ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="8_dl2ul"]
 [ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="8_u0gsn"]
+[ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="9_w1fdj"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1nkg6"]
 
@@ -41,16 +43,32 @@ position = Vector2(-1640, 360)
 rotation_fake = 225
 immovable = true
 
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("8_dl2ul")]
+position = Vector2(1778, 241)
+spikes = [NodePath("../Spikes"), NodePath("../Spikes2"), NodePath("../Spikes3")]
+
+[node name="Spikes" parent="Objects" instance=ExtResource("9_w1fdj")]
+position = Vector2(1816, -648)
+
+[node name="Spikes2" parent="Objects" instance=ExtResource("9_w1fdj")]
+position = Vector2(1187, -762)
+enabled = true
+
+[node name="Spikes3" parent="Objects" instance=ExtResource("9_w1fdj")]
+position = Vector2(648, -698)
+
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Rat" parent="Entities" instance=ExtResource("6_g6tdg")]
-waypoint_a = Vector2(100, 100)
-waypoint_b = Vector2(500, 100)
+waypoint_a = Vector2(1800, 0)
+waypoint_b = Vector2(1800, 500)
 speed = 500.0
 
 [node name="Bat" parent="Entities" instance=ExtResource("7_ne2d8")]
 position = Vector2(-959, -655)
-waypoint_a = Vector2(0, -300)
+waypoint_a = Vector2(0, -500)
 waypoint_b = Vector2(0, 300)
 speed = 500.0
 
