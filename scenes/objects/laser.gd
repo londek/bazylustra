@@ -8,6 +8,8 @@ extends Node2D
 @export var source_width: float = 10
 @export var target_width: float = 6
 
+@export var mirror_cursor: MirrorCursor
+
 class Line:
 	var a: Vector2
 	var b: Vector2
@@ -54,48 +56,75 @@ func _process(_delta: float) -> void:
 
 	queue_redraw()
 
-func draw_ray(current_point, current_angle, last=null, depth=0):
+func draw_ray(current_point, current_angle, is_predicted=false, last=null, depth=0):
 	if depth > MAX_DEPTH:
 		return
-
+		
 	var ray_color = lerp(source_color, target_color, float(depth)/float(VISUAL_TARGET_DEPTH))
+	if is_predicted:
+		ray_color = Color(Color.AQUA, 0.3)
+		
 	var ray_width = lerp(source_width, target_width, float(depth)/float(VISUAL_TARGET_DEPTH))
 	var ray = current_point+current_angle*RAY_LENGTH
+		
+	var execute_raycast = func(result: Dictionary, is_predicted_raycast):
+		var collider = result.collider
+		
+		if collider.collision_layer == 6:
+			return
+
+		if !is_predicted_raycast:
+			current_colliders.append(collider)
+		
+		if !is_predicted_raycast:
+			if collider.has_method("_on_laser_hit"):
+				collider._on_laser_hit()
+			
+		if !is_predicted:
+			is_predicted = collider is MirrorCursor
+
+		draw_line2(to_local(current_point), to_local(result.position), ray_color, ray_width)
+
+		if collider is Prism:
+			draw_ray(result.position, current_angle.rotated(deg_to_rad(PRISM_ARM_ANGLE)), is_predicted, collider, depth+1)
+			draw_ray(result.position, current_angle.rotated(deg_to_rad(-PRISM_ARM_ANGLE)), is_predicted, collider, depth+1)
+			return
+
+		if collider.collision_layer != 2:
+			return
+
+		current_angle = current_angle.bounce(result.normal)
+
+		draw_ray(result.position, current_angle, is_predicted, collider, depth+1)
+
 
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(current_point, ray)
-	query.collision_mask = 0xffffffff - pow(2, 6-1)
-	query.collide_with_areas = true
+	if !is_predicted:
+		var real_query = PhysicsRayQueryParameters2D.create(current_point, ray)
+		real_query.collision_mask = 0xffffffff - pow(2, 6-1)
+		real_query.collide_with_areas = true
+		real_query.exclude = [mirror_cursor, mirror_cursor.get_node("Block")]
+		if last != null:
+			real_query.exclude.append(last.get_rid())
+
+		var real_result = space_state.intersect_ray(real_query)
+		if real_result.is_empty():
+			draw_line2(to_local(current_point), to_local(ray), ray_color, ray_width)
+		else:
+			execute_raycast.call(real_result, false)
+		
+	var predicted_query = PhysicsRayQueryParameters2D.create(current_point, ray)
+	predicted_query.collision_mask = 0xffffffff - pow(2, 6-1)
+	predicted_query.collide_with_areas = true
 	if last != null:
-		query.exclude = [last]
+		predicted_query.exclude = [last]
 
-	var result = space_state.intersect_ray(query)
-	if !result:
-		draw_line2(to_local(current_point), to_local(ray), ray_color, ray_width)
+	var predicted_result := space_state.intersect_ray(predicted_query)
+	if predicted_result.is_empty():
 		return
 
-	if result.collider.collision_layer == 6:
-		return
+	execute_raycast.call(predicted_result, true)
 
-	if result.collider.has_method("_on_laser_hit"):
-		result.collider._on_laser_hit()
-
-	current_colliders.append(result.collider)
-	last = result.collider
-
-	draw_line2(to_local(current_point), to_local(result.position), ray_color, ray_width)
-
-	if result.collider is Prism:
-		draw_ray(result.position, current_angle.rotated(deg_to_rad(PRISM_ARM_ANGLE)), last, depth+1)
-		draw_ray(result.position, current_angle.rotated(deg_to_rad(-PRISM_ARM_ANGLE)), last, depth+1)
-		return
-
-	if result.collider.collision_layer != 2:
-		return
-
-	current_angle = current_angle.bounce(result.normal)
-
-	draw_ray(result.position, current_angle, last, depth+1)
 
 func draw_line2(a: Vector2, b: Vector2, color: Color, width: float) -> void:
 	var line = Line.new()
