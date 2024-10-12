@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_d6bhu"]
 [ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="7_ne2d8"]
 [ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="8_dl2ul"]
-[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
+[ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="8_hifb8"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="8_u0gsn"]
 [ext_resource type="Texture2D" uid="uid://7qropf3st8dl" path="res://assets/objects/plate_down_gold.png" id="8_wml11"]
 [ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="9_w1fdj"]
@@ -41,13 +41,13 @@ position = Vector2(1169, -175)
 [node name="StaticMirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="StaticMirrors" instance=ExtResource("8_u0gsn")]
-position = Vector2(404, 490)
+position = Vector2(633, 769)
 rotation_fake = 45
 line = SubResource("SegmentShape2D_1nkg6")
 immovable = true
 
 [node name="Mirror2" parent="StaticMirrors" instance=ExtResource("8_u0gsn")]
-position = Vector2(-1640, 360)
+position = Vector2(-2297, 439)
 rotation_fake = 225
 immovable = true
 
@@ -77,9 +77,10 @@ waypoint_b = Vector2(1800, 500)
 speed = 500.0
 
 [node name="Bat" parent="Entities" instance=ExtResource("7_ne2d8")]
-position = Vector2(-959, -655)
-waypoint_a = Vector2(0, -500)
-waypoint_b = Vector2(0, 300)
+position = Vector2(-1031, -640)
+scale = Vector2(2, 1.5)
+waypoint_a = Vector2(-960, -900)
+waypoint_b = Vector2(-960, 1000)
 speed = 500.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("4_jpm1u")]
@@ -117,7 +118,6 @@ blend_mode = 1
 [node name="Lava" parent="." instance=ExtResource("15_60aut")]
 z_index = -1
 position = Vector2(-1003, -269)
-collision_layer = 32
 
 [node name="LavaTileTop2" parent="Lava" instance=ExtResource("16_bgnof")]
 position = Vector2(31, 6)
@@ -125,7 +125,16 @@ position = Vector2(31, 6)
 [node name="LavaTileMiddle" parent="Lava" instance=ExtResource("17_h5b23")]
 position = Vector2(0, 204)
 
+[node name="LavaTileMiddle2" parent="Lava" instance=ExtResource("17_h5b23")]
+position = Vector2(-13, 385)
+
+[node name="LavaTileMiddle3" parent="Lava" instance=ExtResource("17_h5b23")]
+position = Vector2(-45, 755)
+
+[node name="LavaTileMiddle4" parent="Lava" instance=ExtResource("17_h5b23")]
+position = Vector2(-26, 570)
+
 [node name="LavaTileBottom" parent="Lava" instance=ExtResource("18_br0ow")]
-position = Vector2(-53, 397)
+position = Vector2(-97, 944)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

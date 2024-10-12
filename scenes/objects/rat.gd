@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 		if velocity.x:
 			animation_player.play("walk_right")
 	
-	
 	move_and_slide()
 
 func update_shader_val(val: float):
