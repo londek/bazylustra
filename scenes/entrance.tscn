@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1slk8d2246i"]
+
+[ext_resource type="Texture2D" uid="uid://bomsu7mr4bvw5" path="res://assets/objects/wall_hole.png" id="1_piuyy"]
+
+[node name="Entrance" type="Sprite2D"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_piuyy")
+flip_h = true

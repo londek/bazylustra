@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxba4c3am0tys"]
+[gd_scene load_steps=10 format=3 uid="uid://bxba4c3am0tys"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="6_usdmf"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_s5e6w"]
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="8_gxfhs"]
+[ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_76gmf"]
 
 [node name="level3" type="Node2D"]
 y_sort_enabled = true
@@ -20,7 +21,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_qbweg")
 
 [node name="Exit" parent="." instance=ExtResource("3_18v6k")]
-position = Vector2(2528, -521)
+position = Vector2(2998, 952)
 scale = Vector2(1.16, 1)
 
 [node name="MirrorCursor" parent="." instance=ExtResource("4_l256n")]
@@ -45,7 +46,7 @@ mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-66, 44)
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.2, 0.2)
 limit_left = -3800
 limit_top = -2100
 limit_right = 3800
@@ -53,9 +54,10 @@ limit_bottom = 2100
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Laser" parent="." instance=ExtResource("7_s5e6w")]
+[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_s5e6w")]
 position = Vector2(2, -1359)
 angle = 90.0
+mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 scale = Vector2(2, 2)
@@ -74,6 +76,8 @@ blend_mode = 1
 [node name="Lava" parent="." instance=ExtResource("8_gxfhs")]
 z_index = -1
 position = Vector2(-1003, -269)
-collision_layer = 32
+
+[node name="Entrance" parent="." instance=ExtResource("9_76gmf")]
+position = Vector2(-2579, -531)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxw6kxvltsjtn"]
+[gd_scene load_steps=9 format=3 uid="uid://bxw6kxvltsjtn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_gaybl"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_t4gue"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="5_k5e6c"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="6_umem7"]
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="7_yqq7c"]
+[ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="8_vk4l3"]
 
 [node name="level1" type="Node2D"]
 y_sort_enabled = true
@@ -33,12 +34,12 @@ position = Vector2(2704, 1)
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("5_k5e6c")]
 z_index = 999
-position = Vector2(-2473, -16)
+position = Vector2(-2588, 111)
 mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-66, 44)
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.2, 0.2)
 limit_left = -3800
 limit_top = -2100
 limit_right = 3800
@@ -46,9 +47,10 @@ limit_bottom = 2100
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Laser" parent="." instance=ExtResource("6_umem7")]
+[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_umem7")]
 position = Vector2(2, -1359)
 angle = 90.0
+mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 scale = Vector2(2, 2)
@@ -60,12 +62,15 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(-1746, 952, -1206, -640, -321.934, -633.965, 1138, -624, 1634, 764, 1634, 1016, -1726, 980, -1850, 1073, 1824, 1103, 1600, -908, -1649, -927, -1920, 1009)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
 
 [node name="Lava" parent="." instance=ExtResource("7_yqq7c")]
 z_index = -1
 position = Vector2(-1003, -269)
-collision_layer = 32
+
+[node name="Entrance" parent="." instance=ExtResource("8_vk4l3")]
+position = Vector2(-2755, 1)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]
