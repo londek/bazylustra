@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjo3n3e4w4d21"]
 
 [ext_resource type="Script" path="res://scenes/objects/exit.gd" id="1_wq8rx"]
-[ext_resource type="Texture2D" uid="uid://cu7ktd8pj1amo" path="res://icon.svg" id="2_a841f"]
+[ext_resource type="Texture2D" uid="uid://bomsu7mr4bvw5" path="res://assets/objects/wall_hole.png" id="2_yf7fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1gw"]
 size = Vector2(128, 128)
@@ -14,7 +14,6 @@ script = ExtResource("1_wq8rx")
 shape = SubResource("RectangleShape2D_kn1gw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.729609, 0.765812, 1)
-texture = ExtResource("2_a841f")
+texture = ExtResource("2_yf7fe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
