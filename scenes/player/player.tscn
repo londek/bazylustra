@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddmxx0a0mg7ia"]
+[gd_scene load_steps=27 format=3 uid="uid://ddmxx0a0mg7ia"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl15c"]
 [ext_resource type="Texture2D" uid="uid://docvxdh0k2gy3" path="res://assets/player/player_down.png" id="2_obtah"]
+[ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_xhbgc"]
 [ext_resource type="Texture2D" uid="uid://bjx2jw2ws0mtd" path="res://assets/player/player_down_1.png" id="3_75a6l"]
 [ext_resource type="Texture2D" uid="uid://b0igo1um3ylm6" path="res://assets/player/player_down_2.png" id="4_otjgb"]
 [ext_resource type="Texture2D" uid="uid://bdygx6b5tq5jx" path="res://assets/player/player_down_3.png" id="5_ss5nx"]
@@ -21,6 +22,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r6jy"]
 radius = 117.0
 height = 438.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cixci"]
+resource_local_to_scene = true
+shader = ExtResource("2_xhbgc")
+shader_parameter/StoneColor = Color(0.310617, 0.310617, 0.310617, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="Animation_xoq2k"]
 length = 0.001
@@ -122,6 +129,7 @@ script = ExtResource("1_tl15c")
 shape = SubResource("CapsuleShape2D_7r6jy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cixci")
 position = Vector2(0, -10)
 texture = ExtResource("2_obtah")
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
 [ext_resource type="Texture2D" uid="uid://c4gpoofed88qg" path="res://assets/rat/rat_walk_left_1.png" id="2_fcx23"]
+[ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_w4388"]
 [ext_resource type="Texture2D" uid="uid://clvbrcmky8tf8" path="res://assets/rat/rat_walk_right_2.png" id="3_8tubq"]
 [ext_resource type="Texture2D" uid="uid://c0uv2351maqy5" path="res://assets/rat/rat_walk_up_1.png" id="4_u2cpb"]
 [ext_resource type="Texture2D" uid="uid://dukydfsgieyu1" path="res://assets/rat/rat_walk_up_2.png" id="5_wl3xn"]
@@ -12,26 +13,26 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pbbx"]
 radius = 50.3587
 
-[sub_resource type="Shader" id="Shader_ysear"]
-code = "shader_type canvas_item;
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjgns"]
+resource_local_to_scene = true
+shader = ExtResource("2_w4388")
+shader_parameter/StoneColor = Color(0.262932, 0.262932, 0.262932, 1)
+shader_parameter/progress = 0.0
 
-uniform float progress: hint_range(0.0, 1.0, 0.1) = 1.0;
-uniform sampler2D img;
-
-void vertex() {
-	
+[sub_resource type="Animation" id="Animation_qi4vs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fcx23")]
 }
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0yb8k"]
-shader = SubResource("Shader_ysear")
-shader_parameter/progress = 1.0
 
 [sub_resource type="Animation" id="Animation_7p20h"]
 resource_name = "walk_down"
@@ -48,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("6_bqa5l"), ExtResource("7_46bs6")]
-}
-
-[sub_resource type="Animation" id="Animation_qi4vs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_fcx23")]
 }
 
 [sub_resource type="Animation" id="Animation_vkwtu"]
@@ -119,7 +105,7 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_2pbbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_0yb8k")
+material = SubResource("ShaderMaterial_bjgns")
 texture = ExtResource("2_fcx23")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

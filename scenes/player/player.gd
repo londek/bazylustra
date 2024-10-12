@@ -4,23 +4,37 @@ const PLAYER_LEFT = preload("res://assets/player/player_left.png")
 const PLAYER_DOWN = preload("res://assets/player/player_down.png")
 const PLAYER_UP = preload("res://assets/player/player_up.png")
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 const SPEED = 600.0
 const MIN_MIRROR_RANGE = 400.0
 const MAX_MIRROR_RANGE = 700.0
 
-var can_move := true
 var closest_mirror : Mirror
+var is_stoned:
+	set(val):
+		is_stoned = val
+		var tween := get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+		if is_stoned:
+			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
+			animation_player.pause()
+		else:
+			tween.tween_method(update_shader_val, 0.9, 0.0, 0.5)
+
 
 @export var mirror_cursor: MirrorCursor
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	is_stoned = false
+
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.05), false, 5)
 
 func _physics_process(delta: float) -> void:
-	if !can_move:
-		return
+	
+	
 	
 	var mouse_local_position := get_local_mouse_position()
 	
@@ -36,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		
 		var smallest := 10000.0
 		for mirr in get_tree().get_nodes_in_group("Mirror"):
-			if get_global_mouse_position().distance_to(mirr.global_position) < smallest:
+			if global_position.distance_to(mirr.global_position) < smallest:
 				closest_mirror = mirr
 				smallest = global_position.distance_to(mirr.global_position)
 		
@@ -48,7 +62,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("delete") and closest_mirror != null:
 		closest_mirror.queue_free()
 	
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+	
 	var direction := Input.get_vector("left", "right", "up", "down")
+	
+	if is_stoned:
+		return
 	
 	velocity = direction * SPEED
 	
@@ -66,6 +86,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		if velocity.x:
 			animation_player.play("walk_left")
-
-
+	
+	
+	
 	move_and_slide()
+
+
+func update_shader_val(val: float):
+	sprite_2d.material.set("shader_parameter/progress", val)
+
+
+func _on_laser_enter():
+	is_stoned = true
+	
+func _on_laser_exit():
+	is_stoned = false

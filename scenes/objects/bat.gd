@@ -2,6 +2,7 @@ class_name Bat
 extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var waypoint_a: Vector2
 @export var waypoint_b: Vector2
@@ -10,11 +11,22 @@ extends CharacterBody2D
 
 const DISTANCE_THRESHOLD := 2
 
-var is_stoned := false
+var is_stoned:
+	set(val):
+		is_stoned = val
+		var tween := get_tree().create_tween().set_trans(Tween.TRANS_BOUNCE)
+		if is_stoned:
+			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
+			animation_player.pause()
+		else:
+			tween.tween_method(update_shader_val, 0.9, 0.0, 0.5)
+
+
 var direction_flag := false
 
 func _ready() -> void:
 	global_position = waypoint_a
+	is_stoned = false
 
 func _physics_process(delta: float) -> void:
 	if is_stoned:
@@ -42,8 +54,10 @@ func _physics_process(delta: float) -> void:
 		if velocity.x:
 			animation_player.play("fly_left")
 	
-	
 	move_and_slide()
+
+func update_shader_val(val: float):
+	sprite_2d.material.set("shader_parameter/progress", val)
 
 func _on_laser_enter():
 	is_stoned = true
