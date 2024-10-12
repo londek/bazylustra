@@ -17,8 +17,9 @@ var pressed: bool = false:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Rat:
-		pressed = true
-	call_deferred("switch_spikes")
+		if body.is_stoned:
+			pressed = true
+			call_deferred("switch_spikes")
 
 
 func _on_body_exited(body: Node2D) -> void:
