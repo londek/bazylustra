@@ -5,8 +5,7 @@ const MIRROR_HIGHLIGHT = preload("res://scenes/objects/mirror_highlight.gdshader
 
 @onready var light: PointLight2D = $PointLight2D
 @onready var sprite: Sprite2D = $Sprite2D
-#@onready var blocker_polygon: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
-@onready var reflection: Node2D = $Surface
+@onready var surface: Node2D = $Surface
 
 @export var rotation_fake := 0
 @export var arr: PackedVector2Array
@@ -35,7 +34,7 @@ var mirror_res = [
 	preload("res://assets/mirror/mirror_front_right.tres"), 
 ]
 
-var should_be_on_top = [
+var reflects_front = [
 	true,
 	true,
 	true,
@@ -53,12 +52,11 @@ func _ready() -> void:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
 	
 	if line != null:
-		reflection.rotation_degrees = rotation_fake
+		surface.rotation_degrees = rotation_fake
 	
 	var index = abs(int(rotation_fake + 22.5) % 360) / step
-	
+
 	sprite.texture = mirror_res[index].img
-	#blocker_polygon.polygon = mirror_res[index].polygon
-	
-	if !should_be_on_top[index]:
-		z_index = 1
+	print(reflects_front[index])
+	if reflects_front[index]:
+		z_index = -1
