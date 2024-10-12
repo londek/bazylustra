@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwfmk4v0sqmwc"]
+[gd_scene load_steps=3 format=3 uid="uid://dinont5i2mn5t"]
 
 [ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
 [ext_resource type="Texture2D" uid="uid://ba6ljf7qeyycy" path="res://assets/rat/rat_a.png" id="2_fd03b"]
