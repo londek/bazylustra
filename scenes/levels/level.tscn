@@ -46,7 +46,6 @@ mirror_cursor = NodePath("../MirrorCursor")
 [node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
 position = Vector2(-1613, -1309)
 angle = 90.0
-color = Color(0.964706, 0.94902, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
