@@ -88,9 +88,10 @@ z_index = 999
 position = Vector2(66, -43)
 mirror_cursor = NodePath("../MirrorCursor")
 
-[node name="Laser" parent="." instance=ExtResource("7_d6bhu")]
+[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_d6bhu")]
 position = Vector2(-1613, -1309)
 angle = 90.0
+mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
