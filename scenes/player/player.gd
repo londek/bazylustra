@@ -17,10 +17,11 @@ var is_stoned:
 		is_stoned = val
 		var tween := get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 		if is_stoned:
-			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
+			SceneTransitions.reload_scene_persona()
+			tween.tween_method(update_shader_val, 0.0, 1.0, 0.5)
 			animation_player.pause()
 		else:
-			tween.tween_method(update_shader_val, 0.9, 0.0, 0.5)
+			tween.tween_method(update_shader_val, 1.0, 0.0, 0.5)
 
 
 @export var mirror_cursor: MirrorCursor
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			closest_mirror.queue_free()
 		
 	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
+		SceneTransitions.reload_scene_persona()
 		
 	var direction := Input.get_vector("left", "right", "up", "down")
 	

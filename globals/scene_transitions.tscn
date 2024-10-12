@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2fl5acoclvdr"]
+
+[ext_resource type="Shader" path="res://globals/cutout.gdshader" id="1_cwba3"]
+[ext_resource type="Texture2D" uid="uid://bxgiltvokva4d" path="res://assets/placeholder/mask_eye.png" id="2_8n6to"]
+[ext_resource type="Script" path="res://globals/scene_transitions.gd" id="3_u571t"]
+[ext_resource type="Texture2D" uid="uid://boh3n0xqkxr6j" path="res://assets/ui/persona_1.png" id="4_oypke"]
+[ext_resource type="Texture2D" uid="uid://dtl71uw8ebqan" path="res://assets/ui/persona_2.png" id="5_hpt1v"]
+[ext_resource type="Texture2D" uid="uid://bmstn0y1qwchu" path="res://assets/ui/persona_3.png" id="6_w3uf6"]
+[ext_resource type="Texture2D" uid="uid://dkqw1ks0gisba" path="res://assets/ui/persona_4.png" id="7_d1rac"]
+[ext_resource type="Texture2D" uid="uid://d00vmekyf5pay" path="res://assets/ui/persona_5.png" id="8_bigr3"]
+[ext_resource type="Texture2D" uid="uid://cru6apms6qm3w" path="res://assets/ui/persona_6.png" id="9_2hva2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ep0c4"]
+shader = ExtResource("1_cwba3")
+shader_parameter/scale = 0.0
+shader_parameter/mask = ExtResource("2_8n6to")
+
+[sub_resource type="Animation" id="Animation_ux0k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wqdul"]
+resource_name = "FadeToBlack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rwrar"]
+resource_name = "PersonaFlash"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_oypke"), ExtResource("5_hpt1v"), ExtResource("6_w3uf6"), ExtResource("7_d1rac"), ExtResource("8_bigr3"), ExtResource("9_2hva2"), ExtResource("8_bigr3"), ExtResource("7_d1rac"), ExtResource("6_w3uf6"), ExtResource("5_hpt1v"), ExtResource("4_oypke")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieigs"]
+_data = {
+"FadeToBlack": SubResource("Animation_wqdul"),
+"PersonaFlash": SubResource("Animation_rwrar"),
+"RESET": SubResource("Animation_ux0k7")
+}
+
+[node name="SceneTransitions" type="CanvasLayer"]
+script = ExtResource("3_u571t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ep0c4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ieigs")
+}

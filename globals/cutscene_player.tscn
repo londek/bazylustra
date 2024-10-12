@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b63j08457sp33"]
+
+[ext_resource type="Script" path="res://globals/cutscene_player.gd" id="1_wcxi1"]
+
+[node name="CutscenePlayer" type="CanvasLayer"]
+script = ExtResource("1_wcxi1")

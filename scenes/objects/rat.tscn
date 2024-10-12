@@ -15,7 +15,6 @@ radius = 40.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjgns"]
 resource_local_to_scene = true
 shader = ExtResource("2_w4388")
-shader_parameter/StoneColor = Color(0.262932, 0.262932, 0.262932, 1)
 shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="Animation_qi4vs"]

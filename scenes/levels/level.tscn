@@ -88,15 +88,15 @@ z_index = 999
 position = Vector2(66, -43)
 mirror_cursor = NodePath("../MirrorCursor")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-66, 44)
+zoom = Vector2(0.3, 0.3)
+metadata/_edit_lock_ = true
+
 [node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_d6bhu")]
 position = Vector2(-1613, -1309)
 angle = 90.0
 mirror_cursor = NodePath("../MirrorCursor")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 1)
-zoom = Vector2(0.2, 0.2)
-metadata/_edit_lock_ = true
 
 [node name="Prism" parent="." instance=ExtResource("8_hifb8")]
 position = Vector2(-174, 276)
