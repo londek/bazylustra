@@ -105,10 +105,17 @@ shake={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="mirror"
+2d_physics/layer_2="reflective"
 2d_physics/layer_3="obstacles"
 2d_physics/layer_4="entities"
 2d_physics/layer_5="areas"
-2d_physics/layer_6="mirror_block"
+2d_physics/layer_6="transparent"
 2d_physics/layer_7="lava"
 2d_physics/layer_8="mirror_absorber"
+2d_physics/layer_9="mirror_cursor"
+
+[physics]
+
+common/physics_ticks_per_second=120
+common/max_physics_steps_per_frame=16
+common/physics_interpolation=true
