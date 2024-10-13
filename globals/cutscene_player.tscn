@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://b63j08457sp33"]
+[gd_scene load_steps=29 format=3 uid="uid://b63j08457sp33"]
 
 [ext_resource type="Script" path="res://globals/cutscene_player.gd" id="1_wcxi1"]
-[ext_resource type="Texture2D" uid="uid://cyfjmfp0wgp6a" path="res://assets/cutscenes/wall_break_1.png" id="2_23wv0"]
 [ext_resource type="Shader" path="res://globals/cutout.gdshader" id="2_fx4m0"]
-[ext_resource type="Texture2D" uid="uid://sy11hp6qru8k" path="res://assets/ui/cutout.png" id="4_ne3jf"]
+[ext_resource type="Texture2D" uid="uid://cphjybkc3w46r" path="res://assets/ui/transitions/cytrynka.png" id="3_x4ogo"]
 [ext_resource type="Texture2D" uid="uid://do7qdo0escgxw" path="res://assets/ui/transitions/persona_0001.png" id="4_phh2m"]
 [ext_resource type="Texture2D" uid="uid://dlagrevrkjd7t" path="res://assets/ui/transitions/persona_0002.png" id="5_irtwd"]
 [ext_resource type="Texture2D" uid="uid://x17lh6r5tcx2" path="res://assets/ui/transitions/persona_0003.png" id="6_wklrx"]
@@ -28,7 +27,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tcjv7"]
 shader = ExtResource("2_fx4m0")
 shader_parameter/scale = 0.0
-shader_parameter/mask = ExtResource("4_ne3jf")
+shader_parameter/mask = ExtResource("3_x4ogo")
 
 [sub_resource type="Animation" id="Animation_wqdul"]
 resource_name = "FadeToBlack"
@@ -115,7 +114,6 @@ script = ExtResource("1_wcxi1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("2_23wv0")
 region_rect = Rect2(0, 0, 1280, 1080)
 
 [node name="TextureRect" type="TextureRect" parent="."]

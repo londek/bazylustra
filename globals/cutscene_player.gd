@@ -27,9 +27,9 @@ func play(ctscn: Dictionary):
 			Shaker.shake(sprite_2d, 20, 1)
 			sprite_2d.texture = WALL_BREAK["img_array"][2]
 			await get_tree().create_timer(1).timeout
-			Shaker.shake(sprite_2d, 35, 1)
-			sprite_2d.texture = WALL_BREAK["img_array"][3] 
-			await get_tree().create_timer(1).timeout
+			#Shaker.shake(sprite_2d, 35, 1)
+			#sprite_2d.texture = WALL_BREAK["img_array"][3] 
+			#await get_tree().create_timer(1).timeout
 			Shaker.shake(sprite_2d, 50, 0.7)
 			sprite_2d.texture = WALL_BREAK["img_array"][4]
 			await get_tree().create_timer(1.5).timeout

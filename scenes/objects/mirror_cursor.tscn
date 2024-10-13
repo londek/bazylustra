@@ -1,45 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://rm8qttkjv66d"]
+[gd_scene load_steps=5 format=3 uid="uid://rm8qttkjv66d"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror_cursor.gd" id="1_4d7pd"]
 [ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
-[ext_resource type="Shader" uid="uid://b24yjg7xiupb6" path="res://scenes/objects/mirror_cursor.tres" id="2_mop7x"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4a0i"]
-shader = ExtResource("2_mop7x")
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_p6x8q"]
-a = Vector2(-250, 5)
-b = Vector2(250, 5)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vgj1f"]
+a = Vector2(-250, 20)
+b = Vector2(250, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slq4m"]
 size = Vector2(299, 360)
 
-[node name="MirrorCursor" type="Node2D"]
+[node name="MirrorCursor" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_4d7pd")
 
+[node name="Reflection" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("SegmentShape2D_vgj1f")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_r4a0i")
 rotation = 1.5708
 texture = ExtResource("2_35gaf")
 
-[node name="Reflection" type="Area2D" parent="."]
-collision_layer = 256
+[node name="Block" type="StaticBody2D" parent="."]
+collision_layer = 128
 collision_mask = 0
 
-[node name="Reflection" type="CollisionShape2D" parent="Reflection"]
-position = Vector2(-4, 25.5)
-shape = SubResource("SegmentShape2D_p6x8q")
-
-[node name="Absorber" type="StaticBody2D" parent="."]
-collision_layer = 256
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Absorber"]
-polygon = PackedVector2Array(-258, 33, -275, -10, -254, -44, 245, -46, 267, -33, 274, -4, 249, 33, 240, -22, -234, -22)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Block"]
+polygon = PackedVector2Array(-272, -2, -254, -44, 246, -48, 272, -2, 240, -22, -234, -22)
 
 [node name="ObstructionArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 255
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstructionArea"]
 position = Vector2(2.5, 6)

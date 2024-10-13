@@ -21,7 +21,10 @@ animations = [{
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_ftxar")
 target_color = Color(0.366595, 0.366595, 0.366595, 1)
-[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(29, -32)
-texture = ExtResource("2_dried")
+position = Vector2(65, 17)
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_ofqls")
+autoplay = "default"

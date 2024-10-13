@@ -53,7 +53,7 @@ shape = SubResource("SegmentShape2D_k2pon")
 
 [node name="Absorber" type="Area2D" parent="Surface"]
 position = Vector2(0, -5)
-collision_layer = 32
+collision_layer = 64
 collision_mask = 0
 monitoring = false
 monitorable = false
@@ -62,8 +62,8 @@ monitorable = false
 shape = SubResource("SegmentShape2D_2mpn0")
 
 [node name="ObstructionArea" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstructionArea"]
 position = Vector2(-2, -2)
