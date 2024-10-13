@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ki2heg60g6es"]
+[gd_scene load_steps=19 format=3 uid="uid://bvyjd2lukat1h"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qea4o"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_2krif"]
@@ -12,16 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="7_qjrcv"]
 [ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="8_5wllg"]
 [ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="8_080m6"]
-[ext_resource type="PackedScene" uid="uid://bmxa11fix68rl" path="res://scenes/objects/lava_bottom_animated.tscn" id="10_6w6qw"]
-[ext_resource type="PackedScene" uid="uid://dg3d11wt7pli7" path="res://scenes/levels/lava_curve_animation.tscn" id="10_ciu2j"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_bottom_animated.tscn" id="10_6w6qw"]
+[ext_resource type="PackedScene" path="res://scenes/levels/lava_curve_animation.tscn" id="10_ciu2j"]
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="10_m656e"]
-[ext_resource type="PackedScene" uid="uid://cb56vtecdjpio" path="res://scenes/objects/lava_top_animated.tscn" id="11_c8o3e"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_top_animated.tscn" id="11_c8o3e"]
 [ext_resource type="PackedScene" uid="uid://b1x1xa4x2apgy" path="res://scenes/objects/lava_middle_animated.tscn" id="11_vhaqq"]
+[ext_resource type="PackedScene" uid="uid://cd00jbe4cwte8" path="res://scenes/ui/in_game_ui.tscn" id="18_oom4h"]
 
 [node name="level6" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(171, -249)
 script = ExtResource("1_qea4o")
+this_level = 6
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
 z_index = -3
@@ -200,5 +202,7 @@ rotation = 1.63188
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LavaReimagined"]
 polygon = PackedVector2Array(-861.603, 534.953, -411.564, 652.513, -113.465, 786.252, 292.919, 781.938, 1066.62, 807.822, 1005.54, 145.602, 877.431, -527.403, 782.608, -855.278, 638.33, -1251.1, 1277.45, -1218.74, 1964.73, 1480.83, 1464.42, 1506.71, 1103.78, 1334.15, 824.467, 1303.95, -80.8347, 1223.06, -511.601, 1124.91, -802.935, 1196.09)
+
+[node name="InGameUI" parent="." instance=ExtResource("18_oom4h")]
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

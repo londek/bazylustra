@@ -20,7 +20,11 @@ const MAIN_MENU := {
 }
 const GAME_START := {
 	"img": preload("res://assets/ui/game_start.png"),
-	"scene": "res://scenes/levels/level.tscn"
+	"scene": "res://scenes/levels/level_1.tscn"
+}
+const GAME_END := {
+	"img": preload("res://assets/ui/ending.png"),
+	"scene": "res://scenes/ui/level_selector/level_selector.tscn"
 }
 
 func _ready() -> void:
@@ -78,12 +82,29 @@ func play(ctscn: Dictionary):
 			tween.tween_property(start_btn, "modulate:a", 0.5, 1)
 		GAME_START:
 			await animation_player.animation_finished
-			#animation_player.play_backwards("FadeToBlack")
+			animation_player.play_backwards("FadeToBlack")
 			sprite_2d.texture = GAME_START["img"]
 			await get_tree().create_timer(2).timeout 
 			SceneTransitions.change_scene_to_path(GAME_START["scene"])
 			sprite_2d.hide()
-
+		GAME_END:
+			await animation_player.animation_finished
+			layer = 3
+			animation_player.play("FadeToBlack")
+			await animation_player.animation_finished
+			animation_player.play_backwards("FadeToBlack")
+			sprite_2d.texture = GAME_END["img"]
+			await get_tree().create_timer(5).timeout 
+			animation_player.play("FadeToBlack")
+			SceneTransitions.change_scene_to_path(GAME_END["scene"])
+			await get_tree().create_timer(3).timeout 
+			sprite_2d.hide()
+			animation_player.play_backwards("FadeToBlack")
+			layer = 1
+			
+			
+			
+			
 	#visible = false
 			#animation_player.play("FadeToBlack")
 			#await animation_player.animation_finished

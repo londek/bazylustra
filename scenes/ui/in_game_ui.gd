@@ -1,9 +1,8 @@
 extends CanvasLayer
 
-
+var msec := 0
 var minutes := 0
 var seconds := 0
-var msec := 0
 
 func _ready() -> void:
 	PlayerData.connect("update_placed_mirrors", func(): %MirrorsLabel.text = str(PlayerData.placed_mirrors) + "x ")
@@ -16,4 +15,4 @@ func _update_timer(time: float):
 	minutes = fmod(time, 3600) / 60
 	%Minutes.text = "%02d:" % minutes
 	%Seconds.text = "%02d." % seconds
-	%Msecs.text = "%03d" % msec
+	%Msecs.text = "%02d" % msec

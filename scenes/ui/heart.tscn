@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://crgje2sw2ba6d"]
+
+[ext_resource type="Texture2D" uid="uid://dhtq85ia6312t" path="res://assets/ui/result/star.png" id="1_rj6vm"]
+
+[node name="Heart" type="TextureRect"]
+size_flags_horizontal = 3
+texture = ExtResource("1_rj6vm")
+stretch_mode = 5
