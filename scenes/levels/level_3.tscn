@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_18v6k"]
 [ext_resource type="PackedScene" uid="uid://rm8qttkjv66d" path="res://scenes/objects/mirror_cursor.tscn" id="4_l256n"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="5_05gxo"]
-[ext_resource type="PackedScene" path="res://scenes/objects/prism.tscn" id="5_mkw3o"]
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="5_mkw3o"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="6_usdmf"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_s5e6w"]
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="8_gxfhs"]
-[ext_resource type="PackedScene" path="res://scenes/entrance.tscn" id="9_76gmf"]
+[ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_76gmf"]
 [ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="10_2rh71"]
 [ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="10_i16kt"]
 [ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="11_aqp6h"]
@@ -81,9 +81,10 @@ limit_bottom = 2100
 position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Laser" parent="." instance=ExtResource("7_s5e6w")]
+[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_s5e6w")]
 position = Vector2(756, -1419)
 angle = 85.0
+mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 scale = Vector2(2, 2)
