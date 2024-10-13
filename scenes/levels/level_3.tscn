@@ -1,33 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=13 format=3 uid="uid://duw3uy1xn3pgt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
 [ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_18v6k"]
 [ext_resource type="PackedScene" uid="uid://rm8qttkjv66d" path="res://scenes/objects/mirror_cursor.tscn" id="4_l256n"]
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="5_05gxo"]
-[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="5_mkw3o"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="6_usdmf"]
-[ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="7_p8jkc"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_s5e6w"]
-[ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="8_gxfhs"]
-[ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="8_rq3s2"]
 [ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_76gmf"]
-[ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="9_k1s47"]
-[ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="10_2rh71"]
-[ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="10_i16kt"]
-[ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="11_aqp6h"]
-[ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="12_t0dq3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6clpm"]
-size = Vector2(322, 300)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6wuj"]
-shader = ExtResource("10_2rh71")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 30.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = true
+[ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="10_b0q22"]
+[ext_resource type="PackedScene" uid="uid://b1x1xa4x2apgy" path="res://scenes/objects/lava_middle_animated.tscn" id="15_dp4lm"]
+[ext_resource type="PackedScene" uid="uid://cb56vtecdjpio" path="res://scenes/objects/lava_top_animated.tscn" id="15_m77hd"]
+[ext_resource type="PackedScene" uid="uid://bmxa11fix68rl" path="res://scenes/objects/lava_bottom_animated.tscn" id="17_3g8h4"]
 
 [node name="level3" type="Node2D"]
 y_sort_enabled = true
@@ -40,67 +24,43 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_qbweg")
 
 [node name="Exit" parent="." instance=ExtResource("3_18v6k")]
-position = Vector2(2998, 952)
+position = Vector2(2528, -521)
 scale = Vector2(1.16, 1)
 
 [node name="MirrorCursor" parent="." instance=ExtResource("4_l256n")]
-z_index = 1001
 
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="StaticMirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="StaticMirrors" instance=ExtResource("5_05gxo")]
-position = Vector2(286, 1700)
-rotation_fake = 180
+position = Vector2(1653, 1534)
+rotation_fake = 132
 immovable = true
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="FillerColider" type="StaticBody2D" parent="Objects"]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/FillerColider"]
-position = Vector2(286, 2030)
-shape = SubResource("RectangleShape2D_6clpm")
-
-[node name="Prism" parent="Objects" instance=ExtResource("5_mkw3o")]
-position = Vector2(926, 311)
-
-[node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("7_p8jkc")]
-position = Vector2(-2325, 1651)
-spikes = [NodePath("../Spikes")]
-
-[node name="Spikes" parent="Objects" instance=ExtResource("8_rq3s2")]
-position = Vector2(2438, 3)
-flip_horizontal = true
-
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="Rat" parent="Entities" instance=ExtResource("9_k1s47")]
-position = Vector2(-2101, 377)
-waypoint_a = Vector2(-2040, 380)
-waypoint_b = Vector2(-2325, 1655)
+[node name="Bat" parent="Entities" instance=ExtResource("10_b0q22")]
+position = Vector2(-1227, 1)
+waypoint_a = Vector2(0, -800)
+waypoint_b = Vector2(0, 838)
 speed = 300.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_usdmf")]
 z_index = 999
-position = Vector2(-2345, -448)
+position = Vector2(-2473, -16)
 mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-66, 44)
 zoom = Vector2(0.2, 0.2)
-limit_left = -3800
-limit_top = -2100
-limit_right = 3800
-limit_bottom = 2100
-position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_s5e6w")]
-position = Vector2(756, -1419)
-angle = 85.0
+position = Vector2(1331, -1388)
+angle = 84.0
 mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -117,33 +77,40 @@ visible = false
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
 
-[node name="Lava" parent="." instance=ExtResource("8_gxfhs")]
-z_index = -1
-material = SubResource("ShaderMaterial_n6wuj")
-position = Vector2(-1561, -205)
-skew = -0.268781
-
-[node name="LavaTileBottom" parent="Lava" instance=ExtResource("10_i16kt")]
-position = Vector2(3088, 2133)
-
-[node name="LavaTileMiddle" parent="Lava" instance=ExtResource("11_aqp6h")]
-position = Vector2(3198.17, 1753.11)
-
-[node name="LavaTileMiddle2" parent="Lava" instance=ExtResource("11_aqp6h")]
-position = Vector2(3210.35, 1389.22)
-rotation = 3.14159
-
-[node name="LavaTileMiddle3" parent="Lava" instance=ExtResource("11_aqp6h")]
-position = Vector2(3277.59, 1024.39)
-
-[node name="LavaTileMiddle4" parent="Lava" instance=ExtResource("11_aqp6h")]
-position = Vector2(3290.31, 658.422)
-rotation = 3.14159
-
-[node name="LavaTileTop" parent="Lava" instance=ExtResource("12_t0dq3")]
-position = Vector2(3377.04, 263.459)
-
 [node name="Entrance" parent="." instance=ExtResource("9_76gmf")]
-position = Vector2(-2570, -561)
+position = Vector2(-2766, 4)
+
+[node name="LavaReimagined3" type="StaticBody2D" parent="."]
+position = Vector2(-565, 294)
+collision_layer = 32
+
+[node name="LavaTiles" type="Node2D" parent="LavaReimagined3"]
+z_index = -1
+position = Vector2(-60, 139)
+scale = Vector2(2.2, 2.5)
+skew = -0.150098
+
+[node name="lava_top_animated" parent="LavaReimagined3/LavaTiles" instance=ExtResource("15_m77hd")]
+position = Vector2(300.068, -326.767)
+
+[node name="LavaMiddleAnimated5" parent="LavaReimagined3/LavaTiles" instance=ExtResource("15_dp4lm")]
+position = Vector2(294.752, -152.749)
+frame_progress = 0.0
+
+[node name="LavaMiddleAnimated6" parent="LavaReimagined3/LavaTiles" instance=ExtResource("15_dp4lm")]
+position = Vector2(273.67, 26.1879)
+frame_progress = 0.0
+
+[node name="LavaMiddleAnimated7" parent="LavaReimagined3/LavaTiles" instance=ExtResource("15_dp4lm")]
+position = Vector2(262.65, 229.499)
+rotation = 3.14159
+frame_progress = 0.0
+
+[node name="lava_bottom_animated" parent="LavaReimagined3/LavaTiles" instance=ExtResource("17_3g8h4")]
+position = Vector2(210, 396.667)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LavaReimagined3"]
+position = Vector2(-26, -26)
+polygon = PackedVector2Array(95, 1434, 201, -1000, 978, -891, 1035, 1446)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="6_8sx6f"]
 [ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="6_on8v5"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="6_plenv"]
-[ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="7_0rsql"]
 [ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="7_575c2"]
 [ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_kweoo"]
-[ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="12_nvuca"]
-[ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="13_wcn6y"]
+[ext_resource type="PackedScene" uid="uid://cb56vtecdjpio" path="res://scenes/objects/lava_top_animated.tscn" id="13_2ofsd"]
+[ext_resource type="PackedScene" uid="uid://b1x1xa4x2apgy" path="res://scenes/objects/lava_middle_animated.tscn" id="13_6pqvc"]
+[ext_resource type="PackedScene" uid="uid://bmxa11fix68rl" path="res://scenes/objects/lava_bottom_animated.tscn" id="14_k0u07"]
 
 [node name="level2" type="Node2D"]
 y_sort_enabled = true
@@ -36,7 +36,7 @@ scale = Vector2(1.16, 1)
 [node name="StaticMirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="StaticMirrors" instance=ExtResource("5_g4occ")]
-position = Vector2(8, 87)
+position = Vector2(-22, 106)
 rotation_fake = 225
 immovable = true
 
@@ -55,8 +55,8 @@ flip_horizontal = true
 
 [node name="Rat" parent="Entities" instance=ExtResource("6_8sx6f")]
 position = Vector2(2433, 436)
-waypoint_a = Vector2(2310, 100)
-waypoint_b = Vector2(2310, 1600)
+waypoint_a = Vector2(2435, 610)
+waypoint_b = Vector2(2360, 1500)
 speed = 400.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("5_fn2lo")]
@@ -93,17 +93,29 @@ visible = false
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
 
-[node name="Lava" parent="." instance=ExtResource("7_0rsql")]
-z_index = -1
-position = Vector2(-1102, -91)
-
-[node name="LavaTileBottom" parent="Lava" instance=ExtResource("12_nvuca")]
-position = Vector2(993, -200)
-
-[node name="LavaTileTop" parent="Lava" instance=ExtResource("13_wcn6y")]
-position = Vector2(1118, -613)
-
 [node name="Entrance" parent="." instance=ExtResource("9_kweoo")]
 position = Vector2(-2766, 4)
+
+[node name="LavaReimagined3" type="StaticBody2D" parent="."]
+position = Vector2(-601, -473)
+collision_layer = 32
+
+[node name="LavaTiles" type="Node2D" parent="LavaReimagined3"]
+z_index = -1
+position = Vector2(66, 259)
+scale = Vector2(1.8, 1.5)
+
+[node name="LavaMiddleAnimated5" parent="LavaReimagined3/LavaTiles" instance=ExtResource("13_6pqvc")]
+position = Vector2(292.307, -159.735)
+frame_progress = 0.0
+
+[node name="lava_top_animated" parent="LavaReimagined3/LavaTiles" instance=ExtResource("13_2ofsd")]
+position = Vector2(296.667, -331.333)
+
+[node name="lava_bottom_animated" parent="LavaReimagined3/LavaTiles" instance=ExtResource("14_k0u07")]
+position = Vector2(252.222, 30)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LavaReimagined3"]
+polygon = PackedVector2Array(283, 544, 134, 379, 354, -653, 914, -647, 918, 487)
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]
