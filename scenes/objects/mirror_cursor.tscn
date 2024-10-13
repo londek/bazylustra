@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rt6u1"]
 shader = ExtResource("2_dqdeq")
-shader_parameter/blend = null
-shader_parameter/alpha = null
+shader_parameter/Blend = 1.0
+shader_parameter/Alpha = null
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p6x8q"]
 a = Vector2(-250, 5)
