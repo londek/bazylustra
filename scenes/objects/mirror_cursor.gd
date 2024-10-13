@@ -3,7 +3,7 @@ extends Node2D
 
 signal place_mirror(rotation_deg: float, global_pos: Vector2)
 var rotation_speed := 150
-var rotation_little_speed := 300
+var rotation_little_speed := 100
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -11,10 +11,10 @@ var rotation_little_speed := 300
 func _process(delta: float) -> void:
 	if !is_placeable():
 		sprite_2d.material.set("shader_parameter/Blend", 0.5)
-		sprite_2d.material.set("shader_parameter/Alpha", 0.7)
+		sprite_2d.material.set("shader_parameter/Alpha", 0.4)
 	else:
 		sprite_2d.material.set("shader_parameter/Blend", 1.0)
-		sprite_2d.material.set("shader_parameter/Alpha", 0.8)
+		sprite_2d.material.set("shader_parameter/Alpha", 0.6)
 	
 	if Input.is_action_pressed("rotate_left"):
 		rotation_degrees -= rotation_speed * delta

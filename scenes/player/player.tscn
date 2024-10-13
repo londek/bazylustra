@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddmxx0a0mg7ia"]
+[gd_scene load_steps=31 format=3 uid="uid://ddmxx0a0mg7ia"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl15c"]
+[ext_resource type="Texture2D" uid="uid://vdcmll7n2a2y" path="res://assets/player/player_shadow.png" id="2_1fh8l"]
 [ext_resource type="Texture2D" uid="uid://docvxdh0k2gy3" path="res://assets/player/player_down.png" id="2_obtah"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_xhbgc"]
 [ext_resource type="Texture2D" uid="uid://j5ohxg5qgccp" path="res://assets/placeholder/noise_.jpg" id="3_8deny"]
@@ -19,6 +20,26 @@
 [ext_resource type="Texture2D" uid="uid://8hvtt4owumv3" path="res://assets/player/idle_down_1.png" id="15_dmmii"]
 [ext_resource type="Texture2D" uid="uid://c1afsxkvvfjdl" path="res://assets/player/idle_down_2.png" id="16_6h1hq"]
 [ext_resource type="Texture2D" uid="uid://14x5mi0cmtdu" path="res://assets/player/idle_down_3.png" id="17_jq62d"]
+
+[sub_resource type="Shader" id="Shader_mvpfv"]
+code = "shader_type canvas_item;
+
+uniform float alpha = 1.0;
+uniform float inner_radius = 0.0;
+uniform float outer_radius = 1.0;
+
+void fragment() {
+	float x = abs(UV.r-.5)*2.0;
+	float y = abs(UV.g-.5)*2.0;
+	float q = 1.0-(1.0-sqrt(x*x+y*y)/outer_radius)/(1.0-inner_radius);
+	COLOR = vec4(0, 0, 0, q*alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bs3o"]
+shader = SubResource("Shader_mvpfv")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.15
+shader_parameter/outer_radius = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cixci"]
 resource_local_to_scene = true
@@ -125,6 +146,27 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 612
 script = ExtResource("1_tl15c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+light_mask = 3
+visibility_layer = 3
+z_index = 6
+material = SubResource("ShaderMaterial_7bs3o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.196078)
+position = Vector2(-4, 318)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_1fh8l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_cixci")
