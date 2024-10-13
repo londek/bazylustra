@@ -9,6 +9,13 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if !is_placeable():
+		($Sprite2D.material as Material).set("shader_param/Blend", 0.5)
+		($Sprite2D.material as Material).set("shader_param/Alpha", 0.7)
+	else:
+		($Sprite2D.material as Material).set("shader_param/Blend", 1.0)
+		($Sprite2D.material as Material).set("shader_param/Alpha", 0.8)
+	
 	if Input.is_action_pressed("rotate_left"):
 		rotation_degrees -= rotation_speed * delta
 		if rotation_degrees < 0:

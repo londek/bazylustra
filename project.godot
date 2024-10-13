@@ -116,6 +116,7 @@ esc={
 2d_physics/layer_7="lava"
 2d_physics/layer_8="mirror_absorber"
 2d_physics/layer_9="mirror_cursor"
+2d_physics/layer_10="mirrors"
 
 [physics]
 

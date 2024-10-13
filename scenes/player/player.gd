@@ -23,6 +23,7 @@ var is_stoned:
 		else:
 			tween.tween_method(update_shader_val, 1.0, 0.0, 0.5)
 
+var conscutive_hits := 0
 
 @export var mirror_cursor: MirrorCursor
 
@@ -101,7 +102,12 @@ func update_shader_val(val: float):
 	sprite_2d.material.set("shader_parameter/progress", val)
 
 func _on_laser_enter():
-	is_stoned = true
+	conscutive_hits = 0
 	
 func _on_laser_exit():
 	is_stoned = false
+
+func _on_laser_hit():
+	conscutive_hits += 1
+	if conscutive_hits > 4:
+		is_stoned = true

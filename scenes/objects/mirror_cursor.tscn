@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://rm8qttkjv66d"]
+[gd_scene load_steps=7 format=3 uid="uid://rm8qttkjv66d"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror_cursor.gd" id="1_4d7pd"]
 [ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
+[ext_resource type="Shader" uid="uid://bilc7m26fds2j" path="res://scenes/objects/mirror_cursor.tres" id="2_dqdeq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rt6u1"]
+shader = ExtResource("2_dqdeq")
+shader_parameter/Blend = 1.0
+shader_parameter/Alpha = null
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p6x8q"]
 a = Vector2(-250, 5)
@@ -14,6 +20,7 @@ size = Vector2(299, 360)
 script = ExtResource("1_4d7pd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rt6u1")
 rotation = 1.5708
 texture = ExtResource("2_35gaf")
 
