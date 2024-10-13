@@ -64,8 +64,12 @@ func _physics_process(delta: float) -> void:
 			closest_mirror.queue_free()
 		
 	if Input.is_action_just_pressed("reset"):
-		SceneTransitions.reload_scene_persona()
-		
+		SceneTransitions.reload_scene_eye()
+	
+	if Input.is_action_just_pressed("shake"):
+		#SmartCamera.shake(0.5, 30, 20) 
+		CutscenePlayer.play(CutscenePlayer.WALL_BREAK)
+	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	if is_stoned:

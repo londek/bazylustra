@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cshb3tmeugcmv"]
+
+[ext_resource type="Script" path="res://globals/camera.gd" id="1_vv3qe"]
+
+[node name="SmartCamera" type="Camera2D"]
+zoom = Vector2(0.2, 0.2)
+script = ExtResource("1_vv3qe")

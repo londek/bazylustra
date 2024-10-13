@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://b2fl5acoclvdr"]
 
 [ext_resource type="Shader" path="res://globals/cutout.gdshader" id="1_cwba3"]
-[ext_resource type="Texture2D" uid="uid://bxgiltvokva4d" path="res://assets/placeholder/mask_eye.png" id="2_8n6to"]
 [ext_resource type="Script" path="res://globals/scene_transitions.gd" id="3_u571t"]
+[ext_resource type="Texture2D" uid="uid://dm7bc353msmwl" path="res://assets/placeholder/mask_kochana.png" id="3_vtxi4"]
 [ext_resource type="Texture2D" uid="uid://do7qdo0escgxw" path="res://assets/ui/transitions/persona_0001.png" id="4_ev7s2"]
 [ext_resource type="Texture2D" uid="uid://dlagrevrkjd7t" path="res://assets/ui/transitions/persona_0002.png" id="5_ffuyq"]
 [ext_resource type="Texture2D" uid="uid://x17lh6r5tcx2" path="res://assets/ui/transitions/persona_0003.png" id="6_cu4rk"]
@@ -27,34 +27,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ep0c4"]
 shader = ExtResource("1_cwba3")
 shader_parameter/scale = 0.0
-shader_parameter/mask = ExtResource("2_8n6to")
-
-[sub_resource type="Animation" id="Animation_ux0k7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
+shader_parameter/mask = ExtResource("3_vtxi4")
 
 [sub_resource type="Animation" id="Animation_wqdul"]
 resource_name = "FadeToBlack"
@@ -102,6 +75,33 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ux0k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ieigs"]
 _data = {
 "FadeToBlack": SubResource("Animation_wqdul"),
@@ -119,7 +119,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15

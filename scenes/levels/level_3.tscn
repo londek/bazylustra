@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=17 format=3 uid="uid://dj0kmlup3cihh"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
@@ -10,12 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_s5e6w"]
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="8_gxfhs"]
 [ext_resource type="PackedScene" path="res://scenes/entrance.tscn" id="9_76gmf"]
+[ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="10_2rh71"]
 [ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="10_i16kt"]
 [ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="11_aqp6h"]
 [ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="12_t0dq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6clpm"]
 size = Vector2(322, 300)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6wuj"]
+shader = ExtResource("10_2rh71")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 30.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [node name="level3" type="Node2D"]
 y_sort_enabled = true
@@ -92,6 +101,7 @@ blend_mode = 1
 
 [node name="Lava" parent="." instance=ExtResource("8_gxfhs")]
 z_index = -1
+material = SubResource("ShaderMaterial_n6wuj")
 position = Vector2(-1561, -205)
 skew = -0.268781
 
@@ -100,25 +110,20 @@ position = Vector2(3088, 2133)
 
 [node name="LavaTileMiddle" parent="Lava" instance=ExtResource("11_aqp6h")]
 position = Vector2(3198.17, 1753.11)
-scale = Vector2(2, 2)
 
 [node name="LavaTileMiddle2" parent="Lava" instance=ExtResource("11_aqp6h")]
 position = Vector2(3210.35, 1389.22)
 rotation = 3.14159
-scale = Vector2(2, 2)
 
 [node name="LavaTileMiddle3" parent="Lava" instance=ExtResource("11_aqp6h")]
 position = Vector2(3277.59, 1024.39)
-scale = Vector2(2, 2)
 
 [node name="LavaTileMiddle4" parent="Lava" instance=ExtResource("11_aqp6h")]
 position = Vector2(3290.31, 658.422)
 rotation = 3.14159
-scale = Vector2(2, 2)
 
 [node name="LavaTileTop" parent="Lava" instance=ExtResource("12_t0dq3")]
 position = Vector2(3377.04, 263.459)
-scale = Vector2(2, 2)
 
 [node name="Entrance" parent="." instance=ExtResource("9_76gmf")]
 position = Vector2(-2570, -561)
