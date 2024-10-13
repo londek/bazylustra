@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3d11wt7pli7"]
+
+[ext_resource type="Texture2D" uid="uid://hi37b53602si" path="res://assets/lava/lava_zakret/lava_zakret_0001.png" id="1_e77in"]
+[ext_resource type="Texture2D" uid="uid://7vfoqeaacw1s" path="res://assets/lava/lava_zakret/lava_zakret_0002.png" id="2_5h3t6"]
+[ext_resource type="Texture2D" uid="uid://b8vdbfplgdr8g" path="res://assets/lava/lava_zakret/lava_zakret_0003.png" id="3_jemcj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_deibo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e77in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5h3t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jemcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5h3t6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="LavaCurveAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_deibo")
+autoplay = "default"

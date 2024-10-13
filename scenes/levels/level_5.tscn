@@ -30,7 +30,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_74y4m")
 
 [node name="Exit" parent="." instance=ExtResource("3_htf7s")]
-position = Vector2(2704, 1)
+position = Vector2(2610, -305)
 
 [node name="MirrorCursor" parent="." instance=ExtResource("4_i8kgt")]
 
