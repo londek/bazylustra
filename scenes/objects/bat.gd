@@ -25,6 +25,7 @@ var is_stoned:
 			sprite_2d.texture = BAT_FLY_DOWN_1 if velocity.y > 0 else BAT_FLY_UP_4
 			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
 			animation_player.pause()
+			$AudioStreamPlayer2D.play()
 		else:
 			tween.tween_method(update_shader_val, 0.9, 0.0, 0.5)
 

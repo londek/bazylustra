@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://thrppbl7ql68"]
+[gd_scene load_steps=6 format=3 uid="uid://thrppbl7ql68"]
 
 [ext_resource type="Texture2D" uid="uid://b5bkg5kooyd6o" path="res://assets/objects/plate_up_gold.png" id="1_diwql"]
 [ext_resource type="Script" path="res://scenes/objects/pressure_plate.gd" id="1_sf32u"]
 [ext_resource type="Texture2D" uid="uid://7qropf3st8dl" path="res://assets/objects/plate_down_gold.png" id="3_ctxwh"]
+[ext_resource type="AudioStream" uid="uid://ka5g2a1gc013" path="res://assets/audio/spike_hiding.wav" id="4_1dpmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb38y"]
 size = Vector2(109, 84.2045)
@@ -23,6 +24,10 @@ texture = ExtResource("1_diwql")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_hb38y")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1dpmh")
+volume_db = 24.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

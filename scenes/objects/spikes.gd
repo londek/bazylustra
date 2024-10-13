@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	if !enabled:
 		sprite_2d.z_index = -1
 	else:
-		sprite_2d.z_index = 2	
+		sprite_2d.z_index = 1
 
 func switch():
 	enabled = !enabled
