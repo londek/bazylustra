@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://dnyk0pa1cd3xx"]
 
 [node name="Lava" type="StaticBody2D"]
-collision_layer = 32
+collision_layer = 52
 collision_mask = 9
