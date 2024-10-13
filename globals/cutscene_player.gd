@@ -5,12 +5,17 @@ extends CanvasLayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-enum CUTSCENES {WALL_BREAK}
+@onready var start_btn: Button = $StartBtn
+
+signal start_btn_appear
 
 const WALL_BREAK: Dictionary = {
 		"img_array": [preload("res://assets/cutscenes/wall_break_1.png"), preload("res://assets/cutscenes/wall_break_2.png"), preload("res://assets/cutscenes/wall_break_3.png"), preload("res://assets/cutscenes/wall_break_4.png"), preload("res://assets/cutscenes/wall_break_5.png")],
 		"delay": 1.0
 	}
+const GAME_START := {
+	"img_array": [preload("res://assets/ui/main_menu_closed.png"), preload("res://assets/ui/main_menu_open_1.png"), preload("res://assets/ui/main_menu_open_2.png"), preload("res://assets/ui/main_menu_open_3.png"), preload("res://assets/ui/main_menu_open_4.png"), preload("res://assets/ui/main_menu_open_5.png")]
+}
 
 
 func play(ctscn: Dictionary):
@@ -37,4 +42,37 @@ func play(ctscn: Dictionary):
 			await animation_player.animation_finished
 			sprite_2d.texture = null
 			animation_player.play_backwards("FadeToBlack")
+		GAME_START:
+			await animation_player.animation_finished
+			animation_player.play_backwards("FadeToBlack")
+			sprite_2d.texture = GAME_START["img_array"][0]
+			await animation_player.animation_finished
+			await get_tree().create_timer(1).timeout
+			sprite_2d.texture = GAME_START["img_array"][1]
+			Shaker.shake(sprite_2d, 10, 0.2) 
+			await get_tree().create_timer(1).timeout
+			sprite_2d.texture = GAME_START["img_array"][2]
+			Shaker.shake(sprite_2d, 10, 0.2)
+			await get_tree().create_timer(1).timeout
+			sprite_2d.texture = GAME_START["img_array"][3]
+			Shaker.shake(sprite_2d, 10, 0.2)
+			await get_tree().create_timer(1).timeout
+			sprite_2d.texture = GAME_START["img_array"][4]
+			Shaker.shake(sprite_2d, 10, 0.2)
+			await get_tree().create_timer(1.5).timeout
+			Shaker.shake(sprite_2d, 50, 1.5)
+			await get_tree().create_timer(1.5).timeout 
+			sprite_2d.texture = GAME_START["img_array"][5]
 			
+			var tween := get_tree().create_tween()
+			tween.tween_property(start_btn, "modulate:a", 0.5, 4)
+	#visible = false
+			#animation_player.play("FadeToBlack")
+			#await animation_player.animation_finished
+			#sprite_2d.texture = null
+			#animation_player.play_backwards("FadeToBlack")
+			
+
+
+func _on_start_btn_pressed() -> void:
+	print("jajaja")

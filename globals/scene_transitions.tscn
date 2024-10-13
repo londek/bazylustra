@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://b2fl5acoclvdr"]
 
 [ext_resource type="Shader" path="res://globals/cutout.gdshader" id="1_cwba3"]
+[ext_resource type="Texture2D" uid="uid://cphjybkc3w46r" path="res://assets/ui/transitions/cytrynka.png" id="3_17jb8"]
 [ext_resource type="Script" path="res://globals/scene_transitions.gd" id="3_u571t"]
-[ext_resource type="Texture2D" uid="uid://dm7bc353msmwl" path="res://assets/placeholder/mask_kochana.png" id="3_vtxi4"]
 [ext_resource type="Texture2D" uid="uid://do7qdo0escgxw" path="res://assets/ui/transitions/persona_0001.png" id="4_ev7s2"]
 [ext_resource type="Texture2D" uid="uid://dlagrevrkjd7t" path="res://assets/ui/transitions/persona_0002.png" id="5_ffuyq"]
 [ext_resource type="Texture2D" uid="uid://x17lh6r5tcx2" path="res://assets/ui/transitions/persona_0003.png" id="6_cu4rk"]
@@ -27,7 +27,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ep0c4"]
 shader = ExtResource("1_cwba3")
 shader_parameter/scale = 0.0
-shader_parameter/mask = ExtResource("3_vtxi4")
+shader_parameter/mask = ExtResource("3_17jb8")
 
 [sub_resource type="Animation" id="Animation_wqdul"]
 resource_name = "FadeToBlack"

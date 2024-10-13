@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgfx4fc7c17xj"]
+[gd_scene load_steps=4 format=3 uid="uid://dgfx4fc7c17xj"]
 
 [ext_resource type="Texture2D" uid="uid://dxfbjdirssubh" path="res://assets/ui/main_menu.png" id="1_3b0ml"]
-[ext_resource type="Texture2D" uid="uid://bxwb1sabi8k67" path="res://assets/ui/doors_open.png" id="2_x1yix"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_kxibf"]
+[ext_resource type="Texture2D" uid="uid://2kagi1ohhuxp" path="res://assets/ui/main_menu_laser_1.png" id="2_uld35"]
 
 [node name="MainMenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_kxibf")
 
 [node name="Bg" type="TextureRect" parent="."]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,11 +19,11 @@ texture = ExtResource("1_3b0ml")
 expand_mode = 3
 
 [node name="Fg" type="TextureRect" parent="."]
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_x1yix")
-expand_mode = 3
-stretch_mode = 5
+texture = ExtResource("2_uld35")
+expand_mode = 2

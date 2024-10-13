@@ -68,7 +68,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shake"):
 		#SmartCamera.shake(0.5, 30, 20) 
-		CutscenePlayer.play(CutscenePlayer.WALL_BREAK)
+		CutscenePlayer.play(CutscenePlayer.GAME_START)
+	
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
