@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=20 format=3 uid="uid://dj0kmlup3cihh"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="5_05gxo"]
 [ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="5_mkw3o"]
 [ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="6_usdmf"]
+[ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="7_p8jkc"]
 [ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="7_s5e6w"]
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="8_gxfhs"]
+[ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="8_rq3s2"]
 [ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_76gmf"]
+[ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="9_k1s47"]
 [ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="10_2rh71"]
 [ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="10_i16kt"]
 [ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="11_aqp6h"]
@@ -64,7 +67,21 @@ shape = SubResource("RectangleShape2D_6clpm")
 [node name="Prism" parent="Objects" instance=ExtResource("5_mkw3o")]
 position = Vector2(926, 311)
 
+[node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("7_p8jkc")]
+position = Vector2(-2325, 1651)
+spikes = [NodePath("../Spikes")]
+
+[node name="Spikes" parent="Objects" instance=ExtResource("8_rq3s2")]
+position = Vector2(2438, 3)
+flip_horizontal = true
+
 [node name="Entities" type="Node2D" parent="."]
+
+[node name="Rat" parent="Entities" instance=ExtResource("9_k1s47")]
+position = Vector2(-2101, 377)
+waypoint_a = Vector2(-2040, 380)
+waypoint_b = Vector2(-2325, 1655)
+speed = 300.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_usdmf")]
 z_index = 999
