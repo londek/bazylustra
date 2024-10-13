@@ -1,6 +1,7 @@
 class_name MirrorCursor
 extends Node2D
 
+
 signal place_mirror(rotation_deg: float, global_pos: Vector2)
 var rotation_speed := 150
 var rotation_little_speed := 300
