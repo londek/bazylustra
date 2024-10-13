@@ -1,41 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1x1xa4x2apgy"]
+[gd_scene load_steps=5 format=3 uid="uid://b1x1xa4x2apgy"]
 
-[ext_resource type="Texture2D" uid="uid://bfi0axqgs1gor" path="res://assets/lava/lava/lava_0001.png" id="1_65fi6"]
-[ext_resource type="Texture2D" uid="uid://htxy8fx6yyo7" path="res://assets/lava/lava/lava_0002.png" id="2_nubnv"]
-[ext_resource type="Texture2D" uid="uid://dgylvtyrhd6ph" path="res://assets/lava/lava/lava_0003.png" id="3_xu1lf"]
-[ext_resource type="Texture2D" uid="uid://bv3nelx6blgmw" path="res://assets/lava/lava/lava_0004.png" id="4_nv0ac"]
-[ext_resource type="Texture2D" uid="uid://c52t0h72455kv" path="res://assets/lava/lava/lava_0005.png" id="5_aw62h"]
+[ext_resource type="Texture2D" uid="uid://bv6g54me20mq" path="res://assets/lava/lava_mid/C-001-0001_0001.png" id="1_nvmx1"]
+[ext_resource type="Texture2D" uid="uid://dyaa5ilx076l6" path="res://assets/lava/lava_mid/C-001-0001_0002.png" id="2_uh01g"]
+[ext_resource type="Texture2D" uid="uid://duqhbk4ogwqhp" path="res://assets/lava/lava_mid/C-001-0001_0003.png" id="3_vbnbb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dc5jg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_65fi6")
+"texture": ExtResource("1_nvmx1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_nubnv")
+"texture": ExtResource("2_uh01g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xu1lf")
+"texture": ExtResource("3_vbnbb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nv0ac")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_aw62h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_nv0ac")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xu1lf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_nubnv")
+"texture": ExtResource("2_uh01g")
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 6.0
 }]
 
 [node name="LavaMiddleAnimated" type="AnimatedSprite2D"]

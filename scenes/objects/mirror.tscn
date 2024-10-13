@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdsgt53px4t4q"]
+[gd_scene load_steps=11 format=3 uid="uid://bdsgt53px4t4q"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror.gd" id="1_fsen6"]
 [ext_resource type="Shader" path="res://scenes/objects/mirror_highlight.gdshader" id="2_l7i3y"]
 [ext_resource type="Texture2D" uid="uid://dfax66oxdelrv" path="res://assets/light.png" id="2_mur5b"]
+[ext_resource type="Texture2D" uid="uid://dt1a21o305lmy" path="res://assets/mirror/mirror_shadow.png" id="3_6a40d"]
 [ext_resource type="Texture2D" uid="uid://dc4fpy65ma6ch" path="res://assets/mirror/mirror_back.png" id="4_e8r7j"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qt78c"]
@@ -37,6 +38,12 @@ line = SubResource("SegmentShape2D_qt78c")
 enabled = false
 texture = ExtResource("2_mur5b")
 height = 59.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.168627)
+position = Vector2(0, 275)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("3_6a40d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_d32cp")

@@ -11,6 +11,9 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 
+const BAT_FLY_UP_4 = preload("res://assets/bat/bat_fly_up_4.png")
+const BAT_FLY_DOWN_1 = preload("res://assets/bat/bat_fly_down_1.png")
+
 const DISTANCE_THRESHOLD := 2
 
 var is_stoned:
@@ -19,6 +22,7 @@ var is_stoned:
 		walkable_collision.disabled = !is_stoned
 		var tween := get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 		if is_stoned:
+			sprite_2d.texture = BAT_FLY_DOWN_1 if velocity.y > 0 else BAT_FLY_UP_4
 			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
 			animation_player.pause()
 		else:
@@ -68,7 +72,7 @@ func _on_laser_enter():
 
 
 func _on_laser_exit():
-	#is_stoned = false
+	is_stoned = false
 	pass
 
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmxa11fix68rl"]
+
+[ext_resource type="Texture2D" uid="uid://c383yhod0tiip" path="res://assets/lava/lava_bottom/C-001-0001_0001.png" id="1_5vyrg"]
+[ext_resource type="Texture2D" uid="uid://dgv2fgeg1045e" path="res://assets/lava/lava_bottom/C-001-0001_0002.png" id="2_0cg1o"]
+[ext_resource type="Texture2D" uid="uid://takw58vmv1sh" path="res://assets/lava/lava_bottom/C-001-0001_0003.png" id="3_rkw06"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63j7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5vyrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cg1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cg1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rkw06")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="lava_bottom_animated" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_63j7m")
+autoplay = "default"
+frame_progress = 0.177335

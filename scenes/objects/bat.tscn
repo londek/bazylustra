@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xanx05mu3sur"]
+[gd_scene load_steps=25 format=3 uid="uid://xanx05mu3sur"]
 
 [ext_resource type="Script" path="res://scenes/objects/bat.gd" id="1_hyc22"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_5cbku"]
@@ -13,11 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bqxbh24kdb7vx" path="res://assets/bat/bat_fly_left_4.png" id="13_0gsoe"]
 [ext_resource type="Texture2D" uid="uid://b7pncy4k5yxfc" path="res://assets/bat/bat_fly_up_1.png" id="14_3ej5c"]
 [ext_resource type="Texture2D" uid="uid://bbcq6aa1mli87" path="res://assets/bat/bat_fly_up_2.png" id="15_b1y24"]
+[ext_resource type="Texture2D" uid="uid://dv3yr0sn02n65" path="res://assets/general_shadow.png" id="16_jygbh"]
 [ext_resource type="Texture2D" uid="uid://bqm5q7kpysy4" path="res://assets/bat/bat_fly_up_3.png" id="16_o2eb1"]
 [ext_resource type="Texture2D" uid="uid://dfk67ggejnbba" path="res://assets/bat/bat_fly_up_4.png" id="17_ranwc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qtva7"]
-radius = 60.0
+radius = 97.6038
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nv17t"]
 resource_local_to_scene = true
@@ -106,7 +107,7 @@ _data = {
 size = Vector2(300, 325)
 
 [node name="Bat" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_hyc22")
@@ -132,6 +133,12 @@ collision_layer = 32
 position = Vector2(-1, -56)
 scale = Vector2(2, 0.2)
 shape = SubResource("RectangleShape2D_k8xq1")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.156863)
+position = Vector2(0, 200)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_jygbh")
 
 [connection signal="body_entered" from="WalkableArea" to="." method="_on_walkable_area_body_entered"]
 [connection signal="body_exited" from="WalkableArea" to="." method="_on_walkable_area_body_exited"]
