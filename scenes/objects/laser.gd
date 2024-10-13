@@ -36,12 +36,13 @@ const PLAYER_MASK = pow(2, 1-1)
 const REFLECTIVE_MASK = pow(2, 2-1)
 const OBSTACLES_MASK = pow(2, 3-1)
 const ENTITIES_MASK = pow(2, 4-1)
+const MIRROR_ABSORBER_MASK = pow(2, 8-1)
 const MIRROR_CURSOR_MASK = pow(2, 9-1)
 
 var previous_colliders: Array[Node] = []
 var current_colliders: Array[Node] = []
 
-@onready var mirror_cursor_reflection:  Area2D = mirror_cursor.get_node("Reflection") 
+@onready var mirror_cursor_reflection: Area2D = mirror_cursor.get_node("Reflection") 
 
 func _draw() -> void:
 	if lines.size() == 0:
@@ -98,7 +99,7 @@ func calculate_ray(current_point, current_angle, last=null, is_predicted=false, 
 	var space_state = get_world_2d().direct_space_state
 	
 	var real_query = PhysicsRayQueryParameters2D.create(current_point, ray)
-	real_query.collision_mask = PLAYER_MASK + REFLECTIVE_MASK + ENTITIES_MASK + OBSTACLES_MASK
+	real_query.collision_mask = PLAYER_MASK + REFLECTIVE_MASK + ENTITIES_MASK + OBSTACLES_MASK + MIRROR_ABSORBER_MASK
 	real_query.collide_with_areas = true
 	if last != null:
 		real_query.exclude = [last]
