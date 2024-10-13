@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://l30fph3dn00a"]
+[gd_scene load_steps=6 format=3 uid="uid://l30fph3dn00a"]
 
 [ext_resource type="Script" path="res://scenes/ui/level_selector/level_selector.gd" id="1_58vaa"]
 [ext_resource type="Texture2D" uid="uid://b0btfq0ic6gd7" path="res://assets/ui/leverl_selector_bg.png" id="1_ebtcs"]
 [ext_resource type="PackedScene" uid="uid://crdt8nopfh22s" path="res://scenes/ui/level_selector/mirror.tscn" id="2_jutjp"]
 [ext_resource type="Texture2D" uid="uid://dowxg64v83rjh" path="res://assets/ui/level_selector_arrow.png" id="4_cisc3"]
+[ext_resource type="Texture2D" uid="uid://buv0ypkhankkf" path="res://assets/ui/level_selector_next_hover.png" id="5_r5gxv"]
 
 [node name="LevelSelector" type="Node2D"]
 script = ExtResource("1_58vaa")
@@ -60,6 +61,7 @@ offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_cisc3")
+texture_hover = ExtResource("5_r5gxv")
 
 [node name="LeftButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
@@ -74,6 +76,7 @@ offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_cisc3")
+texture_hover = ExtResource("5_r5gxv")
 flip_h = true
 
 [connection signal="pressed" from="CanvasLayer/RightButton" to="." method="_on_right_button_pressed"]
