@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://flwby8dhlpx3" path="res://assets/objects/barrel_top.png" id="2_7aiix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1sk8"]
-size = Vector2(231, 205.5)
+size = Vector2(321.75, 205.5)
 
 [node name="barrel" type="StaticBody2D"]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.5, 1.5)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

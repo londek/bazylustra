@@ -27,8 +27,8 @@ shader_parameter/progress = 0.9
 shader_parameter/IMG = ExtResource("3_8deny")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r6jy"]
-radius = 117.0
-height = 252.0
+radius = 90.6665
+height = 181.333
 
 [sub_resource type="Animation" id="Animation_xoq2k"]
 length = 0.001
@@ -123,16 +123,18 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 100
+collision_mask = 356
 script = ExtResource("1_tl15c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_cixci")
 position = Vector2(0, -10)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_obtah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 92)
+position = Vector2(1, 207)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_7r6jy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

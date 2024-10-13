@@ -14,6 +14,7 @@ var rats_on_plate: Array[Rat]
 
 func _ready() -> void:
 	sprite_2d.flip_h = flip_horizontal
+	sprite_2d.texture = sprite
 
 var pressed: bool = false:
 	set(val):
