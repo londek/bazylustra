@@ -1,12 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgfx4fc7c17xj"]
+[gd_scene load_steps=4 format=3 uid="uid://67133bbyb72y"]
 
 [ext_resource type="Texture2D" uid="uid://dxfbjdirssubh" path="res://assets/ui/main_menu.png" id="1_3b0ml"]
-[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_kxibf"]
 [ext_resource type="Texture2D" uid="uid://2kagi1ohhuxp" path="res://assets/ui/main_menu_laser_1.png" id="2_uld35"]
+
+[sub_resource type="GDScript" id="GDScript_gqdpp"]
+script/source = "extends CanvasLayer
+
+@onready var start_btn: Button = $StartBtn
+
+func _ready() -> void:
+	CutscenePlayer.connect(\"start_btn_appear\", _on_start_btn_appear)
+
+
+func _on_start_btn_appear():
+	var tween := get_tree().create_tween()
+	tween.tween_property(start_btn, \"modulate:a\", 0.8, 3)
+	#tween.tween_callback(func(): start_btn.disabled = false)
+
+
+func _on_start_btn_pressed() -> void:
+	print(\"jajaja\")
+"
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 2
-script = ExtResource("1_kxibf")
+script = SubResource("GDScript_gqdpp")
 
 [node name="Bg" type="TextureRect" parent="."]
 z_index = -1
