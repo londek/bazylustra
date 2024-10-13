@@ -13,7 +13,6 @@ func change_scene_to_path(target: String) -> void:
 	animation_player.play_backwards("FadeToBlack")
 
 
-
 func change_scene_to_packed(target: PackedScene) -> void:
 	animation_player.play("FadeToBlack")
 	await animation_player.animation_finished
