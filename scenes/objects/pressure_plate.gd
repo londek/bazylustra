@@ -21,17 +21,19 @@ var pressed: bool = false:
 		sprite_2d.texture = sprite_pressed if pressed else sprite
 		if pressed != val:
 			call_deferred("switch_spikes")
-		pressed = val
+		pressed = val		
+			
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Rat:
+		$AudioStreamPlayer2D.play()
 		if !(body in rats_on_plate):
 			rats_on_plate.append(body)
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is Rat:
+	if body is Rat:		
 		if body in rats_on_plate:
 			rats_on_plate.erase(body)
 			pressed = false
@@ -45,5 +47,6 @@ func _process(delta: float) -> void:
 
 
 func switch_spikes() -> void:
+	$AudioStreamPlayer2D.play()
 	for spike in spikes:
 		spike.switch()

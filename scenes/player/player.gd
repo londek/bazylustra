@@ -83,6 +83,10 @@ func _physics_process(delta: float) -> void:
 	
 	if !velocity:
 		animation_player.play("idle_down")
+		$AudioStreamPlayer2D.stop()
+	else:
+		if !$AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.play()
 	
 	if velocity.x:
 		$Sprite2D.flip_h = velocity.x > 0
