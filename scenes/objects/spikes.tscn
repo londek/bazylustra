@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://dwfrcyhi0w4kt" path="res://assets/objects/spikes_gold_hid.png" id="1_b368s"]
 [ext_resource type="Texture2D" uid="uid://ba2lki6el686w" path="res://assets/objects/spikes_gold.png" id="1_ujxcy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmjqr"]
-size = Vector2(250, 250)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47123"]
+size = Vector2(220, 220)
 
 [node name="Spikes" type="StaticBody2D"]
-collision_layer = 4
+scale = Vector2(1.5, 1.5)
+collision_layer = 32
 script = ExtResource("1_5dpsx")
 sprite = ExtResource("1_ujxcy")
 sprite_hid = ExtResource("1_b368s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xmjqr")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
 texture = ExtResource("1_ujxcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_47123")

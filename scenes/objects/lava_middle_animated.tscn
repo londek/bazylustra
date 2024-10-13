@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1x1xa4x2apgy"]
+
+[ext_resource type="Texture2D" uid="uid://bfi0axqgs1gor" path="res://assets/lava/lava/lava_0001.png" id="1_65fi6"]
+[ext_resource type="Texture2D" uid="uid://htxy8fx6yyo7" path="res://assets/lava/lava/lava_0002.png" id="2_nubnv"]
+[ext_resource type="Texture2D" uid="uid://dgylvtyrhd6ph" path="res://assets/lava/lava/lava_0003.png" id="3_xu1lf"]
+[ext_resource type="Texture2D" uid="uid://bv3nelx6blgmw" path="res://assets/lava/lava/lava_0004.png" id="4_nv0ac"]
+[ext_resource type="Texture2D" uid="uid://c52t0h72455kv" path="res://assets/lava/lava/lava_0005.png" id="5_aw62h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dc5jg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_65fi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nubnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xu1lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nv0ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aw62h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nv0ac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xu1lf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nubnv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="LavaMiddleAnimated" type="AnimatedSprite2D"]
+position = Vector2(228, 21)
+sprite_frames = SubResource("SpriteFrames_dc5jg")
+autoplay = "default"
+frame_progress = 0.694848

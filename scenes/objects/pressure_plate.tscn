@@ -8,6 +8,7 @@
 size = Vector2(109, 84.2045)
 
 [node name="PressurePlate" type="Area2D"]
+scale = Vector2(2, 2)
 collision_layer = 16
 collision_mask = 9
 script = ExtResource("1_sf32u")

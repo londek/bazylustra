@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://xanx05mu3sur"]
+[gd_scene load_steps=24 format=3 uid="uid://xanx05mu3sur"]
 
 [ext_resource type="Script" path="res://scenes/objects/bat.gd" id="1_hyc22"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_5cbku"]
+[ext_resource type="Texture2D" uid="uid://j5ohxg5qgccp" path="res://assets/placeholder/noise_.jpg" id="3_b7bwx"]
 [ext_resource type="Texture2D" uid="uid://d01q0mlsryum2" path="res://assets/bat/bat_fly_down_1.png" id="6_4nr0v"]
 [ext_resource type="Texture2D" uid="uid://c1uqb00pi12b2" path="res://assets/bat/bat_fly_down_2.png" id="7_0ar7f"]
 [ext_resource type="Texture2D" uid="uid://dm18br0dly3a1" path="res://assets/bat/bat_fly_down_3.png" id="8_3cclm"]
@@ -22,6 +23,7 @@ radius = 60.0
 resource_local_to_scene = true
 shader = ExtResource("2_5cbku")
 shader_parameter/progress = 0.0
+shader_parameter/IMG = ExtResource("3_b7bwx")
 
 [sub_resource type="Animation" id="Animation_srn7x"]
 length = 0.001
@@ -101,9 +103,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8xq1"]
-size = Vector2(300, 180)
+size = Vector2(300, 325)
 
 [node name="Bat" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_hyc22")
@@ -126,9 +129,9 @@ libraries = {
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WalkableArea"]
+position = Vector2(-1, -56)
+scale = Vector2(2, 0.2)
 shape = SubResource("RectangleShape2D_k8xq1")
-
-[node name="SafetyGuard" type="StaticBody2D" parent="."]
 
 [connection signal="body_entered" from="WalkableArea" to="." method="_on_walkable_area_body_entered"]
 [connection signal="body_exited" from="WalkableArea" to="." method="_on_walkable_area_body_exited"]
