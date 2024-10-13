@@ -38,14 +38,14 @@ position = Vector2(-2588, 111)
 mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-66, 44)
-zoom = Vector2(0.2, 0.2)
+position = Vector2(2588, -111)
+zoom = Vector2(0.25, 0.25)
 limit_left = -3800
 limit_top = -2100
 limit_right = 3800
 limit_bottom = 2100
 position_smoothing_enabled = true
-metadata/_edit_lock_ = true
+editor_draw_limits = true
 
 [node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_umem7")]
 position = Vector2(2, -1359)

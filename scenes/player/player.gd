@@ -26,11 +26,15 @@ var is_stoned:
 var conscutive_hits := 0
 
 @export var mirror_cursor: MirrorCursor
+@export var max_mirrors: int = 3
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 func _ready() -> void:
 	is_stoned = false
+	
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.05), false, 5)
@@ -63,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("delete"):
 			closest_mirror.queue_free()
+			PlayerData.placed_mirrors -= 1
 		
 	if Input.is_action_just_pressed("reset"):
 		SceneTransitions.reload_scene_eye()

@@ -21,6 +21,9 @@ var pressed: bool = false:
 		sprite_2d.texture = sprite_pressed if pressed else sprite
 		if pressed != val:
 			call_deferred("switch_spikes")
+			Shaker.shake(self, 20, 0.7)
+			for spike in spikes:
+				Shaker.shake(spike, 20, 0.7)
 		pressed = val
 
 

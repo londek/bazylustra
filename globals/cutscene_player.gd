@@ -78,7 +78,7 @@ func play(ctscn: Dictionary):
 			tween.tween_property(start_btn, "modulate:a", 0.5, 1)
 		GAME_START:
 			await animation_player.animation_finished
-			animation_player.play_backwards("FadeToBlack")
+			#animation_player.play_backwards("FadeToBlack")
 			sprite_2d.texture = GAME_START["img"]
 			await get_tree().create_timer(2).timeout 
 			SceneTransitions.change_scene_to_path(GAME_START["scene"])
@@ -94,7 +94,7 @@ func play(ctscn: Dictionary):
 
 func _on_start_btn_pressed() -> void:
 	start_btn.hide()
-	
+	 
 	play(GAME_START)
 
 func _process(delta: float) -> void:

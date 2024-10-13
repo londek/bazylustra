@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheMirrorOfBazyliszek"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/levels/level_3.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,8 +19,10 @@ config/icon="res://icon.svg"
 
 SceneTransitions="*res://globals/scene_transitions.tscn"
 CutscenePlayer="*res://globals/cutscene_player.tscn"
-SmartCamera="*res://globals/smart_camera.tscn"
 Shaker="*res://globals/shaker.gd"
+SmartCamera="*res://globals/smart_camera.tscn"
+Events="*res://globals/events.gd"
+PlayerData="*res://globals/player_data.gd"
 
 [display]
 
@@ -33,6 +35,7 @@ window/size/window_height_override=1080
 [global_group]
 
 Camera=""
+Player=""
 
 [input]
 
