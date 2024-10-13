@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6xg0rwh0hq70"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_xvp5e"]
+[ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_o3h6f"]
+[ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_8lmvi"]
+[ext_resource type="PackedScene" uid="uid://rm8qttkjv66d" path="res://scenes/objects/mirror_cursor.tscn" id="4_icjsc"]
+[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="5_fn2lo"]
+[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="5_g4occ"]
+[ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="6_8sx6f"]
+[ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="6_on8v5"]
+[ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="6_plenv"]
+[ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="7_0rsql"]
+[ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="7_575c2"]
+[ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="9_kweoo"]
+[ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="12_nvuca"]
+[ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="13_wcn6y"]
+
+[node name="level2" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_xvp5e")
+
+[node name="SceneConceptFinal" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-29, 49)
+scale = Vector2(2, 2)
+texture = ExtResource("2_o3h6f")
+
+[node name="Exit" parent="." instance=ExtResource("3_8lmvi")]
+position = Vector2(2528, -521)
+scale = Vector2(1.16, 1)
+
+[node name="MirrorCursor" parent="." instance=ExtResource("4_icjsc")]
+
+[node name="Mirrors" type="Node2D" parent="."]
+
+[node name="StaticMirrors" type="Node2D" parent="."]
+
+[node name="Mirror" parent="StaticMirrors" instance=ExtResource("5_g4occ")]
+position = Vector2(8, 87)
+rotation_fake = 225
+immovable = true
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("6_on8v5")]
+position = Vector2(2364, 1493)
+spikes = [NodePath("../Spikes")]
+flip_horizontal = true
+
+[node name="Spikes" parent="Objects" instance=ExtResource("7_575c2")]
+position = Vector2(2285, -277)
+flip_horizontal = true
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Rat" parent="Entities" instance=ExtResource("6_8sx6f")]
+position = Vector2(2433, 436)
+waypoint_a = Vector2(2310, 100)
+waypoint_b = Vector2(2310, 1600)
+speed = 400.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("5_fn2lo")]
+z_index = 999
+position = Vector2(-2473, -16)
+mirror_cursor = NodePath("../MirrorCursor")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-66, 44)
+zoom = Vector2(0.2, 0.2)
+limit_left = -3800
+limit_top = -2100
+limit_right = 3800
+limit_bottom = 2100
+position_smoothing_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="Laser" parent="." instance=ExtResource("6_plenv")]
+position = Vector2(2, -1359)
+angle = 90.0
+
+[node name="Walls" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-1746, 952, -1206, -640, -321.934, -633.965, 1138, -624, 1634, 764, 1634, 1016, -1726, 980, -1850, 1073, 1824, 1103, 1600, -908, -1649, -927, -1920, 1009)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.28485, 0.28485, 0.28485, 1)
+blend_mode = 1
+
+[node name="Lava" parent="." instance=ExtResource("7_0rsql")]
+z_index = -1
+position = Vector2(-1102, -91)
+
+[node name="LavaTileBottom" parent="Lava" instance=ExtResource("12_nvuca")]
+position = Vector2(993, -200)
+
+[node name="LavaTileTop" parent="Lava" instance=ExtResource("13_wcn6y")]
+position = Vector2(1118, -613)
+
+[node name="Entrance" parent="." instance=ExtResource("9_kweoo")]
+position = Vector2(-2766, 4)
+
+[connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

@@ -1,0 +1,140 @@
+[gd_scene load_steps=30 format=3 uid="uid://b63j08457sp33"]
+
+[ext_resource type="Script" path="res://globals/cutscene_player.gd" id="1_wcxi1"]
+[ext_resource type="Texture2D" uid="uid://cyfjmfp0wgp6a" path="res://assets/cutscenes/wall_break_1.png" id="2_23wv0"]
+[ext_resource type="Shader" path="res://globals/cutout.gdshader" id="2_fx4m0"]
+[ext_resource type="Texture2D" uid="uid://sy11hp6qru8k" path="res://assets/ui/cutout.png" id="4_ne3jf"]
+[ext_resource type="Texture2D" uid="uid://do7qdo0escgxw" path="res://assets/ui/transitions/persona_0001.png" id="4_phh2m"]
+[ext_resource type="Texture2D" uid="uid://dlagrevrkjd7t" path="res://assets/ui/transitions/persona_0002.png" id="5_irtwd"]
+[ext_resource type="Texture2D" uid="uid://x17lh6r5tcx2" path="res://assets/ui/transitions/persona_0003.png" id="6_wklrx"]
+[ext_resource type="Texture2D" uid="uid://cxtga7jt8s6w3" path="res://assets/ui/transitions/persona_0004.png" id="7_1nbdb"]
+[ext_resource type="Texture2D" uid="uid://c6on21dsh2h3d" path="res://assets/ui/transitions/persona_0005.png" id="8_dep50"]
+[ext_resource type="Texture2D" uid="uid://cw10rokn2fh82" path="res://assets/ui/transitions/persona_0006.png" id="9_b1t8h"]
+[ext_resource type="Texture2D" uid="uid://beyxqdg67np0y" path="res://assets/ui/transitions/persona_0007.png" id="10_ybr46"]
+[ext_resource type="Texture2D" uid="uid://ugtv2l7agvev" path="res://assets/ui/transitions/persona_0008.png" id="11_u1ont"]
+[ext_resource type="Texture2D" uid="uid://c6cglgtjs5kxp" path="res://assets/ui/transitions/persona_0009.png" id="12_fbl2t"]
+[ext_resource type="Texture2D" uid="uid://d2y7455j5l6bw" path="res://assets/ui/transitions/persona_0010.png" id="13_yinyc"]
+[ext_resource type="Texture2D" uid="uid://dkw7xde3hcklo" path="res://assets/ui/transitions/persona_0011.png" id="14_q64sc"]
+[ext_resource type="Texture2D" uid="uid://cqlnxwlod7wnk" path="res://assets/ui/transitions/persona_0012.png" id="15_3wkk8"]
+[ext_resource type="Texture2D" uid="uid://borhcshahpw83" path="res://assets/ui/transitions/persona_0013.png" id="16_ejrww"]
+[ext_resource type="Texture2D" uid="uid://d1h54qla2ayyj" path="res://assets/ui/transitions/persona_0014.png" id="17_dt0wo"]
+[ext_resource type="Texture2D" uid="uid://cgajhiv4ub3b2" path="res://assets/ui/transitions/persona_0015.png" id="18_cciob"]
+[ext_resource type="Texture2D" uid="uid://c4kksnano5bhh" path="res://assets/ui/transitions/persona_0016.png" id="19_mv716"]
+[ext_resource type="Texture2D" uid="uid://c85wipw26mtw8" path="res://assets/ui/transitions/persona_0017.png" id="20_nx7dk"]
+[ext_resource type="Texture2D" uid="uid://brceoq38aus10" path="res://assets/ui/transitions/persona_0018.png" id="21_mghvi"]
+[ext_resource type="Texture2D" uid="uid://gghlmdeacj7x" path="res://assets/ui/transitions/persona_0019.png" id="22_lsshi"]
+[ext_resource type="Texture2D" uid="uid://bymofhp6rdasl" path="res://assets/ui/transitions/persona_0020.png" id="23_g0scn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcjv7"]
+shader = ExtResource("2_fx4m0")
+shader_parameter/scale = 0.0
+shader_parameter/mask = ExtResource("4_ne3jf")
+
+[sub_resource type="Animation" id="Animation_wqdul"]
+resource_name = "FadeToBlack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rwrar"]
+resource_name = "PersonaFlash"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_phh2m"), ExtResource("5_irtwd"), ExtResource("6_wklrx"), ExtResource("7_1nbdb"), ExtResource("8_dep50"), ExtResource("9_b1t8h"), ExtResource("10_ybr46"), ExtResource("11_u1ont"), ExtResource("12_fbl2t"), ExtResource("13_yinyc"), ExtResource("14_q64sc"), ExtResource("15_3wkk8"), ExtResource("16_ejrww"), ExtResource("17_dt0wo"), ExtResource("18_cciob"), ExtResource("19_mv716"), ExtResource("20_nx7dk"), ExtResource("21_mghvi"), ExtResource("22_lsshi"), ExtResource("23_g0scn")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ux0k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieigs"]
+_data = {
+"FadeToBlack": SubResource("Animation_wqdul"),
+"PersonaFlash": SubResource("Animation_rwrar"),
+"RESET": SubResource("Animation_ux0k7")
+}
+
+[node name="CutscenePlayer" type="CanvasLayer"]
+script = ExtResource("1_wcxi1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_23wv0")
+region_rect = Rect2(0, 0, 1280, 1080)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tcjv7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.000693898, 0.000693898, 0.000693898, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ieigs")
+}

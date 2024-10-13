@@ -6,6 +6,7 @@
 size = Vector2(306, 213)
 
 [node name="LavaTileTop" type="CollisionShape2D"]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_0k1xm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

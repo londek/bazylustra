@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var walkable_area: Area2D = $WalkableArea
+@onready var walkable_collision: CollisionShape2D = $WalkableArea/CollisionShape2D
 
 @export var waypoint_a: Vector2
 @export var waypoint_b: Vector2
@@ -14,7 +16,8 @@ const DISTANCE_THRESHOLD := 2
 var is_stoned:
 	set(val):
 		is_stoned = val
-		var tween := get_tree().create_tween().set_trans(Tween.TRANS_BOUNCE)
+		walkable_collision.disabled = !is_stoned
+		var tween := get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 		if is_stoned:
 			tween.tween_method(update_shader_val, 0.0, 0.9, 0.5)
 			animation_player.pause()
@@ -59,8 +62,19 @@ func _physics_process(delta: float) -> void:
 func update_shader_val(val: float):
 	sprite_2d.material.set("shader_parameter/progress", val)
 
+
 func _on_laser_enter():
 	is_stoned = true
-	
+
+
 func _on_laser_exit():
-	is_stoned = false
+	#is_stoned = false
+	pass
+
+
+func _on_walkable_area_body_entered(body: Node2D) -> void:
+	body.set_collision_mask_value(6, false)
+
+
+func _on_walkable_area_body_exited(body: Node2D) -> void:
+	body.set_collision_mask_value(6, true)

@@ -1,0 +1,133 @@
+[gd_scene load_steps=29 format=3 uid="uid://b2fl5acoclvdr"]
+
+[ext_resource type="Shader" path="res://globals/cutout.gdshader" id="1_cwba3"]
+[ext_resource type="Script" path="res://globals/scene_transitions.gd" id="3_u571t"]
+[ext_resource type="Texture2D" uid="uid://dm7bc353msmwl" path="res://assets/placeholder/mask_kochana.png" id="3_vtxi4"]
+[ext_resource type="Texture2D" uid="uid://do7qdo0escgxw" path="res://assets/ui/transitions/persona_0001.png" id="4_ev7s2"]
+[ext_resource type="Texture2D" uid="uid://dlagrevrkjd7t" path="res://assets/ui/transitions/persona_0002.png" id="5_ffuyq"]
+[ext_resource type="Texture2D" uid="uid://x17lh6r5tcx2" path="res://assets/ui/transitions/persona_0003.png" id="6_cu4rk"]
+[ext_resource type="Texture2D" uid="uid://cxtga7jt8s6w3" path="res://assets/ui/transitions/persona_0004.png" id="7_dapsp"]
+[ext_resource type="Texture2D" uid="uid://c6on21dsh2h3d" path="res://assets/ui/transitions/persona_0005.png" id="8_uxwfl"]
+[ext_resource type="Texture2D" uid="uid://cw10rokn2fh82" path="res://assets/ui/transitions/persona_0006.png" id="9_nkuyx"]
+[ext_resource type="Texture2D" uid="uid://beyxqdg67np0y" path="res://assets/ui/transitions/persona_0007.png" id="10_bbta7"]
+[ext_resource type="Texture2D" uid="uid://ugtv2l7agvev" path="res://assets/ui/transitions/persona_0008.png" id="11_h40vm"]
+[ext_resource type="Texture2D" uid="uid://c6cglgtjs5kxp" path="res://assets/ui/transitions/persona_0009.png" id="12_kijvo"]
+[ext_resource type="Texture2D" uid="uid://d2y7455j5l6bw" path="res://assets/ui/transitions/persona_0010.png" id="13_wjtpa"]
+[ext_resource type="Texture2D" uid="uid://dkw7xde3hcklo" path="res://assets/ui/transitions/persona_0011.png" id="14_1n474"]
+[ext_resource type="Texture2D" uid="uid://cqlnxwlod7wnk" path="res://assets/ui/transitions/persona_0012.png" id="15_e3kak"]
+[ext_resource type="Texture2D" uid="uid://borhcshahpw83" path="res://assets/ui/transitions/persona_0013.png" id="16_a77ih"]
+[ext_resource type="Texture2D" uid="uid://d1h54qla2ayyj" path="res://assets/ui/transitions/persona_0014.png" id="17_4houc"]
+[ext_resource type="Texture2D" uid="uid://cgajhiv4ub3b2" path="res://assets/ui/transitions/persona_0015.png" id="18_fyj0y"]
+[ext_resource type="Texture2D" uid="uid://c4kksnano5bhh" path="res://assets/ui/transitions/persona_0016.png" id="19_1ad3h"]
+[ext_resource type="Texture2D" uid="uid://c85wipw26mtw8" path="res://assets/ui/transitions/persona_0017.png" id="20_cfjxd"]
+[ext_resource type="Texture2D" uid="uid://brceoq38aus10" path="res://assets/ui/transitions/persona_0018.png" id="21_yvteb"]
+[ext_resource type="Texture2D" uid="uid://gghlmdeacj7x" path="res://assets/ui/transitions/persona_0019.png" id="22_cck1r"]
+[ext_resource type="Texture2D" uid="uid://bymofhp6rdasl" path="res://assets/ui/transitions/persona_0020.png" id="23_1wdv1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ep0c4"]
+shader = ExtResource("1_cwba3")
+shader_parameter/scale = 0.0
+shader_parameter/mask = ExtResource("3_vtxi4")
+
+[sub_resource type="Animation" id="Animation_wqdul"]
+resource_name = "FadeToBlack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rwrar"]
+resource_name = "PersonaFlash"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_ev7s2"), ExtResource("5_ffuyq"), ExtResource("6_cu4rk"), ExtResource("7_dapsp"), ExtResource("8_uxwfl"), ExtResource("9_nkuyx"), ExtResource("10_bbta7"), ExtResource("11_h40vm"), ExtResource("12_kijvo"), ExtResource("13_wjtpa"), ExtResource("14_1n474"), ExtResource("15_e3kak"), ExtResource("16_a77ih"), ExtResource("17_4houc"), ExtResource("18_fyj0y"), ExtResource("19_1ad3h"), ExtResource("20_cfjxd"), ExtResource("21_yvteb"), ExtResource("22_cck1r"), ExtResource("23_1wdv1")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ux0k7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieigs"]
+_data = {
+"FadeToBlack": SubResource("Animation_wqdul"),
+"PersonaFlash": SubResource("Animation_rwrar"),
+"RESET": SubResource("Animation_ux0k7")
+}
+
+[node name="SceneTransitions" type="CanvasLayer"]
+script = ExtResource("3_u571t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ep0c4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ieigs")
+}
