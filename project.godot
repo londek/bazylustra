@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneTransitions="*res://globals/scene_transitions.tscn"
 CutscenePlayer="*res://globals/cutscene_player.tscn"
+SmartCamera="*res://globals/smart_camera.tscn"
 Shaker="*res://globals/shaker.gd"
 
 [display]
@@ -123,3 +124,8 @@ esc={
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=16
 common/physics_interpolation=true
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_environment="res://scenes/levels/env.tres"

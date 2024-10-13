@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=23 format=3 uid="uid://dj0kmlup3cihh"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="10_i16kt"]
 [ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="11_aqp6h"]
 [ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="12_t0dq3"]
+[ext_resource type="Environment" uid="uid://dlf3aid2nc6hw" path="res://scenes/levels/env.tres" id="18_gxusm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6clpm"]
 size = Vector2(322, 300)
@@ -28,6 +29,10 @@ shader_parameter/width = 30.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1dlg0"]
+
+[sub_resource type="Compositor" id="Compositor_jgnxk"]
 
 [node name="level3" type="Node2D"]
 y_sort_enabled = true
@@ -89,14 +94,12 @@ position = Vector2(-2345, -448)
 mirror_cursor = NodePath("../MirrorCursor")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-66, 44)
 zoom = Vector2(0.2, 0.2)
 limit_left = -3800
 limit_top = -2100
 limit_right = 3800
 limit_bottom = 2100
 position_smoothing_enabled = true
-metadata/_edit_lock_ = true
 
 [node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("7_s5e6w")]
 position = Vector2(756, -1419)
@@ -145,5 +148,10 @@ position = Vector2(3377.04, 263.459)
 
 [node name="Entrance" parent="." instance=ExtResource("9_76gmf")]
 position = Vector2(-2570, -561)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("18_gxusm")
+camera_attributes = SubResource("CameraAttributesPhysical_1dlg0")
+compositor = SubResource("Compositor_jgnxk")
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

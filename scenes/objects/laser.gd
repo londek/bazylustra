@@ -5,12 +5,12 @@ extends Node2D
 @export var angle := 0.0
 
 @export var source_color := Color.GREEN
-@export var target_color := Color(Color.DARK_GREEN, 0.6)
+@export var target_color := Color(Color.GREEN, 0.8)
 
 @export var prediction_color := Color(Color.GREEN, 0.15)
 
-@export var source_width := 25
-@export var target_width := 15
+@export var source_width := 30
+@export var target_width := 20
 
 @export var border_color := Color.BLACK
 @export var border_size := 10
