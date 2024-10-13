@@ -31,9 +31,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body in rats_on_plate:
-		rats_on_plate.erase(body)
-		pressed = false
+	if body is Rat:
+		if body in rats_on_plate:
+			rats_on_plate.erase(body)
+			pressed = false
 
 
 func _process(delta: float) -> void:

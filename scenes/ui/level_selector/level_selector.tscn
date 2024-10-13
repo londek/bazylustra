@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://l30fph3dn00a"]
+
+[ext_resource type="Script" path="res://scenes/ui/level_selector/level_selector.gd" id="1_58vaa"]
+[ext_resource type="Texture2D" uid="uid://b0btfq0ic6gd7" path="res://assets/ui/leverl_selector_bg.png" id="1_ebtcs"]
+[ext_resource type="PackedScene" uid="uid://crdt8nopfh22s" path="res://scenes/ui/level_selector/mirror.tscn" id="2_jutjp"]
+[ext_resource type="Texture2D" uid="uid://dowxg64v83rjh" path="res://assets/ui/level_selector_arrow.png" id="4_cisc3"]
+[ext_resource type="Texture2D" uid="uid://buv0ypkhankkf" path="res://assets/ui/level_selector_next_hover.png" id="5_r5gxv"]
+
+[node name="LevelSelector" type="Node2D"]
+script = ExtResource("1_58vaa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ebtcs")
+expand_mode = 3
+
+[node name="Container" type="HBoxContainer" parent="CanvasLayer"]
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -390.0
+offset_right = 3800.0
+offset_bottom = 341.0
+grow_vertical = 2
+
+[node name="MirrorLvl1" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="MirrorLvl2" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="MirrorLvl3" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="MirrorLvl4" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="MirrorLvl5" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="MirrorLvl6" parent="CanvasLayer/Container" instance=ExtResource("2_jutjp")]
+layout_mode = 2
+
+[node name="RightButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -85.5
+offset_right = -864.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_cisc3")
+texture_hover = ExtResource("5_r5gxv")
+
+[node name="LeftButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 860.0
+offset_top = -85.5
+offset_right = 956.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_cisc3")
+texture_hover = ExtResource("5_r5gxv")
+flip_h = true
+
+[connection signal="pressed" from="CanvasLayer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftButton" to="." method="_on_left_button_pressed"]

@@ -128,4 +128,7 @@ position = Vector2(-26, 570)
 [node name="LavaTileBottom" parent="Lava" instance=ExtResource("18_br0ow")]
 position = Vector2(-97, 944)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
+
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]
