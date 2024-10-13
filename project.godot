@@ -17,9 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
@@ -89,10 +88,17 @@ reset={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="mirror"
+2d_physics/layer_2="reflective"
 2d_physics/layer_3="obstacles"
 2d_physics/layer_4="entities"
 2d_physics/layer_5="areas"
-2d_physics/layer_6="mirror_block"
+2d_physics/layer_6="transparent"
 2d_physics/layer_7="lava"
 2d_physics/layer_8="mirror_absorber"
+2d_physics/layer_9="mirror_cursor"
+
+[physics]
+
+common/physics_ticks_per_second=120
+common/max_physics_steps_per_frame=16
+common/physics_interpolation=true
