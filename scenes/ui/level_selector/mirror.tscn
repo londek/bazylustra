@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://crdt8nopfh22s"]
+
+[ext_resource type="Texture2D" uid="uid://de01iu4wc6pk" path="res://assets/ui/level_selector_mirror_off.png" id="1_nwqfm"]
+[ext_resource type="Script" path="res://scenes/ui/level_selector/mirror.gd" id="1_oxun7"]
+[ext_resource type="Texture2D" uid="uid://bs4kdy0upwryn" path="res://assets/ui/level_selector_1.png" id="2_jmc8l"]
+[ext_resource type="Texture2D" uid="uid://dutf382gevwpy" path="res://assets/ui/level_selector_play.png" id="3_ebymm"]
+[ext_resource type="Texture2D" uid="uid://d1v1k4wqmb6av" path="res://assets/ui/level_selector_star.png" id="4_oqf31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0go1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t356p"]
+
+[node name="Mirror" type="CenterContainer"]
+custom_minimum_size = Vector2(630, 700)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -350.0
+offset_right = 300.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oxun7")
+
+[node name="Mirror" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_nwqfm")
+
+[node name="Number" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_jmc8l")
+
+[node name="Star1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_oqf31")
+
+[node name="Star2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_oqf31")
+
+[node name="Star3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_oqf31")
+
+[node name="GeneralClick" type="Button" parent="."]
+custom_minimum_size = Vector2(500, 700)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0go1t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t356p")
+text = "
+"
+flat = true
+
+[node name="PlayButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("3_ebymm")
+
+[connection signal="pressed" from="GeneralClick" to="." method="_on_general_click_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

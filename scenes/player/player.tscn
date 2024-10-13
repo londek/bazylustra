@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ddmxx0a0mg7ia"]
+[gd_scene load_steps=34 format=3 uid="uid://ddmxx0a0mg7ia"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl15c"]
 [ext_resource type="Texture2D" uid="uid://vdcmll7n2a2y" path="res://assets/player/player_shadow.png" id="2_1fh8l"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://8hvtt4owumv3" path="res://assets/player/idle_down_1.png" id="15_dmmii"]
 [ext_resource type="Texture2D" uid="uid://c1afsxkvvfjdl" path="res://assets/player/idle_down_2.png" id="16_6h1hq"]
 [ext_resource type="Texture2D" uid="uid://14x5mi0cmtdu" path="res://assets/player/idle_down_3.png" id="17_jq62d"]
+[ext_resource type="Environment" uid="uid://dlf3aid2nc6hw" path="res://scenes/levels/env.tres" id="21_tk675"]
 
 [sub_resource type="Shader" id="Shader_mvpfv"]
 code = "shader_type canvas_item;
@@ -143,7 +144,11 @@ _data = {
 "walk_up": SubResource("Animation_wit2t")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_4sbyg"]
+
+[sub_resource type="Compositor" id="Compositor_urooi"]
+
+[node name="Player" type="CharacterBody2D"]
 collision_mask = 612
 script = ExtResource("1_tl15c")
 
@@ -164,6 +169,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.196078)
+z_index = -1
+z_as_relative = false
 position = Vector2(-4, 318)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_1fh8l")
@@ -183,3 +190,8 @@ shape = SubResource("CapsuleShape2D_7r6jy")
 libraries = {
 "": SubResource("AnimationLibrary_gsye0")
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("21_tk675")
+camera_attributes = SubResource("CameraAttributesPhysical_4sbyg")
+compositor = SubResource("Compositor_urooi")
