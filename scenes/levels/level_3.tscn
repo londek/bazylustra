@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=19 format=3 uid="uid://dj0kmlup3cihh"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_sg5vd"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_qbweg"]
@@ -20,14 +20,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6clpm"]
 size = Vector2(612, 17)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6wuj"]
-shader = ExtResource("10_2rh71")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 30.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = true
 
 [node name="level3" type="Node2D"]
 y_sort_enabled = true
