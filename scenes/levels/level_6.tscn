@@ -96,7 +96,7 @@ speed = 400.0
 
 [node name="Rat" parent="Entities" instance=ExtResource("10_m656e")]
 position = Vector2(-64, 1783)
-waypoint_a = Vector2(100, 1530)
+waypoint_a = Vector2(1500, 1530)
 waypoint_b = Vector2(3020, 1530)
 speed = 300.0
 

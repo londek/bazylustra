@@ -17,6 +17,10 @@ var minutes := 0.0
 
 
 func _ready() -> void:
+	await SceneTransitions.animation_player.animation_finished
+	SceneTransitions.layer = 0
+	CutscenePlayer.layer = 0
+	layer = 1
 	PlayerData.current_level += 1
 	if PlayerData.levels_data[PlayerData.current_level-1]["mirrors"] >= PlayerData.placed_mirrors: 
 		stars += 1

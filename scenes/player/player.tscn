@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://vdcmll7n2a2y" path="res://assets/player/player_shadow.png" id="2_1fh8l"]
 [ext_resource type="Texture2D" uid="uid://docvxdh0k2gy3" path="res://assets/player/player_down.png" id="2_obtah"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_xhbgc"]
-[ext_resource type="Texture2D" uid="uid://j5ohxg5qgccp" path="res://assets/placeholder/noise_.jpg" id="3_8deny"]
 [ext_resource type="Texture2D" uid="uid://bjx2jw2ws0mtd" path="res://assets/player/player_down_1.png" id="3_75a6l"]
 [ext_resource type="Texture2D" uid="uid://b0igo1um3ylm6" path="res://assets/player/player_down_2.png" id="4_otjgb"]
+[ext_resource type="Texture2D" uid="uid://bjcnrp8h2ygi" path="res://assets/shaders/stone.jpg" id="4_y8o2b"]
 [ext_resource type="Texture2D" uid="uid://bdygx6b5tq5jx" path="res://assets/player/player_down_3.png" id="5_ss5nx"]
 [ext_resource type="Texture2D" uid="uid://b4nhet3wi4bns" path="res://assets/player/player_down_4.png" id="6_nsumm"]
 [ext_resource type="Texture2D" uid="uid://dadweoc6gqdtt" path="res://assets/player/player_up_1.png" id="8_qiih5"]
@@ -47,7 +47,7 @@ shader_parameter/outer_radius = 2.0
 resource_local_to_scene = true
 shader = ExtResource("2_xhbgc")
 shader_parameter/progress = 0.9
-shader_parameter/IMG = ExtResource("3_8deny")
+shader_parameter/IMG = ExtResource("4_y8o2b")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7r6jy"]
 radius = 90.6665
