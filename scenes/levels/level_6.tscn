@@ -1,0 +1,208 @@
+[gd_scene load_steps=19 format=3 uid="uid://bvyjd2lukat1h"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qea4o"]
+[ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_2krif"]
+[ext_resource type="PackedScene" uid="uid://bjo3n3e4w4d21" path="res://scenes/objects/exit.tscn" id="3_mmvr5"]
+[ext_resource type="PackedScene" uid="uid://rm8qttkjv66d" path="res://scenes/objects/mirror_cursor.tscn" id="4_mwyh7"]
+[ext_resource type="PackedScene" uid="uid://ddmxx0a0mg7ia" path="res://scenes/player/player.tscn" id="5_0i3nq"]
+[ext_resource type="PackedScene" uid="uid://bdsgt53px4t4q" path="res://scenes/objects/mirror.tscn" id="5_5i5x2"]
+[ext_resource type="PackedScene" uid="uid://umfj3l0v6mu0" path="res://scenes/objects/prism.tscn" id="5_41sbe"]
+[ext_resource type="PackedScene" uid="uid://cyo23umo4frlx" path="res://scenes/objects/laser.tscn" id="6_4g64s"]
+[ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="7_dp6wt"]
+[ext_resource type="PackedScene" uid="uid://cc4djhdh7x178" path="res://scenes/objects/spikes.tscn" id="7_qjrcv"]
+[ext_resource type="PackedScene" uid="uid://thrppbl7ql68" path="res://scenes/objects/pressure_plate.tscn" id="8_5wllg"]
+[ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="8_080m6"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_bottom_animated.tscn" id="10_6w6qw"]
+[ext_resource type="PackedScene" path="res://scenes/levels/lava_curve_animation.tscn" id="10_ciu2j"]
+[ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="10_m656e"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_top_animated.tscn" id="11_c8o3e"]
+[ext_resource type="PackedScene" uid="uid://b1x1xa4x2apgy" path="res://scenes/objects/lava_middle_animated.tscn" id="11_vhaqq"]
+[ext_resource type="PackedScene" uid="uid://cd00jbe4cwte8" path="res://scenes/ui/in_game_ui.tscn" id="18_oom4h"]
+
+[node name="level6" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(171, -249)
+script = ExtResource("1_qea4o")
+this_level = 6
+
+[node name="SceneConceptFinal" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(2, 2)
+texture = ExtResource("2_2krif")
+
+[node name="Exit" parent="." instance=ExtResource("3_mmvr5")]
+position = Vector2(2839, 422)
+
+[node name="MirrorCursor" parent="." instance=ExtResource("4_mwyh7")]
+position = Vector2(-170, 255)
+
+[node name="Mirrors" type="Node2D" parent="."]
+position = Vector2(-170, 249)
+
+[node name="StaticMirrors" type="Node2D" parent="."]
+
+[node name="Mirror" parent="StaticMirrors" instance=ExtResource("5_5i5x2")]
+position = Vector2(-2418, 1677)
+rotation_fake = 165
+immovable = true
+
+[node name="Mirror2" parent="StaticMirrors" instance=ExtResource("5_5i5x2")]
+position = Vector2(-1625, 1679)
+rotation_fake = 200
+immovable = true
+
+[node name="Mirror3" parent="StaticMirrors" instance=ExtResource("5_5i5x2")]
+position = Vector2(-2894, 1375)
+rotation_fake = 265
+immovable = true
+
+[node name="Mirror4" parent="StaticMirrors" instance=ExtResource("5_5i5x2")]
+position = Vector2(2127, -656)
+rotation_fake = 30
+immovable = true
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Prism" parent="Objects" instance=ExtResource("5_41sbe")]
+position = Vector2(-1975, 1382)
+
+[node name="Prism2" parent="Objects" instance=ExtResource("5_41sbe")]
+position = Vector2(2038, 911)
+
+[node name="Spikes" parent="Objects" instance=ExtResource("7_qjrcv")]
+position = Vector2(2583, 671)
+flip_horizontal = true
+
+[node name="PressurePlate" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("8_5wllg")]
+position = Vector2(2851, 1806)
+spikes = [NodePath("../Spikes")]
+flip_horizontal = true
+
+[node name="PressurePlate2" parent="Objects" node_paths=PackedStringArray("spikes") instance=ExtResource("8_5wllg")]
+position = Vector2(178, 1249)
+spikes = [NodePath("../Spikes2")]
+
+[node name="Spikes2" parent="Objects" instance=ExtResource("7_qjrcv")]
+position = Vector2(2583, 671)
+flip_horizontal = true
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Bat" parent="Entities" instance=ExtResource("7_dp6wt")]
+position = Vector2(999, -724)
+waypoint_a = Vector2(1150, -980)
+waypoint_b = Vector2(-900, 280)
+speed = 400.0
+
+[node name="Rat" parent="Entities" instance=ExtResource("10_m656e")]
+position = Vector2(-64, 1783)
+waypoint_a = Vector2(100, 1530)
+waypoint_b = Vector2(3020, 1530)
+speed = 300.0
+
+[node name="Rat2" parent="Entities" instance=ExtResource("10_m656e")]
+position = Vector2(1581, 1485)
+waypoint_a = Vector2(1755, 1230)
+waypoint_b = Vector2(350, 1000)
+speed = 400.0
+
+[node name="Player" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("5_0i3nq")]
+z_index = 999
+position = Vector2(-2361, -433)
+mirror_cursor = NodePath("../MirrorCursor")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-66, 44)
+zoom = Vector2(0.2, 0.2)
+limit_left = -3800
+limit_top = -2100
+limit_right = 3800
+limit_bottom = 2100
+position_smoothing_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="Laser" parent="." node_paths=PackedStringArray("mirror_cursor") instance=ExtResource("6_4g64s")]
+position = Vector2(-1490, -1387)
+angle = 100.0
+mirror_cursor = NodePath("../MirrorCursor")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-1746, 952, -1206, -640, -321.934, -633.965, 1138, -624, 1634, 764, 1634, 1016, -1726, 980, -1850, 1073, 1824, 1103, 1600, -908, -1649, -927, -1920, 1009)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.28485, 0.28485, 0.28485, 1)
+blend_mode = 1
+
+[node name="Entrance" parent="." instance=ExtResource("8_080m6")]
+position = Vector2(-2598, -482)
+
+[node name="LavaReimagined" type="StaticBody2D" parent="."]
+position = Vector2(-1887, -39)
+skew = 0.383972
+collision_layer = 32
+
+[node name="LavaTiles" type="Node2D" parent="LavaReimagined"]
+z_index = -1
+position = Vector2(856.063, 606.137)
+rotation = -0.200713
+scale = Vector2(1.8, 2.4)
+skew = -0.120428
+
+[node name="LavaCurveAnimation" parent="LavaReimagined/LavaTiles" instance=ExtResource("10_ciu2j")]
+position = Vector2(271.376, 286.659)
+rotation = -1.5708
+
+[node name="lava_top_animated" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_c8o3e")]
+position = Vector2(321.171, -502.856)
+
+[node name="LavaMiddleAnimated2" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(316.157, -328.86)
+
+[node name="LavaMiddleAnimated" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(296.441, -147.64)
+
+[node name="LavaMiddleAnimated3" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(275.596, 33.2214)
+
+[node name="LavaMiddleAnimated4" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(-191.096, 211.897)
+rotation = 1.5708
+
+[node name="LavaMiddleAnimated5" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(-389.884, 187.202)
+rotation = -1.54113
+skew = 0.118682
+
+[node name="LavaMiddleAnimated6" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(-545.291, 134.77)
+rotation = 1.6057
+skew = 0.118682
+
+[node name="LavaMiddleAnimated8" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(36.7292, 237.853)
+rotation = 1.5708
+scale = Vector2(1, 1.5)
+skew = 0.0890118
+
+[node name="LavaMiddleAnimated7" parent="LavaReimagined/LavaTiles" instance=ExtResource("11_vhaqq")]
+position = Vector2(-545.291, 134.77)
+rotation = 1.6057
+skew = 0.118682
+
+[node name="lava_bottom_animated" parent="LavaReimagined/LavaTiles" instance=ExtResource("10_6w6qw")]
+position = Vector2(-723.193, 75.0048)
+rotation = 1.63188
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LavaReimagined"]
+polygon = PackedVector2Array(-861.603, 534.953, -411.564, 652.513, -113.465, 786.252, 292.919, 781.938, 1066.62, 807.822, 1005.54, 145.602, 877.431, -527.403, 782.608, -855.278, 638.33, -1251.1, 1277.45, -1218.74, 1964.73, 1480.83, 1464.42, 1506.71, 1103.78, 1334.15, 824.467, 1303.95, -80.8347, 1223.06, -511.601, 1124.91, -802.935, 1196.09)
+
+[node name="InGameUI" parent="." instance=ExtResource("18_oom4h")]
+
+[connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

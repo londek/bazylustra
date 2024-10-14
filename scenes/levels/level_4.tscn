@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dj0kmlup3cihh"]
+[gd_scene load_steps=18 format=3 uid="uid://biwvgx3ljd1ro"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_oqa64"]
 [ext_resource type="Texture2D" uid="uid://svopwtbjbikc" path="res://assets/room.png" id="2_4wshk"]
@@ -13,13 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://u1slk8d2246i" path="res://scenes/entrance.tscn" id="8_j1hbl"]
 [ext_resource type="PackedScene" uid="uid://dinont5i2mn5t" path="res://scenes/objects/rat.tscn" id="8_kdq2k"]
 [ext_resource type="PackedScene" uid="uid://xanx05mu3sur" path="res://scenes/objects/bat.tscn" id="10_dbk8q"]
-[ext_resource type="PackedScene" uid="uid://cb56vtecdjpio" path="res://scenes/objects/lava_top_animated.tscn" id="14_tn2la"]
-[ext_resource type="PackedScene" uid="uid://bmxa11fix68rl" path="res://scenes/objects/lava_bottom_animated.tscn" id="16_8o0vh"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_top_animated.tscn" id="14_tn2la"]
+[ext_resource type="PackedScene" path="res://scenes/objects/lava_bottom_animated.tscn" id="16_8o0vh"]
+[ext_resource type="PackedScene" uid="uid://cd00jbe4cwte8" path="res://scenes/ui/in_game_ui.tscn" id="17_bshct"]
 [ext_resource type="PackedScene" uid="uid://b1x1xa4x2apgy" path="res://scenes/objects/lava_middle_animated.tscn" id="17_x315k"]
 
 [node name="level4" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oqa64")
+this_level = 4
 
 [node name="SceneConceptFinal" type="Sprite2D" parent="."]
 z_index = -3
@@ -144,5 +146,7 @@ position = Vector2(210, 396.667)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LavaReimagined3"]
 position = Vector2(-26, -26)
 polygon = PackedVector2Array(382, 1806, 180, 344, -72, -432, -208, -1614, 538, -1647, 1354, 1861)
+
+[node name="InGameUI" parent="." instance=ExtResource("17_bshct")]
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

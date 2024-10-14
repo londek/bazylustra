@@ -14,6 +14,11 @@ func _ready() -> void:
 	switch()
 	sprite_2d.flip_h = flip_horizontal	
 
+func _process(delta: float) -> void:
+	if !enabled:
+		sprite_2d.z_index = -1
+	else:
+		sprite_2d.z_index = 1
 
 func switch():
 	enabled = !enabled

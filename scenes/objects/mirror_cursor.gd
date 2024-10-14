@@ -39,7 +39,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("place"):
 		if !is_placeable():
 			return
-			
+		
+		$AudioStreamPlayer2D.play()
 		place_mirror.emit(rotation_degrees, global_position)
 
 func is_placeable():

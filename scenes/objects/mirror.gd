@@ -50,6 +50,9 @@ var step := 360 / mirror_res.size()
 func _ready() -> void:
 	if immovable:
 		sprite.material.set("shader_parameter/color", Color.FIREBRICK)
+	else:
+		PlayerData.placed_mirrors += 1
+		print(PlayerData.placed_mirrors)
 	
 	if line != null:
 		surface.rotation_degrees = rotation_fake

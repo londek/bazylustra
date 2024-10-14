@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://rm8qttkjv66d"]
+[gd_scene load_steps=8 format=3 uid="uid://rm8qttkjv66d"]
 
 [ext_resource type="Script" path="res://scenes/objects/mirror_cursor.gd" id="1_4d7pd"]
 [ext_resource type="Texture2D" uid="uid://cjeg1egqmi8x7" path="res://assets/mirror/mirror_cursor.png" id="2_35gaf"]
 [ext_resource type="Shader" uid="uid://bilc7m26fds2j" path="res://scenes/objects/mirror_cursor.tres" id="2_dqdeq"]
+[ext_resource type="AudioStream" uid="uid://du02o5ejx4qpb" path="res://assets/audio/place_mirror.wav" id="4_qfuy1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rt6u1"]
 shader = ExtResource("2_dqdeq")
@@ -46,3 +47,6 @@ collision_mask = 255
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstructionArea"]
 position = Vector2(2.5, 6)
 shape = SubResource("RectangleShape2D_slq4m")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qfuy1")

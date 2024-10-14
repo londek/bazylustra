@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4bmeemu3vlu2"]
+[gd_scene load_steps=19 format=3 uid="uid://b4bmeemu3vlu2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6sest"]
 [ext_resource type="Texture2D" uid="uid://h5x3wtu0kh1y" path="res://assets/placeholder/scene_concept_final.png" id="1_uy4vr"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dnyk0pa1cd3xx" path="res://scenes/objects/lava.tscn" id="15_60aut"]
 [ext_resource type="PackedScene" uid="uid://dyp1fxrfs7obq" path="res://scenes/objects/lava_tile_top.tscn" id="16_bgnof"]
 [ext_resource type="PackedScene" uid="uid://cd6u6xe3l2iuy" path="res://scenes/objects/lava_tile_middle.tscn" id="17_h5b23"]
+[ext_resource type="PackedScene" uid="uid://cd00jbe4cwte8" path="res://scenes/ui/in_game_ui.tscn" id="17_qgonr"]
 [ext_resource type="PackedScene" uid="uid://cxych22u744p6" path="res://scenes/objects/lava_tile_bottom.tscn" id="18_br0ow"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1nkg6"]
@@ -130,5 +131,8 @@ position = Vector2(-97, 944)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
+
+[node name="InGameUI" parent="." instance=ExtResource("17_qgonr")]
+layer = 10
 
 [connection signal="place_mirror" from="MirrorCursor" to="." method="_on_mirror_cursor_place_mirror"]

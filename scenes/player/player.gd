@@ -26,11 +26,15 @@ var is_stoned:
 var conscutive_hits := 0
 
 @export var mirror_cursor: MirrorCursor
+@export var max_mirrors: int = 3
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 func _ready() -> void:
 	is_stoned = false
+	
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, MAX_MIRROR_RANGE, Color(Color.WHITE, 0.05), false, 5)
@@ -63,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("delete"):
 			closest_mirror.queue_free()
+			PlayerData.placed_mirrors -= 1
 		
 	if Input.is_action_just_pressed("reset"):
 		SceneTransitions.reload_scene_eye()
@@ -71,8 +76,8 @@ func _physics_process(delta: float) -> void:
 		#SmartCamera.shake(0.5, 30, 20) 
 		CutscenePlayer.play(CutscenePlayer.GAME_START)
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("tp"):
+		global_position = get_global_mouse_position()
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
@@ -83,6 +88,10 @@ func _physics_process(delta: float) -> void:
 	
 	if !velocity:
 		animation_player.play("idle_down")
+		$AudioStreamPlayer2D.stop()
+	else:
+		if !$AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.play()
 	
 	if velocity.x:
 		$Sprite2D.flip_h = velocity.x > 0

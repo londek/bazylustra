@@ -28,6 +28,8 @@ func on_play(level_number: int):
 	print("wanna play")
 	print(level_number)
 	
+	
+	SceneTransitions.change_scene_to_path(PlayerData.levels_data[level_number-1]["path"])
 	#SceneTransitions.change_scene_to_path("")
 
 # Called when the node enters the scene tree for the first time.

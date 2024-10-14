@@ -55,10 +55,10 @@ tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_ev7s2"), ExtResource("5_ffuyq"), ExtResource("6_cu4rk"), ExtResource("7_dapsp"), ExtResource("8_uxwfl"), ExtResource("9_nkuyx"), ExtResource("10_bbta7"), ExtResource("11_h40vm"), ExtResource("12_kijvo"), ExtResource("13_wjtpa"), ExtResource("14_1n474"), ExtResource("15_e3kak"), ExtResource("16_a77ih"), ExtResource("17_4houc"), ExtResource("18_fyj0y"), ExtResource("19_1ad3h"), ExtResource("20_cfjxd"), ExtResource("21_yvteb"), ExtResource("22_cck1r"), ExtResource("23_1wdv1")]
+"values": [ExtResource("4_ev7s2"), ExtResource("5_ffuyq"), ExtResource("6_cu4rk"), ExtResource("7_dapsp"), ExtResource("8_uxwfl"), ExtResource("9_nkuyx"), ExtResource("10_bbta7"), ExtResource("11_h40vm"), ExtResource("12_kijvo"), ExtResource("13_wjtpa"), ExtResource("14_1n474"), ExtResource("15_e3kak"), ExtResource("16_a77ih"), ExtResource("17_4houc"), ExtResource("18_fyj0y"), ExtResource("19_1ad3h"), ExtResource("20_cfjxd"), ExtResource("21_yvteb"), ExtResource("22_cck1r"), ExtResource("23_1wdv1"), null]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -119,6 +119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
