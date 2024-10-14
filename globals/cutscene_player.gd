@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var color_rect: ColorRect = $ColorRect
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: TextureRect = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var start_btn: Button = $StartBtn
@@ -29,15 +29,17 @@ const GAME_END := {
 
 func _ready() -> void:
 	start_btn.hide()
-
+	layer = 1
 
 func play(ctscn: Dictionary):
 	animation_player.play("FadeToBlack")
 	match ctscn:
 		WALL_BREAK:
+			layer = 2
 			await animation_player.animation_finished
 			animation_player.play_backwards("FadeToBlack")
 			sprite_2d.texture = WALL_BREAK["img_array"][0]
+			sprite_2d.show()
 			await animation_player.animation_finished
 			Shaker.shake(sprite_2d, 15, 1)
 			sprite_2d.texture = WALL_BREAK["img_array"][1]
@@ -73,13 +75,13 @@ func play(ctscn: Dictionary):
 			sprite_2d.texture = MAIN_MENU["img_array"][4]
 			Shaker.shake(sprite_2d, 10, 0.2)
 			await get_tree().create_timer(1.5).timeout
-			Shaker.shake(sprite_2d, 50, 1.5)
-			await get_tree().create_timer(1.5).timeout 
+			Shaker.shake(sprite_2d, 30, 1)
+			await get_tree().create_timer(1).timeout 
 			sprite_2d.texture = MAIN_MENU["img_array"][5]
 			
 			start_btn.show()
 			var tween := get_tree().create_tween()
-			tween.tween_property(start_btn, "modulate:a", 0.5, 1)
+			tween.tween_property(start_btn, "modulate:a", 1, 1)
 		GAME_START:
 			await animation_player.animation_finished
 			animation_player.play_backwards("FadeToBlack")
@@ -88,20 +90,21 @@ func play(ctscn: Dictionary):
 			SceneTransitions.change_scene_to_path(GAME_START["scene"])
 			sprite_2d.hide()
 		GAME_END:
+			layer = 2
 			await animation_player.animation_finished
-			layer = 3
-			animation_player.play("FadeToBlack")
-			await animation_player.animation_finished
+			#layer = 3
+			#animation_player.play("FadeToBlack")
+			#await animation_player.animation_finished
 			animation_player.play_backwards("FadeToBlack")
 			sprite_2d.texture = GAME_END["img"]
+			sprite_2d.show()
 			await get_tree().create_timer(5).timeout 
 			animation_player.play("FadeToBlack")
 			SceneTransitions.change_scene_to_path(GAME_END["scene"])
 			await get_tree().create_timer(3).timeout 
 			sprite_2d.hide()
 			animation_player.play_backwards("FadeToBlack")
-			layer = 1
-			
+	layer = 1
 			
 			
 			
@@ -114,8 +117,12 @@ func play(ctscn: Dictionary):
 
 
 func _on_start_btn_pressed() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(start_btn, "modulate:a", 0.5, 1)
+	await tween.finished
 	start_btn.hide()
-	 
+	
+	
 	play(GAME_START)
 
 func _process(delta: float) -> void:

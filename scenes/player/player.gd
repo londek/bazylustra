@@ -76,9 +76,6 @@ func _physics_process(delta: float) -> void:
 		#SmartCamera.shake(0.5, 30, 20) 
 		CutscenePlayer.play(CutscenePlayer.GAME_START)
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
-	
 	if Input.is_action_just_pressed("tp"):
 		global_position = get_global_mouse_position()
 	

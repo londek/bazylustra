@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://8hvtt4owumv3" path="res://assets/player/idle_down_1.png" id="15_dmmii"]
 [ext_resource type="Texture2D" uid="uid://c1afsxkvvfjdl" path="res://assets/player/idle_down_2.png" id="16_6h1hq"]
 [ext_resource type="Texture2D" uid="uid://14x5mi0cmtdu" path="res://assets/player/idle_down_3.png" id="17_jq62d"]
-[ext_resource type="Environment" uid="uid://bso70xcgvmc41" path="res://scenes/levels/env.tres" id="21_tk675"]
+[ext_resource type="Environment" uid="uid://dg51mcv30ikce" path="res://scenes/levels/env.tres" id="21_tk675"]
 [ext_resource type="AudioStream" uid="uid://cvapi8qsec6pg" path="res://assets/audio/steps-001.wav" id="22_t4ykx"]
 
 [sub_resource type="Shader" id="Shader_mvpfv"]

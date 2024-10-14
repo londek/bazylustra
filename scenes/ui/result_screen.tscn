@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdoa4jmnijnyw"]
+[gd_scene load_steps=14 format=3 uid="uid://cdoa4jmnijnyw"]
 
 [ext_resource type="Script" path="res://scenes/ui/result_screen.gd" id="1_dpgtd"]
 [ext_resource type="Texture2D" uid="uid://cegytscufu6eq" path="res://assets/ui/result/bg.png" id="1_qyai5"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://c4bt2qqcyy56r" path="res://assets/ui/result/home.png" id="3_hft63"]
 [ext_resource type="Texture2D" uid="uid://dbegexhr7xmdh" path="res://assets/ui/result/next.png" id="4_p2mn6"]
 [ext_resource type="FontFile" uid="uid://dnbrn216ajivh" path="res://assets/fonts/animeace2_reg.ttf" id="6_1sbfx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wy0st"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iaedk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5xpw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqe5l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orlut"]
 
@@ -60,6 +68,10 @@ anchor_bottom = 1.0
 offset_top = -8.0
 offset_right = 8.0
 grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wy0st")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iaedk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_h5xpw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jqe5l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_orlut")
 icon = ExtResource("3_hft63")
 flat = true
@@ -75,6 +87,10 @@ offset_left = -153.0
 offset_top = -145.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wy0st")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iaedk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_h5xpw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jqe5l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_orlut")
 icon = ExtResource("4_p2mn6")
 flat = true

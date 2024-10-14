@@ -14,7 +14,7 @@ func _ready() -> void:
 	
 	if this_level == 1 and !PlayerData.wall_break_shown:
 		$Laser.hide()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(3).timeout
 		CutscenePlayer.play(CutscenePlayer.WALL_BREAK)
 		await get_tree().create_timer(2).timeout
 		$Laser.show()

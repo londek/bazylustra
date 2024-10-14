@@ -29,7 +29,6 @@ var pressed: bool = false:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Rat:
-		$AudioStreamPlayer2D.play()
 		if !(body in rats_on_plate):
 			rats_on_plate.append(body)
 

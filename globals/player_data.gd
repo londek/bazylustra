@@ -30,6 +30,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#if count_time:
+	
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
+	
 	elapsed_time += delta
 	update_timer.emit(elapsed_time)
 	

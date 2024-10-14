@@ -19,18 +19,17 @@ var minutes := 0.0
 func _ready() -> void:
 	PlayerData.current_level += 1
 	if PlayerData.levels_data[PlayerData.current_level-1]["mirrors"] >= PlayerData.placed_mirrors: 
-		print(PlayerData.levels_data[PlayerData.current_level-1]["mirrors"], PlayerData.placed_mirrors)
 		stars += 1
 	if PlayerData.levels_data[PlayerData.current_level-1]["time"] >= minutes * 60 + seconds:
-		print(PlayerData.levels_data[PlayerData.current_level-1]["time"], minutes * 60 + seconds)
 		stars += 1
 	await get_tree().create_timer(0.5).timeout
 	%MirrorLabel.text = str(PlayerData.placed_mirrors)
 	await get_tree().create_timer(0.5).timeout
 	%TimeLabel.text = get_time_str(PlayerData.elapsed_time) 
 	for star in stars:
-		await get_tree().create_timer(0.5).timeout
-		%Hearts.add_child(HEART.instantiate())
+		if get_tree():
+			await get_tree().create_timer(0.5).timeout
+			%Hearts.add_child(HEART.instantiate())
 
 
 func get_time_str(time: float) -> String:
@@ -49,9 +48,7 @@ func _on_home_btn_pressed() -> void:
 
 
 func _on_next_btn_pressed() -> void:
-	print(PlayerData.current_level)
 	if PlayerData.current_level <= 6:
 		SceneTransitions.change_scene_to_path(PlayerData.levels_data[PlayerData.current_level-1]["path"])
 	else:
 		CutscenePlayer.play(CutscenePlayer.GAME_END)
-		print("jawjoda")

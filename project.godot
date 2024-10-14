@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="TheMirrorOfBazyliszek"
-run/main_scene="res://scenes/levels/level_1.tscn"
+config/name="Bazylustra"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://logo.png"
 
 [autoload]
 
@@ -28,9 +28,8 @@ PlayerData="*res://globals/player_data.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/resizable=false
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/borderless=true
+window/stretch/mode="viewport"
 
 [global_group]
 
