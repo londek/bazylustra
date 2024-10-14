@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dinont5i2mn5t"]
+[gd_scene load_steps=18 format=3 uid="uid://dinont5i2mn5t"]
 
 [ext_resource type="Script" path="res://scenes/objects/rat.gd" id="1_r5yls"]
 [ext_resource type="Texture2D" uid="uid://dv3yr0sn02n65" path="res://assets/general_shadow.png" id="2_tdgvh"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_w4388"]
 [ext_resource type="Texture2D" uid="uid://clvbrcmky8tf8" path="res://assets/rat/rat_walk_right_2.png" id="3_8tubq"]
+[ext_resource type="Texture2D" uid="uid://bjcnrp8h2ygi" path="res://assets/shaders/stone.jpg" id="4_p3vsy"]
 [ext_resource type="Texture2D" uid="uid://c0uv2351maqy5" path="res://assets/rat/rat_walk_up_1.png" id="4_u2cpb"]
 [ext_resource type="Texture2D" uid="uid://dukydfsgieyu1" path="res://assets/rat/rat_walk_up_2.png" id="5_wl3xn"]
 [ext_resource type="Texture2D" uid="uid://cf2xjhbd5okrj" path="res://assets/rat/rat_walk_right_1.png" id="5_yqwtc"]
@@ -17,6 +18,7 @@ radius = 40.0
 resource_local_to_scene = true
 shader = ExtResource("2_w4388")
 shader_parameter/progress = 0.0
+shader_parameter/IMG = ExtResource("4_p3vsy")
 
 [sub_resource type="Animation" id="Animation_qi4vs"]
 length = 0.001

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/objects/bat.gd" id="1_hyc22"]
 [ext_resource type="Shader" uid="uid://ffsdqokgdg0w" path="res://assets/shaders/stoned_visual.tres" id="2_5cbku"]
-[ext_resource type="Texture2D" uid="uid://j5ohxg5qgccp" path="res://assets/placeholder/noise_.jpg" id="3_b7bwx"]
+[ext_resource type="Texture2D" uid="uid://bjcnrp8h2ygi" path="res://assets/shaders/stone.jpg" id="3_me5qp"]
 [ext_resource type="Texture2D" uid="uid://d01q0mlsryum2" path="res://assets/bat/bat_fly_down_1.png" id="6_4nr0v"]
 [ext_resource type="Texture2D" uid="uid://c1uqb00pi12b2" path="res://assets/bat/bat_fly_down_2.png" id="7_0ar7f"]
 [ext_resource type="Texture2D" uid="uid://dm18br0dly3a1" path="res://assets/bat/bat_fly_down_3.png" id="8_3cclm"]
@@ -25,7 +25,7 @@ radius = 97.6038
 resource_local_to_scene = true
 shader = ExtResource("2_5cbku")
 shader_parameter/progress = 0.0
-shader_parameter/IMG = ExtResource("3_b7bwx")
+shader_parameter/IMG = ExtResource("3_me5qp")
 
 [sub_resource type="Animation" id="Animation_srn7x"]
 length = 0.001

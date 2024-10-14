@@ -88,6 +88,7 @@ func play(ctscn: Dictionary):
 			sprite_2d.texture = GAME_START["img"]
 			await get_tree().create_timer(2).timeout 
 			SceneTransitions.change_scene_to_path(GAME_START["scene"])
+			layer = 0
 			sprite_2d.hide()
 		GAME_END:
 			layer = 2
@@ -104,7 +105,7 @@ func play(ctscn: Dictionary):
 			await get_tree().create_timer(3).timeout 
 			sprite_2d.hide()
 			animation_player.play_backwards("FadeToBlack")
-	layer = 1
+			layer = 0
 			
 			
 			

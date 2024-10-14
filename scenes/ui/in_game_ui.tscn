@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd00jbe4cwte8"]
+[gd_scene load_steps=6 format=3 uid="uid://cd00jbe4cwte8"]
 
 [ext_resource type="Script" path="res://scenes/ui/in_game_ui.gd" id="1_00ybj"]
-[ext_resource type="FontFile" uid="uid://csxawh5pawxn6" path="res://assets/fonts/mangat.ttf" id="2_0kcb5"]
 [ext_resource type="FontFile" uid="uid://dnbrn216ajivh" path="res://assets/fonts/animeace2_reg.ttf" id="2_jtpht"]
 [ext_resource type="Texture2D" uid="uid://whkocdrut54e" path="res://assets/mirror/mirror_front.png" id="3_2ulo8"]
 
@@ -10,7 +9,7 @@ font = ExtResource("2_jtpht")
 font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_spy4g"]
-font = ExtResource("2_0kcb5")
+font = ExtResource("2_jtpht")
 font_size = 40
 
 [node name="InGameUI" type="CanvasLayer"]
