@@ -15,7 +15,7 @@ Rotate Mirror: QE
 
 Rotate Mirror Precisely: Scroll Wheel
 
-Place/Destroy Mirror: LMB/RM
+Place/Destroy Mirror: LMB/RMB
 
 ## Launch Instructions
 
